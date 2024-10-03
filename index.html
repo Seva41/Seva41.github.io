@@ -3,69 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sitio personal de Sebastián Andrés Dinator Durán">
-    <title>Presentación Personal - Sebastián Dinator</title>
+    <meta name="description" content="Sitio personal de Sebastián Andrés Dinator Durán - Ciberseguridad e Informática">
+    <title>Sebastián Dinator | Ciberseguridad y Tecnología</title>
     <style>
+        /* Estilos Generales */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1c1e21;
+            color: #dcdcdc;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        a {
+            color: #08fdd8;
+            text-decoration: none;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 10px;
+            color: #08fdd8;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para la cabecera */
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        main {
+            background-color: #131516;
             padding: 20px;
-            max-width: 900px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-family: 'Courier New', Courier, monospace;
+            text-transform: uppercase;
+        }
+
+        /* Efecto de neón en las letras */
+        header h1 span {
+            color: #08fdd8;
+            text-shadow: 0 0 10px #08fdd8, 0 0 20px #08fdd8, 0 0 30px #08fdd8, 0 0 40px #08fdd8;
+        }
+
+        /* Sección Principal */
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
             margin: 0 auto;
         }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+
         .card {
-            background: white;
+            background-color: #222;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Sección de iconos */
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .icons img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #131516;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            color: #fff;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+
+    <!-- Cabecera -->
     <header>
-        <h1>Sebastián Andrés Dinator Durán</h1>
-        <p>Licenciado en Ingeniería Civil Informática | Ciberseguridad | IA</p>
+        <h1><span>Sebastián Dinator</span> | Ciberseguridad e Informática</h1>
     </header>
+
+    <!-- Sección Principal -->
     <main>
         <div class="card">
             <h2>Sobre mí</h2>
-            <p>Soy un apasionado por la tecnología, con experiencia en ciberseguridad, programación y ciencia de datos. Me encanta explorar nuevas soluciones y compartir conocimientos a través de proyectos.</p>
+            <p>Soy un apasionado de la ciberseguridad y las tecnologías emergentes, con experiencia en desarrollo de software y análisis de seguridad informática. Disfruto resolver desafíos complejos y colaborar en proyectos innovadores.</p>
         </div>
+
         <div class="card">
             <h2>Experiencia</h2>
             <ul>
-                <li>Estudiante de Ingeniería en Computación - Universidad Adolfo Ibáñez</li>
-                <li>Asistente de investigación en ciberseguridad - Centro Nacional de Inteligencia Artificial</li>
-                <li>Desarrollador de software en varios proyectos personales y colaborativos</li>
+                <li>Licenciado en Ingeniería Civil Informática - Universidad Adolfo Ibáñez</li>
+                <li>Estudiante Embajador - Centro Nacional de Inteligencia Artificial</li>
+                <li>Desarrollador de proyectos en seguridad informática</li>
             </ul>
         </div>
+
+        <div class="card">
+            <h2>Habilidades</h2>
+            <p>Mis principales áreas de especialización incluyen:</p>
+            <ul>
+                <li>Penetration Testing</li>
+                <li>Análisis de vulnerabilidades</li>
+                <li>Programación en Python, C, R</li>
+                <li>Inteligencia Artificial aplicada a la seguridad</li>
+            </ul>
+        </div>
+
         <div class="card">
             <h2>Contacto</h2>
-            <p>Puedes contactarme en <a href="mailto:sdinator@alumnos.uai.cl">sdinator@alumnos.uai.cl</a> o en mi <a href="https://www.linkedin.com/in/sebasti%C3%A1n-d-0803a8112/">LinkedIn</a>.</p>
+            <p>Puedes contactarme en <a href="mailto:sdinator@alumnos.uai.cl">sdinator@alumnos.uai.cl</a> o en <a href="https://www.linkedin.com/in/sebasti%C3%A1n-d-0803a8112/">LinkedIn</a>.</p>
+
+            <!-- Sección de iconos con logos de tecnología -->
+            <div class="icons">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919852.png" alt="Python">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="C">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Linux">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML">
+            </div>
         </div>
     </main>
+
+    <!-- Pie de Página -->
     <footer>
-        <p>&copy; 2024 Sebastián Dinator</p>
+        <p>&copy; 2024 Sebastián Dinator | Ciberseguridad y Tecnología</p>
     </footer>
 </body>
 </html>
