@@ -59,7 +59,19 @@ p {
 
 .logo {
     display: flex;
-    align-items: center;
+    align-items: center; /* Esto asegura que el texto esté centrado verticalmente con la imagen */
+}
+
+.logo a {
+    display: flex;
+    align-items: center; /* Para mantener el texto y la imagen alineados */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #fff; /* Cambia el color del nombre a blanco */
+    font-weight: bold; /* Asegura que el texto esté en negrita */
+}
+
+.logo a:hover {
+    color: #fff; /* Evitar que el color cambie al pasar el mouse */
 }
 
 .nav-links {
