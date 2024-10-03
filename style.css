@@ -7,6 +7,7 @@ body {
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden; /* Evitar desplazamiento horizontal */
+    overflow-y: hidden; /* Evitar desplazamiento vertical innecesario */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -20,6 +21,7 @@ body.loaded {
 
 html, body {
     height: 100%;
+    overflow: hidden; /* Evitar cualquier desplazamiento innecesario */
 }
 
 * {
@@ -135,7 +137,8 @@ p {
 .language-switch {
     display: flex;
     gap: 10px;
-    margin-left: 20px;
+    margin-left: auto;
+    order: 2; /* Asegura que aparezca después del menú en la barra de navegación */
 }
 
 .language-switch button {
@@ -219,8 +222,9 @@ footer p {
     }
 
     .language-switch {
-        margin-top: 10px;
+        margin-top: 20px;
         margin-right: 0;
+        order: 1; /* Asegura que aparezca dentro del menú en móviles */
     }
 
     .nav-links .language-switch {
