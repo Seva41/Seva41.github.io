@@ -1,7 +1,7 @@
 /* Estilos Generales */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #1e1e1e; /* Fondo oscuro */
+    background-color: #1e1e1e;
     color: #dcdcdc;
     margin: 0;
     padding: 0;
@@ -49,7 +49,7 @@ p {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 50% 65%; /* Ajuste fino para centrar hacia abajo */
+    object-position: 50% 70%; /* Ajuste fino para centrar hacia abajo */
 }
 
 .header-content h1 {
@@ -104,9 +104,9 @@ footer p {
 
 /* Fondo animado de partículas */
 #particles-js {
-    position: absolute;
+    position: fixed; /* Cambiado a 'fixed' para cubrir todo */
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Cubrir toda la altura de la ventana */
     z-index: -1;
     top: 0;
     left: 0;
@@ -117,6 +117,8 @@ footer p {
     position: absolute;
     top: 20px;
     right: 20px;
+    display: flex;
+    gap: 10px;
 }
 
 .language-switch button {
@@ -124,11 +126,37 @@ footer p {
     color: #fff;
     border: none;
     padding: 10px;
-    margin-left: 10px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .language-switch button:hover {
     background-color: #555;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .language-switch {
+        top: 10px;
+        right: 10px;
+        flex-direction: column;
+    }
+
+    .language-switch button {
+        margin-bottom: 5px;
+    }
 }
