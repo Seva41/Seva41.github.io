@@ -34,38 +34,70 @@ p {
     margin-bottom: 20px;
 }
 
-/* Cabecera */
-.header-container {
+/* Barra de navegación */
+.navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
     background-color: #121212;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.profile-image img {
-    width: 120px;
-    height: 120px;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #5dade2;
+}
+
+.profile-small {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 50% 70%; /* Ajuste fino para centrar hacia abajo */
+    margin-right: 10px;
 }
 
-.header-content h1 {
-    font-size: 2.5rem;
-    margin: 0;
+/* Selector de idioma */
+.language-switch {
+    display: flex;
+    gap: 10px;
 }
 
-.header-content p {
-    font-size: 1.2rem;
-    margin: 5px 0 0;
-    color: #b0b0b0;
+.language-switch button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.language-switch button:hover {
+    background-color: #555;
 }
 
 /* Sección Principal */
 main {
-    padding: 40px 20px;
+    padding: 100px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -104,59 +136,26 @@ footer p {
 
 /* Fondo animado de partículas */
 #particles-js {
-    position: fixed; /* Cambiado a 'fixed' para cubrir todo */
+    position: fixed;
     width: 100%;
-    height: 100vh; /* Cubrir toda la altura de la ventana */
+    height: 100vh;
     z-index: -1;
     top: 0;
     left: 0;
 }
 
-/* Estilos para el selector de idioma */
-.language-switch {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.language-switch button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.language-switch button:hover {
-    background-color: #555;
-}
-
 /* Estilos para móviles */
 @media (max-width: 768px) {
-    .header-container {
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
         flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-image img {
-        width: 100px;
-        height: 100px;
-    }
-
-    h1 {
-        font-size: 2rem;
+        align-items: flex-start;
     }
 
     .language-switch {
-        top: 10px;
-        right: 10px;
-        flex-direction: column;
-    }
-
-    .language-switch button {
-        margin-bottom: 5px;
+        margin-top: 10px;
     }
 }

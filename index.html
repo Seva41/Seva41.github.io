@@ -26,42 +26,43 @@
     </script>
 </head>
 <body onload="cambiarIdioma('es')">
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/img/perfil.jpg" alt="Foto de Sebastián Dinator" class="profile-small">
+            <span>Sebastián Dinator</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about" class="es">Sobre mí</a><a href="#about" class="en">About Me</a></li>
+            <li><a href="#experience" class="es">Experiencia</a><a href="#experience" class="en">Experience</a></li>
+            <li><a href="#skills" class="es">Habilidades</a><a href="#skills" class="en">Skills</a></li>
+            <li><a href="#contact" class="es">Contacto</a><a href="#contact" class="en">Contact</a></li>
+        </ul>
+        <!-- Selector de idioma -->
+        <div class="language-switch">
+            <button onclick="cambiarIdioma('es')">Español</button>
+            <button onclick="cambiarIdioma('en')">English</button>
+        </div>
+    </nav>
+
     <!-- Fondo de partículas -->
     <div id="particles-js"></div>
 
-    <!-- Selección de idioma -->
-    <div class="language-switch">
-        <button onclick="cambiarIdioma('es')">Español</button>
-        <button onclick="cambiarIdioma('en')">English</button>
-    </div>
-
-    <!-- Cabecera con foto de perfil -->
-    <header class="header-container">
-        <div class="profile-image">
-            <img src="assets/img/perfil.jpg" alt="Foto de Sebastián Dinator">
-        </div>
-        <div class="header-content">
-            <h1>Sebastián Dinator</h1>
-            <p class="es">Ciberseguridad e Informática</p>
-            <p class="en">Cybersecurity and Computer Science</p>
-        </div>
-    </header>
-
     <!-- Sección Principal -->
     <main>
-        <section class="about">
+        <section id="about" class="about">
             <h2 class="es">Sobre mí</h2>
             <h2 class="en">About Me</h2>
             <p class="es">Soy un estudiante aplicado en el mundo de la informática, con amplia experiencia en computadoras, bases de datos, redes y dispositivos móviles. Siempre estoy aprendiendo nuevas tecnologías y aplicándolas para resolver problemas.</p>
             <p class="en">I am a diligent student in the world of computer science, with broad experience in personal computers, databases, networks, and mobile devices. I am always learning new technologies and applying them to solve problems.</p>
         </section>
 
-        <section class="experience">
+        <section id="experience" class="experience">
             <h2 class="es">Experiencia</h2>
             <h2 class="en">Experience</h2>
             <ul>
-                <li class="es">Estudiante embajador en el Centro Nacional de Inteligencia Artificial | Agosto 2024 - Presente</li>
-                <li class="en">Student Ambassador at the National Center for Artificial Intelligence of Chile | August 2024 - Present</li>
+                <li class="es">Embajador de Estudiantes en el Centro Nacional de Inteligencia Artificial | Agosto 2024 - Presente</li>
+                <li class="en">Student Ambassador at the National Center for Artificial Intelligence | August 2024 - Present</li>
                 <li class="es">Fundador y Encargado del Laboratorio de Ciberseguridad en la Universidad Adolfo Ibáñez | Mayo 2024 - Presente</li>
                 <li class="en">Founder and Lab Manager at the Cybersecurity Lab at Adolfo Ibáñez University | May 2024 - Present</li>
                 <li class="es">2º lugar en el Hack.Ing CTF 2024 | Pontificia Universidad Católica de Chile</li>
@@ -69,14 +70,14 @@
             </ul>
         </section>
 
-        <section class="skills">
+        <section id="skills" class="skills">
             <h2 class="es">Habilidades</h2>
             <h2 class="en">Skills</h2>
             <p class="es">Áreas de especialización: Pruebas de penetración, análisis de vulnerabilidades, Python, C, R, Inteligencia Artificial aplicada a la seguridad.</p>
             <p class="en">Areas of expertise: Penetration Testing, Vulnerability Analysis, Python, C, R, AI applied to security.</p>
         </section>
 
-        <section class="contact">
+        <section id="contact" class="contact">
             <h2 class="es">Contacto</h2>
             <h2 class="en">Contact</h2>
             <p class="es">Puedes contactarme en <a href="mailto:sdinator@alumnos.uai.cl">sdinator@alumnos.uai.cl</a> o en mi <a href="https://www.linkedin.com/in/sebasti%C3%A1n-d-0803a8112/">LinkedIn</a>.</p>
