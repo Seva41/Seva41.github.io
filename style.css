@@ -7,6 +7,7 @@ body {
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden; /* Evitar desplazamiento horizontal */
+    overflow-y: auto; /* Permitir desplazamiento vertical para mostrar contenido */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -56,7 +57,7 @@ p {
 /* Barra de navegación */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #121212;
     padding: 15px 30px;
@@ -71,6 +72,8 @@ p {
 .logo {
     display: flex;
     align-items: center;
+    position: absolute;
+    left: 30px;
 }
 
 .logo a {
@@ -135,7 +138,8 @@ p {
 .language-switch {
     display: flex;
     gap: 10px;
-    margin-left: auto;
+    position: absolute;
+    right: 30px;
 }
 
 .language-switch button {
@@ -158,7 +162,7 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     flex: 1; /* Esto asegura que el main ocupe el espacio disponible */
-    background-color: #1e1e1e; /* Evitar el fondo blanco visible en la parte superior */
+    background: transparent; /* Asegura que el fondo no bloquee el fondo de partículas */
 }
 
 .about, .experience, .skills, .contact {
@@ -208,6 +212,7 @@ footer p {
         width: 100%;
         text-align: center;
         display: none; /* Ocultar inicialmente */
+        z-index: 1500; /* Asegurar que esté por encima de otros elementos */
     }
 
     .nav-links.nav-links-active {
@@ -217,6 +222,7 @@ footer p {
     .navbar {
         flex-direction: row;
         align-items: center;
+        justify-content: center;
     }
 
     .language-switch {
