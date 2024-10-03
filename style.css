@@ -106,7 +106,7 @@ p {
 
 /* Icono del menú hamburguesa (solo en móviles) */
 .menu-icon {
-    display: none; /* No mostrar el ícono en pantallas grandes */
+    display: none;
     font-size: 30px;
     color: #fff;
     cursor: pointer;

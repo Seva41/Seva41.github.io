@@ -24,18 +24,18 @@
             localStorage.setItem('idiomaSeleccionado', idioma);
         }
 
+        // Función para alternar el menú en pantallas móviles
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('nav-links-active');
+        }
+
         window.onload = function() {
             // Verificar si el idioma ya fue seleccionado anteriormente
             var idiomaGuardado = localStorage.getItem('idiomaSeleccionado') || 'es';
             cambiarIdioma(idiomaGuardado);
             document.body.classList.add('loaded');
         };
-
-        // Función para alternar el menú en pantallas móviles
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('nav-links-active');
-        }
     </script>
     <!-- Favicons -->
     <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
@@ -57,8 +57,9 @@
                 <span>Sebastián Dinator</span>
             </a>
         </div>
-        <div class="menu-icon" onclick="toggleMenu()"></div>
-            &#9776; <!-- Ícono de hamburguesa -->
+        <!-- Ícono del menú hamburguesa -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Este es el ícono de hamburguesa -->
         </div>
         <ul class="nav-links">
             <li><a href="about.html" class="es">Sobre mí</a><a href="about.html" class="en">About Me</a></li>
@@ -71,7 +72,7 @@
             <button onclick="cambiarIdioma('es')">Español</button>
             <button onclick="cambiarIdioma('en')">English</button>
         </div>
-    </nav>
+    </nav>    
 
     <!-- Fondo de partículas -->
     <div id="particles-js"></div>
