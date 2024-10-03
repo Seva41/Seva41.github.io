@@ -100,7 +100,8 @@ p {
     display: flex;
     gap: 15px;
     transition: transform 0.3s ease; /* Animación para una experiencia suave */
-    margin: 0 auto; /* Centrar el menú en la barra de navegación en escritorio */
+    margin-left: auto;
+    margin-right: auto; /* Ajuste adicional para centrar el menú */
 }
 
 .nav-links.nav-links-active {
@@ -233,7 +234,6 @@ footer p {
     .language-switch button {
         padding: 10px 15px;
     }
-
 
     .language-switch button {
         padding: 10px 15px;
