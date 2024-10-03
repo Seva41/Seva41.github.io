@@ -57,7 +57,7 @@ p {
 /* Barra de navegación */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #121212;
     padding: 15px 30px;
@@ -100,6 +100,7 @@ p {
     display: flex;
     gap: 15px;
     transition: transform 0.3s ease; /* Animación para una experiencia suave */
+    margin: 0 auto; /* Centrar el menú en la barra de navegación en escritorio */
 }
 
 .nav-links.nav-links-active {
@@ -223,15 +224,16 @@ footer p {
         justify-content: space-between;
     }
 
-    .language-switch {
-        display: none; /* Ocultar el selector de idioma inicialmente en móviles */
-    }
-
     .nav-links .language-switch {
         display: flex;
         margin-top: 20px;
         justify-content: center;
     }
+
+    .language-switch button {
+        padding: 10px 15px;
+    }
+
 
     .language-switch button {
         padding: 10px 15px;
