@@ -57,7 +57,7 @@ p {
 /* Barra de navegación */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: #121212;
     padding: 15px 30px;
@@ -72,6 +72,7 @@ p {
 .logo {
     display: flex;
     align-items: center;
+    margin-right: auto;
 }
 
 .logo a {
@@ -100,8 +101,7 @@ p {
     display: flex;
     gap: 15px;
     transition: transform 0.3s ease; /* Animación para una experiencia suave */
-    margin-left: auto;
-    margin-right: auto; /* Ajuste adicional para centrar el menú */
+    margin: 0;
 }
 
 .nav-links.nav-links-active {
@@ -138,8 +138,7 @@ p {
 .language-switch {
     display: flex;
     gap: 10px;
-    position: absolute;
-    right: 30px;
+    margin-left: auto;
 }
 
 .language-switch button {
