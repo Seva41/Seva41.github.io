@@ -15,12 +15,27 @@ body {
     transition: opacity 0.5s ease; /* Fading suave al cargar la página */
 }
 
+body:after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #1e1e1e; /* Mantener el color de fondo consistente */
+    background-size: cover;
+    pointer-events: none;
+}
+
 body.loaded {
     opacity: 1; /* Mostrar el contenido una vez que todo esté listo */
 }
 
 html, body {
     height: 100%;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+    overflow-y: hidden; /* Evitar desplazamiento vertical innecesario en móviles */
 }
 
 * {
@@ -189,11 +204,12 @@ footer p {
 #particles-js {
     position: fixed;
     width: 100%;
-    height: 100%; /* Extender el fondo de partículas a toda la página */
-    z-index: -1;
+    height: 100%;
+    z-index: -2;
     top: 0;
     left: 0;
-    overflow: hidden; /* Asegura que las partículas no generen desbordamiento */
+    overflow: hidden;
+    pointer-events: none;
 }
 
 /* Estilos para móviles */
