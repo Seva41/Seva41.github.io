@@ -7,7 +7,7 @@ body {
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden; /* Evitar desplazamiento horizontal */
-    overflow-y: hidden; /* Evitar el fondo blanco debajo del contenido */
+    overflow-y: auto; /* Permitir el desplazamiento vertical */ /* Evitar el fondo blanco debajo del contenido */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -57,7 +57,7 @@ p {
 /* Barra de navegación */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #121212;
     padding: 15px 30px;
@@ -102,6 +102,7 @@ p {
     display: flex;
     gap: 15px;
     transition: transform 0.3s ease; /* Animación para una experiencia suave */
+    margin-left: auto; /* Alinear el menú a la derecha */
 }
 
 .nav-links.nav-links-active {
@@ -124,7 +125,7 @@ p {
 
 /* Icono del menú hamburguesa (solo en móviles) */
 .menu-icon {
-    display: none;
+    display: block; /* Mostrar el icono de menú */
     position: fixed;
     top: 20px;
     right: 20px;
@@ -138,8 +139,9 @@ p {
 .language-switch {
     display: flex;
     gap: 10px;
-    position: absolute;
-    right: 30px;
+    position: relative;
+    order: 1; /* Mover el selector de idioma dentro del menú en móviles */
+    margin-top: 20px;
 }
 
 .language-switch button {
