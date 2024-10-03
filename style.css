@@ -108,19 +108,6 @@ section {
     border-bottom: 1px solid #333;
 }
 
-.about, .experience, .skills, .contact {
-    padding-left: 20px;
-}
-
-ul {
-    list-style-type: square;
-    padding-left: 20px;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
 /* Pie de Página */
 footer {
     background-color: #121212;
