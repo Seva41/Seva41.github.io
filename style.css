@@ -17,13 +17,13 @@ body {
 
 body:after {
     content: "";
-    position: absolute;
-    z-index: -1;
+    position: fixed;
+    z-index: -2; /* Ajustado para que particles.js sea visible */
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
-    background: #1e1e1e; /* Mantener el color de fondo consistente */
+    background-color: #1e1e1e;
     background-size: cover;
     pointer-events: none;
 }
@@ -204,8 +204,8 @@ footer p {
 #particles-js {
     position: fixed;
     width: 100%;
-    height: 100vh;
-    z-index: -2;
+    height: 100%;
+    z-index: -1; /* Ajustado para que esté sobre body:after */
     top: 0;
     left: 0;
     overflow: hidden;
@@ -235,6 +235,8 @@ footer p {
         text-align: center;
         display: none; /* Ocultar inicialmente */
         z-index: 1500; /* Asegurar que esté por encima de otros elementos */
+        overflow-y: auto; /* Permitir desplazamiento si el menú es largo */
+        max-height: calc(100vh - 60px); /* Prevenir que el menú exceda la altura de la pantalla */
     }
 
     .nav-links.nav-links-active {
@@ -255,30 +257,6 @@ footer p {
         display: flex;
         margin-top: 20px;
         justify-content: center;
-    }
-
-    .language-switch button {
-        padding: 10px 15px;
-    }
-
-    .nav-links.nav-links-active {
-        display: flex; /* Mostrar el menú cuando está activo */
-    }
-
-    .navbar {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nav-links .language-switch {
-        display: flex;
-        margin-top: 20px;
-        justify-content: center;
-    }
-
-    .language-switch button {
-        padding: 10px 15px;
     }
 
     .language-switch button {
