@@ -1,91 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Habilidades | Sebastián Dinator">
-    <title>Habilidades | Sebastián Dinator</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Script para cambio de idioma -->
-    <script>
-        function cambiarIdioma(idioma) {
-            var elementosES = document.querySelectorAll('.es');
-            var elementosEN = document.querySelectorAll('.en');
-            
-            if (idioma === 'es') {
-                elementosES.forEach(function(el) { el.style.display = 'block'; });
-                elementosEN.forEach(function(el) { el.style.display = 'none'; });
-            } else {
-                elementosES.forEach(function(el) { el.style.display = 'none'; });
-                elementosEN.forEach(function(el) { el.style.display = 'block'; });
-            }
-
-            // Guardar la selección de idioma en LocalStorage
-            localStorage.setItem('idiomaSeleccionado', idioma);
-        }
-
-        // Función para alternar el menú en pantallas móviles
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('nav-links-active');
-        }
-
-        window.onload = function() {
-            // Verificar si el idioma ya fue seleccionado anteriormente
-            var idiomaGuardado = localStorage.getItem('idiomaSeleccionado') || 'es';
-            cambiarIdioma(idiomaGuardado);
-            document.body.classList.add('loaded');
-        };
-    </script>
-    <!-- Favicons -->
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/android-chrome-512x512.png">
-    
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="assets/icons/site.webmanifest">
-</head>
-<body>
-    <!-- Barra de navegación -->
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.html">
-                <img src="assets/img/perfil.jpg" alt="Foto de Sebastián Dinator" class="profile-small">
-                <span>Sebastián Dinator</span>
-            </a>
-        </div>
-        <!-- Ícono del menú hamburguesa -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            &#9776; <!-- Este es el ícono de hamburguesa -->
-        </div>
-        <!-- Enlaces de navegación -->
-        <ul class="nav-links">
-            <li><a href="about.html" class="es">Sobre mí</a><a href="about.html" class="en">About Me</a></li>
-            <li><a href="experience.html" class="es">Experiencia</a><a href="experience.html" class="en">Experience</a></li>
-            <li><a href="skills.html" class="es">Habilidades</a><a href="skills.html" class="en">Skills</a></li>
-            <li><a href="contact.html" class="es">Contacto</a><a href="contact.html" class="en">Contact</a></li>
-            <!-- Selector de idioma para móvil dentro del menú -->
-            <li>
-                <div class="language-switch language-switch-mobile">
-                    <button onclick="cambiarIdioma('es')">Español</button>
-                    <button onclick="cambiarIdioma('en')">English</button>
-                </div>
-            </li>
-        </ul>
-        <!-- Selector de idioma para escritorio -->
-        <div class="language-switch language-switch-desktop">
-            <button onclick="cambiarIdioma('es')">Español</button>
-            <button onclick="cambiarIdioma('en')">English</button>
-        </div>
-    </nav>
-    
-
-    <!-- Fondo de partículas -->
-    <div id="particles-js"></div>
-
+---
+layout: default
+title: "Habilidades | Sebastián Dinator"
+description: "Habilidades | Sebastián Dinator"
+lang: es
+---
     <!-- Contenido de la página "Habilidades" -->
     <main>
         <section class="skills">
@@ -95,13 +13,3 @@
             <p class="en">Areas of expertise: Penetration Testing, Vulnerability Analysis, Python, C, R, AI applied to security.</p>
         </section>
     </main>
-
-    <!-- Pie de Página -->
-    <footer>
-        <p>&copy; 2024 Sebastián Dinator | Ciberseguridad y Tecnología</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="particles.js"></script>
-</body>
-</html>
