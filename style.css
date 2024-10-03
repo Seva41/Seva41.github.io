@@ -10,6 +10,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    opacity: 0; /* Inicia con el contenido oculto */
+    transition: opacity 0.5s ease; /* Fading suave al cargar la página */
+}
+
+body.loaded {
+    opacity: 1; /* Mostrar el contenido una vez que todo esté listo */
 }
 
 a {
@@ -156,7 +162,8 @@ footer p {
     }
 
     .language-switch {
-        margin-right: 0; /* En pantallas pequeñas no necesitamos tanto margen */
+        margin-top: 10px;
+        margin-right: 0; /* Ajuste en móviles */
     }
 
     .language-switch button {
