@@ -5,119 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sitio personal de Sebastián Andrés Dinator Durán - Ciberseguridad e Informática">
     <title>Sebastián Dinator | Ciberseguridad y Tecnología</title>
-    <style>
-        /* Estilos Generales */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #1c1e21;
-            color: #dcdcdc;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: #08fdd8;
-            text-decoration: none;
-        }
-
-        h1, h2, h3 {
-            margin-bottom: 10px;
-            color: #08fdd8;
-        }
-
-        h1 {
-            font-size: 3rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-        }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        /* Estilos para la cabecera */
-        header {
-            background-color: #131516;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            font-family: 'Courier New', Courier, monospace;
-            text-transform: uppercase;
-        }
-
-        /* Efecto de neón en las letras */
-        header h1 span {
-            color: #08fdd8;
-            text-shadow: 0 0 10px #08fdd8, 0 0 20px #08fdd8, 0 0 30px #08fdd8, 0 0 40px #08fdd8;
-        }
-
-        /* Sección Principal */
-        main {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background-color: #222;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Sección de iconos */
-        .icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .icons img {
-            width: 60px;
-            height: 60px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Pie de Página */
-        footer {
-            background-color: #131516;
-            padding: 20px;
-            text-align: center;
-            color: #fff;
-            margin-top: 40px;
-            position: relative;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-    </style>
+    <!-- Vincular el CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Source+Code+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Fondo de partículas -->
+    <div id="particles-js"></div>
 
     <!-- Cabecera -->
     <header>
@@ -153,9 +48,8 @@
 
         <div class="card">
             <h2>Contacto</h2>
-            <p>Puedes contactarme en <a href="mailto:sdinator@alumnos.uai.cl">sdinator@alumnos.uai.cl</a> o en <a href="https://www.linkedin.com/in/sebasti%C3%A1n-d-0803a8112/">LinkedIn</a>.</p>
+            <p>Puedes contactarme en <a href="mailto:dinator@example.com">dinator@example.com</a> o en <a href="https://www.linkedin.com/in/username/">LinkedIn</a>.</p>
 
-            <!-- Sección de iconos con logos de tecnología -->
             <div class="icons">
                 <img src="https://cdn-icons-png.flaticon.com/512/919/919852.png" alt="Python">
                 <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="C">
@@ -169,5 +63,9 @@
     <footer>
         <p>&copy; 2024 Sebastián Dinator | Ciberseguridad y Tecnología</p>
     </footer>
+
+    <!-- Vincular el JavaScript del fondo animado -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="particles.js"></script>
 </body>
 </html>
