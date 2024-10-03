@@ -49,7 +49,7 @@ p {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 50% 80%; /* Ajuste fino para centrar hacia abajo */
+    object-position: 50% 40%; /* Ajuste fino para centrar hacia abajo */
 }
 
 .header-content h1 {
