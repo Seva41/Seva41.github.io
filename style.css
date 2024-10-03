@@ -98,6 +98,8 @@ p {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    overflow-y: auto; /* Para evitar el desplazamiento excesivo */
+    max-height: calc(100vh - 60px); /* Limita la altura para evitar que ocupe toda la pantalla */
 }
 
 .nav-links a:hover {
@@ -110,6 +112,10 @@ p {
     font-size: 30px;
     color: #fff;
     cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 30px; /* Asegúrate de ajustar el margen según sea necesario */
+    z-index: 1500;
 }
 
 /* Selector de idioma */
@@ -166,11 +172,13 @@ footer p {
 #particles-js {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: -1;
     top: 0;
     left: 0;
+    overflow: hidden; /* Asegura que las partículas no generen desbordamiento */
 }
+
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
