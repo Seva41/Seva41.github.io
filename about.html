@@ -6,7 +6,7 @@
     <meta name="description" content="Sobre mí | Sebastián Dinator">
     <title>Sobre mí | Sebastián Dinator</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Script para cambio de idioma -->
+    <!-- Script para cambio de idioma con LocalStorage -->
     <script>
         function cambiarIdioma(idioma) {
             var elementosES = document.querySelectorAll('.es');
@@ -19,11 +19,16 @@
                 elementosES.forEach(function(el) { el.style.display = 'none'; });
                 elementosEN.forEach(function(el) { el.style.display = 'block'; });
             }
+
+            // Guardar la selección de idioma en LocalStorage
+            localStorage.setItem('idiomaSeleccionado', idioma);
         }
 
         window.onload = function() {
+            // Verificar si el idioma ya fue seleccionado anteriormente
+            var idiomaGuardado = localStorage.getItem('idiomaSeleccionado') || 'es';
+            cambiarIdioma(idiomaGuardado);
             document.body.classList.add('loaded');
-            cambiarIdioma('es');
         };
     </script>
 </head>
@@ -31,8 +36,10 @@
     <!-- Barra de navegación -->
     <nav class="navbar">
         <div class="logo">
-            <img src="assets/img/perfil.jpg" alt="Foto de Sebastián Dinator" class="profile-small">
-            <span>Sebastián Dinator</span>
+            <a href="index.html">
+                <img src="assets/img/perfil.jpg" alt="Foto de Sebastián Dinator" class="profile-small">
+                <span>Sebastián Dinator</span>
+            </a>
         </div>
         <ul class="nav-links">
             <li><a href="about.html" class="es">Sobre mí</a><a href="about.html" class="en">About Me</a></li>
