@@ -57,17 +57,18 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Logo y nombre */
 .logo {
     display: flex;
-    align-items: center; /* Esto asegura que el texto esté centrado verticalmente con la imagen */
+    align-items: center;
 }
 
 .logo a {
     display: flex;
-    align-items: center; /* Para mantener el texto y la imagen alineados */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: #fff; /* Cambia el color del nombre a blanco */
-    font-weight: bold; /* Asegura que el texto esté en negrita */
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }
 
 .logo a:hover {
@@ -100,6 +101,35 @@ p {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+}
+
+/* Menú de navegación */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #5dade2;
+}
+
+/* Icono del menú hamburguesa (solo en móviles) */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* Selector de idioma */
@@ -164,8 +194,28 @@ footer p {
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Mostrar el icono de menú en móviles */
+    }
+
     .nav-links {
-        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #121212;
+        display: none; /* Ocultar inicialmente */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.nav-links-active {
+        display: flex; /* Mostrar el menú cuando está activo */
+    }
+
+    .nav-links li {
+        padding: 15px 0; /* Espaciado entre los enlaces en móviles */
+        width: 100%;
     }
 
     .navbar {
