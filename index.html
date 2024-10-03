@@ -9,10 +9,31 @@
     <link rel="stylesheet" href="style.css">
     <!-- Fuente de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <!-- Script para cambio de idioma -->
+    <script>
+        function cambiarIdioma(idioma) {
+            var elementosES = document.querySelectorAll('.es');
+            var elementosEN = document.querySelectorAll('.en');
+            
+            if (idioma === 'es') {
+                elementosES.forEach(function(el) { el.style.display = 'block'; });
+                elementosEN.forEach(function(el) { el.style.display = 'none'; });
+            } else {
+                elementosES.forEach(function(el) { el.style.display = 'none'; });
+                elementosEN.forEach(function(el) { el.style.display = 'block'; });
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="cambiarIdioma('es')">
     <!-- Fondo de partículas -->
     <div id="particles-js"></div>
+
+    <!-- Selección de idioma -->
+    <div class="language-switch">
+        <button onclick="cambiarIdioma('es')">Español</button>
+        <button onclick="cambiarIdioma('en')">English</button>
+    </div>
 
     <!-- Cabecera con foto de perfil -->
     <header class="header-container">
@@ -21,40 +42,45 @@
         </div>
         <div class="header-content">
             <h1>Sebastián Dinator</h1>
-            <p>Ciberseguridad e Informática</p>
+            <p class="es">Ciberseguridad e Informática</p>
+            <p class="en">Cybersecurity and Computer Science</p>
         </div>
     </header>
 
     <!-- Sección Principal -->
     <main>
         <section class="about">
-            <h2>Sobre mí</h2>
-            <p>Soy un apasionado de la ciberseguridad y las tecnologías emergentes, con experiencia en desarrollo de software y análisis de seguridad informática. Disfruto resolver desafíos complejos y colaborar en proyectos innovadores.</p>
+            <h2 class="es">Sobre mí</h2>
+            <h2 class="en">About Me</h2>
+            <p class="es">Soy un estudiante aplicado en el mundo de la informática, con amplia experiencia en computadoras, bases de datos, redes y dispositivos móviles. Siempre estoy aprendiendo nuevas tecnologías y aplicándolas para resolver problemas.</p>
+            <p class="en">I am a diligent student in the world of computer science, with broad experience in personal computers, databases, networks, and mobile devices. I am always learning new technologies and applying them to solve problems.</p>
         </section>
 
         <section class="experience">
-            <h2>Experiencia</h2>
+            <h2 class="es">Experiencia</h2>
+            <h2 class="en">Experience</h2>
             <ul>
-                <li>Licenciado en Ingeniería Civil Informática - Universidad Adolfo Ibáñez</li>
-                <li>Estudiante Embajador - Centro Nacional de Inteligencia Artificial</li>
-                <li>Desarrollador de proyectos en seguridad informática</li>
+                <li class="es">Embajador de Estudiantes en el Centro Nacional de Inteligencia Artificial | Agosto 2024 - Presente</li>
+                <li class="en">Student Ambassador at the National Center for Artificial Intelligence | August 2024 - Present</li>
+                <li class="es">Fundador y Encargado del Laboratorio de Ciberseguridad en la Universidad Adolfo Ibáñez | Mayo 2024 - Presente</li>
+                <li class="en">Founder and Lab Manager at the Cybersecurity Lab at Adolfo Ibáñez University | May 2024 - Present</li>
+                <li class="es">2º lugar en el Hack.Ing CTF 2024 | Pontificia Universidad Católica de Chile</li>
+                <li class="en">2nd place in Hack.Ing CTF 2024 | Pontifical Catholic University of Chile</li>
             </ul>
         </section>
 
         <section class="skills">
-            <h2>Habilidades</h2>
-            <p>Mis principales áreas de especialización incluyen:</p>
-            <ul>
-                <li>Penetration Testing</li>
-                <li>Análisis de vulnerabilidades</li>
-                <li>Programación en Python, C, R</li>
-                <li>Inteligencia Artificial aplicada a la seguridad</li>
-            </ul>
+            <h2 class="es">Habilidades</h2>
+            <h2 class="en">Skills</h2>
+            <p class="es">Áreas de especialización: Pruebas de penetración, análisis de vulnerabilidades, Python, C, R, Inteligencia Artificial aplicada a la seguridad.</p>
+            <p class="en">Areas of expertise: Penetration Testing, Vulnerability Analysis, Python, C, R, AI applied to security.</p>
         </section>
 
         <section class="contact">
-            <h2>Contacto</h2>
-            <p>Puedes contactarme en <a href="mailto:sdinator@alumnos.uai.cl">sdinator@alumnos.uai.cl</a> o en <a href="https://www.linkedin.com/in/sebasti%C3%A1n-d-0803a8112/">LinkedIn</a>.</p>
+            <h2 class="es">Contacto</h2>
+            <h2 class="en">Contact</h2>
+            <p class="es">Puedes contactarme en <a href="mailto:sdinator@alumnos.uai.cl">sdinator@alumnos.uai.cl</a> o en mi <a href="https://www.linkedin.com/in/sebasti%C3%A1n-d-0803a8112/">LinkedIn</a>.</p>
+            <p class="en">You can contact me at <a href="mailto:sdinator@alumnos.uai.cl">sdinator@alumnos.uai.cl</a> or on <a href="https://www.linkedin.com/in/sebasti%C3%A1n-d-0803a8112/">LinkedIn</a>.</p>
         </section>
     </main>
 
