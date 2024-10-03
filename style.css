@@ -57,7 +57,7 @@ p {
 /* Barra de navegación */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #121212;
     padding: 15px 30px;
@@ -72,6 +72,8 @@ p {
 .logo {
     display: flex;
     align-items: center;
+    position: absolute;
+    left: 30px;
 }
 
 .logo a {
@@ -100,7 +102,6 @@ p {
     display: flex;
     gap: 15px;
     transition: transform 0.3s ease; /* Animación para una experiencia suave */
-    margin-left: auto; /* Alinear el menú a la derecha */
 }
 
 .nav-links.nav-links-active {
@@ -219,16 +220,18 @@ footer p {
     .navbar {
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .language-switch {
-        margin-top: 10px;
+        margin-top: 20px;
         margin-right: 0;
-        order: 2; /* Mover el selector de idioma dentro del menú en móviles */
+        order: 1; /* Mover el selector de idioma dentro del menú en móviles */
+        display: none;
     }
 
     .nav-links .language-switch {
+        display: flex;
         margin-top: 20px;
         justify-content: center;
     }
