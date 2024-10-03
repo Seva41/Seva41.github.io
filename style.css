@@ -1,7 +1,7 @@
 /* Estilos Generales */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Fondo oscuro */
     color: #dcdcdc;
     margin: 0;
     padding: 0;
@@ -49,9 +49,8 @@ p {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 50% 70%; /* Ajusta la imagen para centrar más abajo */
+    object-position: 50% 80%; /* Ajuste fino para centrar hacia abajo */
 }
-
 
 .header-content h1 {
     font-size: 2.5rem;
