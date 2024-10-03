@@ -7,7 +7,7 @@ body {
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden; /* Evitar desplazamiento horizontal */
-    overflow-y: auto; /* Permitir desplazamiento vertical para mostrar contenido */
+    overflow-y: hidden; /* Evitar el fondo blanco debajo del contenido */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -134,7 +134,7 @@ p {
     cursor: pointer;
 }
 
-/* Selector de idioma (ajustado para móviles y escritorio) */
+/* Selector de idioma (mover dentro del menú en móviles) */
 .language-switch {
     display: flex;
     gap: 10px;
@@ -226,9 +226,10 @@ footer p {
     }
 
     .language-switch {
-        margin-top: 10px;
+        margin-top: 20px;
         margin-right: 0;
-        order: 1; /* Asegura que aparezca dentro del menú en móviles */
+        order: 1; /* Mover el selector de idioma dentro del menú en móviles */
+        position: relative;
     }
 
     .nav-links .language-switch {
