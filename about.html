@@ -61,18 +61,26 @@
         <div class="menu-icon" onclick="toggleMenu()">
             &#9776; <!-- Este es el ícono de hamburguesa -->
         </div>
+        <!-- Enlaces de navegación -->
         <ul class="nav-links">
             <li><a href="about.html" class="es">Sobre mí</a><a href="about.html" class="en">About Me</a></li>
             <li><a href="experience.html" class="es">Experiencia</a><a href="experience.html" class="en">Experience</a></li>
             <li><a href="skills.html" class="es">Habilidades</a><a href="skills.html" class="en">Skills</a></li>
             <li><a href="contact.html" class="es">Contacto</a><a href="contact.html" class="en">Contact</a></li>
+            <!-- Selector de idioma para móvil dentro del menú -->
+            <li>
+                <div class="language-switch language-switch-mobile">
+                    <button onclick="cambiarIdioma('es')">Español</button>
+                    <button onclick="cambiarIdioma('en')">English</button>
+                </div>
+            </li>
         </ul>
-        <!-- Selector de idioma -->
-        <div class="language-switch">
+        <!-- Selector de idioma para escritorio -->
+        <div class="language-switch language-switch-desktop">
             <button onclick="cambiarIdioma('es')">Español</button>
             <button onclick="cambiarIdioma('en')">English</button>
         </div>
-    </nav>    
+    </nav>
 
     <!-- Fondo de partículas -->
     <div id="particles-js"></div>

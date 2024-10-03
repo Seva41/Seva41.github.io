@@ -117,10 +117,7 @@ p {
     gap: 15px;
     transition: transform 0.3s ease; /* Animación para una experiencia suave */
     margin: 0;
-}
-
-.nav-links.nav-links-active {
-    transform: translateY(0); /* Mostrar el menú cuando esté activo */
+    padding-left: 0;
 }
 
 .nav-links li {
@@ -137,6 +134,37 @@ p {
     color: #5dade2;
 }
 
+/* Ocultar el menú en móviles por defecto */
+.nav-links {
+    display: flex;
+}
+
+/* Selector de idioma para escritorio */
+.language-switch-desktop {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.language-switch-desktop button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.language-switch-desktop button:hover {
+    background-color: #555;
+}
+
+/* Ocultar el selector de idioma móvil por defecto */
+.language-switch-mobile {
+    display: none;
+}
+
 /* Icono del menú hamburguesa (solo en móviles) */
 .menu-icon {
     display: none;
@@ -147,27 +175,6 @@ p {
     color: #fff;
     font-size: 30px;
     cursor: pointer;
-}
-
-/* Selector de idioma */
-.language-switch {
-    display: flex;
-    gap: 10px;
-    margin-left: auto;
-}
-
-.language-switch button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.language-switch button:hover {
-    background-color: #555;
 }
 
 /* Sección Principal */
@@ -214,17 +221,12 @@ footer p {
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
+    /* Mostrar el ícono del menú hamburguesa */
     .menu-icon {
-        display: block; /* Mostrar el icono de menú solo en móviles */
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 2000;
-        color: #fff;
-        font-size: 30px;
-        cursor: pointer;
+        display: block;
     }
 
+    /* Ocultar el menú de navegación por defecto en móviles */
     .nav-links {
         position: fixed;
         top: 60px;
@@ -239,27 +241,48 @@ footer p {
         max-height: calc(100vh - 60px); /* Prevenir que el menú exceda la altura de la pantalla */
     }
 
+    /* Mostrar el menú cuando está activo */
     .nav-links.nav-links-active {
-        display: flex; /* Mostrar el menú cuando está activo */
-    }
-
-    .navbar {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .language-switch {
-        display: none; /* Ocultar el selector de idioma en la barra superior en móviles */
-    }
-
-    .nav-links .language-switch {
         display: flex;
-        margin-top: 20px;
-        justify-content: center;
     }
 
-    .language-switch button {
-        padding: 10px 15px;
+    /* Ajustar los elementos del menú en móviles */
+    .nav-links {
+        padding-top: 20px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    /* Ocultar el selector de idioma de escritorio en móviles */
+    .language-switch-desktop {
+        display: none;
+    }
+
+    /* Mostrar el selector de idioma móvil dentro del menú */
+    .language-switch-mobile {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Ajustar los botones dentro del selector de idioma móvil */
+    .language-switch-mobile button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1rem;
+        width: 80%; /* Ajustar el ancho de los botones */
+    }
+
+    .language-switch-mobile button:hover {
+        background-color: #555;
     }
 }
