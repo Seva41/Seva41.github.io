@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow: hidden; /* Evitar cualquier desplazamiento */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -16,6 +16,17 @@ body {
 
 body.loaded {
     opacity: 1; /* Mostrar el contenido una vez que todo esté listo */
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Evitar cualquier desplazamiento innecesario */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 a {
@@ -55,6 +66,8 @@ p {
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 /* Logo y nombre */
@@ -86,20 +99,31 @@ p {
 /* Menú de navegación */
 .nav-links {
     list-style: none;
-    display: flex;
-    gap: 15px;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background-color: #121212;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease; /* Animación para una experiencia suave */
+    transform: translateY(-100%); /* Ocultar menú inicialmente */
+    z-index: 1500;
+}
+
+.nav-links.nav-links-active {
+    transform: translateY(0); /* Mostrar el menú cuando esté activo */
 }
 
 .nav-links li {
-    display: inline;
+    padding: 15px 0; /* Espaciado entre los enlaces en móviles */
+    width: 100%;
 }
 
 .nav-links a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    overflow-y: auto; /* Para evitar el desplazamiento excesivo */
-    max-height: calc(100vh - 60px); /* Limita la altura para evitar que ocupe toda la pantalla */
 }
 
 .nav-links a:hover {
@@ -108,28 +132,29 @@ p {
 
 /* Icono del menú hamburguesa (solo en móviles) */
 .menu-icon {
-    display: none;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
-    position: absolute;
+    display: block;
+    position: fixed; /* Cambia a 'fixed' para asegurar su visibilidad constante */
     top: 20px;
-    right: 30px; /* Asegúrate de ajustar el margen según sea necesario */
-    z-index: 1500;
+    right: 20px;
+    z-index: 2000; /* Aumenta para que quede sobre otros elementos */
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 /* Selector de idioma */
 .language-switch {
     display: flex;
     gap: 10px;
-    margin-right: 30px; /* Más margen para evitar corte en el borde derecho */
+    margin-top: 10px;
+    margin-right: 0; /* Ajuste en móviles */
 }
 
 .language-switch button {
     background-color: #333;
     color: #fff;
     border: none;
-    padding: 12px 20px; /* Aumentamos el padding para que el botón sea más espacioso */
+    padding: 10px 15px; /* Ajuste de tamaño para pantallas más pequeñas */
     cursor: pointer;
     border-radius: 5px;
     font-size: 1rem;
@@ -172,13 +197,12 @@ footer p {
 #particles-js {
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -1;
     top: 0;
     left: 0;
     overflow: hidden; /* Asegura que las partículas no generen desbordamiento */
 }
-
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
@@ -187,23 +211,11 @@ footer p {
     }
 
     .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #121212;
         display: none; /* Ocultar inicialmente */
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
     }
 
     .nav-links.nav-links-active {
         display: flex; /* Mostrar el menú cuando está activo */
-    }
-
-    .nav-links li {
-        padding: 15px 0; /* Espaciado entre los enlaces en móviles */
-        width: 100%;
     }
 
     .navbar {
