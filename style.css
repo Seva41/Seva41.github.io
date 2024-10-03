@@ -88,14 +88,14 @@ p {
 .language-switch {
     display: flex;
     gap: 10px;
-    margin-right: 20px; /* Ajuste de margen para no cortar los botones */
+    margin-right: 30px; /* Más margen para evitar corte en el borde derecho */
 }
 
 .language-switch button {
     background-color: #333;
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 12px 20px; /* Aumentamos el padding para que el botón sea más espacioso */
     cursor: pointer;
     border-radius: 5px;
     font-size: 1rem;
@@ -156,7 +156,10 @@ footer p {
     }
 
     .language-switch {
-        margin-top: 10px;
-        margin-right: 0; /* Ajuste en móviles */
+        margin-right: 0; /* En pantallas pequeñas no necesitamos tanto margen */
+    }
+
+    .language-switch button {
+        padding: 10px 15px; /* Ajuste de tamaño para pantallas más pequeñas */
     }
 }
