@@ -213,24 +213,12 @@ footer p {
     width: 100%; /* Asegura que el texto siempre tenga su propia línea en pantallas pequeñas */
 }
 
-/* Fondo animado de partículas */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ajustado para que esté sobre body:after */
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
 .social-icons {
-    position: relative;
-    right: 0;
+    position: absolute;
+    right: 20px; /* Alinea los íconos a la derecha del contenedor del footer en pantallas grandes */
     display: flex;
     gap: 15px;
-    margin-top: 10px; /* Añadir un margen superior para evitar el solapamiento */
+    margin-top: 0; /* Sin margen adicional para escritorio */
 }
 
 .social-icons img {
@@ -243,6 +231,18 @@ footer p {
 .social-icons img:hover {
     transform: scale(1.2);
     filter: invert(50%) brightness(150%);
+}
+
+/* Fondo animado de partículas */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ajustado para que esté sobre body:after */
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
 }
 
 /* Estilos para móviles */
@@ -311,13 +311,15 @@ footer p {
     .language-switch-mobile button:hover {
         background-color: #555;
     }
-    
+
     footer {
         flex-direction: column; /* Coloca los elementos uno debajo del otro */
         text-align: center; /* Mantiene el texto centrado */
+        position: relative;
     }
 
     .social-icons {
-        margin-top: 10px; /* Espacio adicional para evitar solapamientos */
+        position: relative; /* Cambia la posición para que se alinee automáticamente debajo del texto */
+        margin-top: 10px; /* Añadir un margen superior para evitar solapamiento */
     }
 }
