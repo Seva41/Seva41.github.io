@@ -197,9 +197,10 @@ main {
 footer {
     background-color: #121212;
     color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto; /* El footer queda en la parte inferior */
+    text-align: center; /* El texto se mantiene centrado */
+    padding: 10px 20px;
+    margin-top: auto;
+    position: relative; /* Posición relativa para posicionar los íconos */
 }
 
 footer p {
@@ -220,25 +221,25 @@ footer p {
 }
 
 .social-icons {
-    margin-top: 10px;
-}
-
-.social-icons a {
-    margin: 0 10px;
+    position: absolute; /* Posiciona los íconos de forma independiente */
+    right: 20px; /* Los coloca hacia la derecha del footer */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajuste para que queden exactamente centrados verticalmente */
+    display: flex;
+    gap: 15px;
 }
 
 .social-icons img {
     width: 30px;
     height: 30px;
-    filter: invert(100%) brightness(100%); /* Cambiar el color a blanco */
-    transition: transform 0.3s, filter 0.3s; /* Transición suave para el hover */
+    filter: invert(100%) brightness(100%);
+    transition: transform 0.3s, filter 0.3s;
 }
 
 .social-icons img:hover {
     transform: scale(1.2);
-    filter: invert(50%) brightness(150%); /* Ajustar al hacer hover para mayor visibilidad */
+    filter: invert(50%) brightness(150%);
 }
-
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
