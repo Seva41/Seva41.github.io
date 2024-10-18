@@ -230,11 +230,13 @@ footer p {
 .social-icons img {
     width: 30px;
     height: 30px;
-    transition: transform 0.3s;
+    filter: invert(100%) brightness(100%); /* Cambiar el color a blanco */
+    transition: transform 0.3s, filter 0.3s; /* Transición suave para el hover */
 }
 
 .social-icons img:hover {
     transform: scale(1.2);
+    filter: invert(50%) brightness(150%); /* Ajustar al hacer hover para mayor visibilidad */
 }
 
 
