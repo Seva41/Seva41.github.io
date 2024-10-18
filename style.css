@@ -10,7 +10,7 @@ body {
     overflow-y: auto; /* Permitir el desplazamiento vertical */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Asegurar que el body ocupe al menos toda la pantalla */
     opacity: 0; /* Inicia con el contenido oculto */
     transition: opacity 0.5s ease; /* Fading suave al cargar la página */
 }
@@ -193,6 +193,18 @@ main {
     margin: 0 auto;
 }
 
+/* Fondo animado de partículas */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegurado para que esté justo debajo del contenido */
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 /* Pie de Página */
 footer {
     background-color: #121212;
@@ -202,7 +214,7 @@ footer {
     margin-top: auto;
     position: relative; /* Posición relativa para posicionar los íconos */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centra los elementos cuando están en columna */
     align-items: center;
     flex-wrap: wrap; /* Permite que los elementos se vayan a una nueva línea si es necesario */
 }
@@ -231,18 +243,6 @@ footer p {
 .social-icons img:hover {
     transform: scale(1.2);
     filter: invert(50%) brightness(150%);
-}
-
-/* Fondo animado de partículas */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ajustado para que esté sobre body:after */
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    pointer-events: none;
 }
 
 /* Estilos para móviles */
