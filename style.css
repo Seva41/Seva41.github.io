@@ -201,11 +201,16 @@ footer {
     padding: 10px 20px;
     margin-top: auto;
     position: relative; /* Posición relativa para posicionar los íconos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se vayan a una nueva línea si es necesario */
 }
 
 footer p {
     margin: 0;
     font-size: 0.9rem;
+    width: 100%; /* Asegura que el texto siempre tenga su propia línea en pantallas pequeñas */
 }
 
 /* Fondo animado de partículas */
@@ -221,12 +226,11 @@ footer p {
 }
 
 .social-icons {
-    position: absolute; /* Posiciona los íconos de forma independiente */
-    right: 20px; /* Los coloca hacia la derecha del footer */
-    top: 50%; /* Centra verticalmente */
-    transform: translateY(-50%); /* Ajuste para que queden exactamente centrados verticalmente */
+    position: relative;
+    right: 0;
     display: flex;
     gap: 15px;
+    margin-top: 10px; /* Añadir un margen superior para evitar el solapamiento */
 }
 
 .social-icons img {
@@ -306,5 +310,14 @@ footer p {
 
     .language-switch-mobile button:hover {
         background-color: #555;
+    }
+    
+    footer {
+        flex-direction: column; /* Coloca los elementos uno debajo del otro */
+        text-align: center; /* Mantiene el texto centrado */
+    }
+
+    .social-icons {
+        margin-top: 10px; /* Espacio adicional para evitar solapamientos */
     }
 }
