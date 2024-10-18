@@ -256,8 +256,8 @@ footer p {
 .experience-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Añadir espacio entre cada ítem */
-    text-align: left; /* Para alinear el texto junto con la imagen */
+    margin-bottom: 30px; /* Aumentar espacio entre ítems para mayor claridad */
+    text-align: left;
 }
 
 .experience-item:nth-child(odd) {
@@ -265,16 +265,17 @@ footer p {
 }
 
 .experience-item img {
-    width: 50px;
-    height: 50px;
-    margin: 0 15px; /* Añadir un pequeño margen entre la imagen y el texto */
+    width: 80px; /* Aumentar el tamaño de la imagen para pantallas grandes */
+    height: 80px;
+    margin: 0 20px; /* Añadir más espacio entre la imagen y el texto */
     flex-shrink: 0; /* Evitar que la imagen se reduzca */
+    border-radius: 10%; /* Añadir un pequeño borde redondeado para una apariencia más suave */
 }
 
 .experience-item p {
     margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem; /* Incrementar ligeramente el tamaño del texto para equilibrar con la imagen */
+    line-height: 1.
 }
 
 /* Estilos para móviles */
@@ -353,5 +354,20 @@ footer p {
     .social-icons {
         position: relative; /* Cambia la posición para que se alinee automáticamente debajo del texto */
         margin-top: 10px; /* Añadir un margen superior para evitar solapamiento */
+    }
+    
+    .experience-item {
+        flex-direction: column; /* Coloca la imagen encima del texto en pantallas pequeñas */
+        align-items: center; /* Centra la imagen y el texto */
+    }
+
+    .experience-item img {
+        width: 60px; /* Tamaño de imagen ajustado para pantallas pequeñas */
+        height: 60px;
+        margin-bottom: 15px; /* Añadir espacio debajo de la imagen para el texto */
+    }
+
+    .experience-item p {
+        text-align: center; /* Asegura que el texto esté centrado debajo de la imagen */
     }
 }
