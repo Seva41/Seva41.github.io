@@ -203,6 +203,7 @@ main {
     left: 0;
     overflow: hidden;
     pointer-events: none;
+    will-change: transform, opacity; /* Sugiere al navegador optimizar estos cambios */
 }
 
 /* Pie de Página */
