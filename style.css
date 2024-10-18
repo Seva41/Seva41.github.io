@@ -245,6 +245,38 @@ footer p {
     filter: invert(50%) brightness(150%);
 }
 
+/*Estilos para la sección Experiencia */
+.experience {
+    text-align: center;
+    padding: 20px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Añadir espacio entre cada ítem */
+    text-align: left; /* Para alinear el texto junto con la imagen */
+}
+
+.experience-item:nth-child(odd) {
+    flex-direction: row-reverse; /* Alternar la dirección de la imagen para los ítems impares */
+}
+
+.experience-item img {
+    width: 50px;
+    height: 50px;
+    margin: 0 15px; /* Añadir un pequeño margen entre la imagen y el texto */
+    flex-shrink: 0; /* Evitar que la imagen se reduzca */
+}
+
+.experience-item p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
 /* Estilos para móviles */
 @media (max-width: 768px) {
     /* Mostrar el ícono del menú hamburguesa */
