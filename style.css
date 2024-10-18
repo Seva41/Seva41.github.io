@@ -219,6 +219,25 @@ footer p {
     pointer-events: none;
 }
 
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+
 /* Estilos para móviles */
 @media (max-width: 768px) {
     /* Mostrar el ícono del menú hamburguesa */
