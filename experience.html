@@ -1,0 +1,102 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experiencia | Sebastián Dinator">
+    <title>Experiencia | Sebastián Dinator</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/android-chrome-512x512.png">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/assets/icons/site.webmanifest">
+    <!-- Scripts comunes -->
+    <script src="/assets/js/main.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <!-- _includes/navbar.html -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="/index.html">
+            <img src="/assets/img/perfil.jpg" alt="Foto de Sebastián Dinator" class="profile-small">
+            <span>Sebastián Dinator</span>
+        </a>
+    </div>
+    <!-- Ícono del menú hamburguesa -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        &#9776;
+    </div>
+    <!-- Enlaces de navegación -->
+    <ul class="nav-links">
+        <li><a href="/about.html" class="es">Sobre mí</a><a href="/about.html" class="en">About Me</a></li>
+        <li><a href="/experience.html" class="es">Experiencia</a><a href="/experience.html" class="en">Experience</a></li>
+        <li><a href="/skills.html" class="es">Habilidades</a><a href="/skills.html" class="en">Skills</a></li>
+        <li><a href="/contact.html" class="es">Contacto</a><a href="/contact.html" class="en">Contact</a></li>
+        <!-- Selector de idioma para móvil dentro del menú -->
+        <li>
+            <div class="language-switch language-switch-mobile">
+                <button onclick="cambiarIdioma('es')">Español</button>
+                <button onclick="cambiarIdioma('en')">English</button>
+            </div>
+        </li>
+    </ul>
+    <!-- Selector de idioma para escritorio -->
+    <div class="language-switch language-switch-desktop">
+        <button onclick="cambiarIdioma('es')">Español</button>
+        <button onclick="cambiarIdioma('en')">English</button>
+    </div>
+</nav>
+
+    <!-- Contenido específico de cada página -->
+        <main>
+        <section class="experience">
+            <h1 class="es">Experiencia</h1>
+            <h1 class="en">Experience</h1>
+        
+            <div class="experience-item">
+                <img src="/assets/img/cenia.png" alt="Logo Cenia">
+                <p class="es">Embajador de Estudiantes en el Centro Nacional de Inteligencia Artificial | Agosto 2024 - Presente</p>
+                <p class="en">Student Ambassador at the National Center for Artificial Intelligence | August 2024 - Present</p>
+            </div>
+        
+            <div class="experience-item">
+                <img src="/assets/img/awaretools.png" alt="AwareTools">
+                <p class="es">Fundador y Encargado del Laboratorio de Ciberseguridad en la Universidad Adolfo Ibáñez | Mayo 2024 - Presente</p>
+                <p class="en">Founder and Lab Manager at the Cybersecurity Lab at Adolfo Ibáñez University | May 2024 - Present</p>
+            </div>
+        
+            <div class="experience-item">
+                <img src="/assets/img/hacking.png" alt="Hack.Ing 2024">
+                <p class="es">2º lugar en el Hack.Ing CTF 2024 | Pontificia Universidad Católica de Chile</p>
+                <p class="en">2nd place in Hack.Ing CTF 2024 | Pontifical Catholic University of Chile</p>
+            </div>
+        </section>        
+    </main>
+    <!-- _includes/footer.html -->
+<footer>
+    <p class="es">&copy; 2024 Sebastián Dinator | Ciberseguridad y Tecnología</p>
+    <p class="en">&copy; 2024 Sebastián Dinator | Cybersecurity and Technology</p>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/sebadinator" target="_blank">
+            <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/Seva41" target="_blank">
+            <img src="/assets/icons/github.svg" alt="GitHub">
+        </a>
+        <a href="https://t.me/sevadinator" target="_blank">
+            <img src="/assets/icons/telegram.svg" alt="Telegram">
+        </a>
+    </div>
+</footer>
+    <!-- Scripts comunes al final del body -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/assets/js/particles.js"></script>
+</body>
+</html>
