@@ -15,27 +15,14 @@ body {
     transition: opacity 0.5s ease; /* Fading suave al cargar la página */
 }
 
-body:after {
-    content: "";
-    position: fixed;
-    z-index: -2; /* Ajustado para que particles.js sea visible */
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #1e1e1e;
-    background-size: cover;
-    pointer-events: none;
-}
-
 body.loaded {
     opacity: 1; /* Mostrar el contenido una vez que todo esté listo */
 }
 
 html, body {
     height: 100%;
-    overflow-x: hidden; /* Evitar desplazamiento horizontal */
-    overflow-y: auto; /* Permitir el desplazamiento vertical */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 * {
@@ -72,7 +59,7 @@ p {
 /* Barra de navegación */
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Ajustar la separación entre el logo y los enlaces */
     align-items: center;
     background-color: #121212;
     padding: 15px 30px;
@@ -87,7 +74,6 @@ p {
 .logo {
     display: flex;
     align-items: center;
-    margin-right: auto;
 }
 
 .logo a {
@@ -96,13 +82,10 @@ p {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
+    margin-right: 20px; /* Añadir espacio entre el logo y los enlaces */
 }
 
-.logo a:hover {
-    color: #fff; /* Evitar que el color cambie al pasar el mouse */
-}
-
-.profile-small {
+.logo img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -115,9 +98,9 @@ p {
     list-style: none;
     display: flex;
     gap: 15px;
-    transition: transform 0.3s ease; /* Animación para una experiencia suave */
-    margin: 0;
+    margin: 0 auto; /* Centrar los elementos */
     padding-left: 0;
+    transition: transform 0.3s ease;
 }
 
 .nav-links li {
@@ -128,39 +111,35 @@ p {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #5dade2;
 }
 
-/* Ocultar el menú en móviles por defecto */
-.nav-links {
-    display: flex;
-}
-
-/* Selector de idioma para escritorio */
+/* Selector de idioma */
 .language-switch-desktop {
     display: flex;
     gap: 10px;
-    margin-left: auto;
+    margin-left: 20px; /* Añadir espacio entre el selector de idioma y los enlaces */
 }
 
 .language-switch-desktop button {
     background-color: #333;
     color: #fff;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px; /* Ajustar el tamaño de los botones */
     cursor: pointer;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Ajustar el tamaño del texto */
+    transition: background-color 0.3s ease;
 }
 
 .language-switch-desktop button:hover {
     background-color: #555;
 }
 
-/* Ocultar el selector de idioma móvil por defecto */
 .language-switch-mobile {
     display: none;
 }
@@ -182,8 +161,8 @@ main {
     padding: 120px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    flex: 1; /* Esto asegura que el main ocupe el espacio disponible */
-    background: transparent; /* Asegura que el fondo no bloquee el fondo de partículas */
+    flex: 1;
+    background: transparent;
 }
 
 .about, .experience, .skills, .contact {
@@ -198,40 +177,40 @@ main {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Asegurado para que esté justo debajo del contenido */
+    z-index: -1;
     top: 0;
     left: 0;
     overflow: hidden;
     pointer-events: none;
-    will-change: transform, opacity; /* Sugiere al navegador optimizar estos cambios */
+    will-change: transform, opacity;
 }
 
 /* Pie de Página */
 footer {
     background-color: #121212;
     color: #fff;
-    text-align: center; /* El texto se mantiene centrado */
+    text-align: center;
     padding: 10px 20px;
     margin-top: auto;
-    position: relative; /* Posición relativa para posicionar los íconos */
+    position: relative;
     display: flex;
-    justify-content: center; /* Centra los elementos cuando están en columna */
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Permite que los elementos se vayan a una nueva línea si es necesario */
+    flex-wrap: wrap;
 }
 
 footer p {
     margin: 0;
     font-size: 0.9rem;
-    width: 100%; /* Asegura que el texto siempre tenga su propia línea en pantallas pequeñas */
+    width: 100%;
 }
 
 .social-icons {
     position: absolute;
-    right: 20px; /* Alinea los íconos a la derecha del contenedor del footer en pantallas grandes */
+    right: 20px;
     display: flex;
     gap: 15px;
-    margin-top: 0; /* Sin margen adicional para escritorio */
+    margin-top: 0;
 }
 
 .social-icons img {
@@ -246,47 +225,51 @@ footer p {
     filter: invert(50%) brightness(150%);
 }
 
-/*Estilos para la sección Experiencia */
-.experience {
-    text-align: center;
-    padding: 20px 0;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
+/* Sección de experiencia */
 .experience-item {
     display: flex;
     align-items: center;
-    margin-bottom: 30px; /* Aumentar espacio entre ítems para mayor claridad */
+    margin-bottom: 30px;
     text-align: left;
 }
 
 .experience-item:nth-child(odd) {
-    flex-direction: row-reverse; /* Alternar la dirección de la imagen para los ítems impares */
+    flex-direction: row-reverse;
 }
 
 .experience-item img {
-    width: 80px; /* Aumentar el tamaño de la imagen para pantallas grandes */
+    width: 80px;
     height: 80px;
-    margin: 0 20px; /* Añadir más espacio entre la imagen y el texto */
-    flex-shrink: 0; /* Evitar que la imagen se reduzca */
-    border-radius: 10%; /* Añadir un pequeño borde redondeado para una apariencia más suave */
+    margin: 0 20px;
+    flex-shrink: 0;
+    border-radius: 10%;
 }
 
 .experience-item p {
     margin: 0;
-    font-size: 1.2rem; /* Incrementar ligeramente el tamaño del texto para equilibrar con la imagen */
-    line-height: 1.
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
+
+/* Animaciones para tabs */
+.tab-content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.tab-content.active {
+    opacity: 1;
+    display: block;
+}
+
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
-    /* Mostrar el ícono del menú hamburguesa */
     .menu-icon {
         display: block;
     }
 
-    /* Ocultar el menú de navegación por defecto en móviles */
     .nav-links {
         position: fixed;
         top: 60px;
@@ -295,32 +278,24 @@ footer p {
         flex-direction: column;
         width: 100%;
         text-align: center;
-        display: none; /* Ocultar inicialmente */
-        z-index: 1500; /* Asegurar que esté por encima de otros elementos */
-        overflow-y: auto; /* Permitir desplazamiento si el menú es largo */
-        max-height: calc(100vh - 60px); /* Prevenir que el menú exceda la altura de la pantalla */
+        display: none;
+        z-index: 1500;
+        overflow-y: auto;
+        max-height: calc(100vh - 60px);
     }
 
-    /* Mostrar el menú cuando está activo */
     .nav-links.nav-links-active {
         display: flex;
-    }
-
-    /* Ajustar los elementos del menú en móviles */
-    .nav-links {
-        padding-top: 20px;
     }
 
     .nav-links li {
         margin: 10px 0;
     }
 
-    /* Ocultar el selector de idioma de escritorio en móviles */
     .language-switch-desktop {
         display: none;
     }
 
-    /* Mostrar el selector de idioma móvil dentro del menú */
     .language-switch-mobile {
         display: flex;
         flex-direction: column;
@@ -330,7 +305,6 @@ footer p {
         align-items: center;
     }
 
-    /* Ajustar los botones dentro del selector de idioma móvil */
     .language-switch-mobile button {
         background-color: #333;
         color: #fff;
@@ -339,7 +313,7 @@ footer p {
         cursor: pointer;
         border-radius: 5px;
         font-size: 1rem;
-        width: 80%; /* Ajustar el ancho de los botones */
+        width: 80%;
     }
 
     .language-switch-mobile button:hover {
@@ -347,28 +321,28 @@ footer p {
     }
 
     footer {
-        flex-direction: column; /* Coloca los elementos uno debajo del otro */
-        text-align: center; /* Mantiene el texto centrado */
+        flex-direction: column;
+        text-align: center;
         position: relative;
     }
 
     .social-icons {
-        position: relative; /* Cambia la posición para que se alinee automáticamente debajo del texto */
-        margin-top: 10px; /* Añadir un margen superior para evitar solapamiento */
+        position: relative;
+        margin-top: 10px;
     }
     
     .experience-item {
-        flex-direction: column; /* Coloca la imagen encima del texto en pantallas pequeñas */
-        align-items: center; /* Centra la imagen y el texto */
+        flex-direction: column;
+        align-items: center;
     }
 
     .experience-item img {
-        width: 60px; /* Tamaño de imagen ajustado para pantallas pequeñas */
+        width: 60px;
         height: 60px;
-        margin-bottom: 15px; /* Añadir espacio debajo de la imagen para el texto */
+        margin-bottom: 15px;
     }
 
     .experience-item p {
-        text-align: center; /* Asegura que el texto esté centrado debajo de la imagen */
+        text-align: center;
     }
 }

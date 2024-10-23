@@ -40,5 +40,39 @@
             }
         });
     </script>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';
+                tab.classList.remove('active');
+            });
+
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.style.display = 'block';
+                activeTab.classList.add('active');
+            }
+        }
+
+        function cambiarIdioma(idioma) {
+            const esElements = document.querySelectorAll('.es');
+            const enElements = document.querySelectorAll('.en');
+
+            if (idioma === 'es') {
+                esElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+            } else {
+                esElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        // Función para el menú hamburguesa en móviles
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('nav-links-active');
+        }
+    </script>    
 </body>
 </html>

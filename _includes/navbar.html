@@ -1,7 +1,7 @@
 <!-- _includes/navbar.html -->
 <nav class="navbar">
     <div class="logo">
-        <a href="{{ '/index.html' | relative_url }}">
+        <a href="#" onclick="showTab('intro')">
             <img src="{{ 'assets/img/perfil.jpg' | relative_url }}" alt="Foto de Sebastián Dinator" class="profile-small">
             <span>Sebastián Dinator</span>
         </a>
@@ -12,10 +12,22 @@
     </div>
     <!-- Enlaces de navegación -->
     <ul class="nav-links">
-        <li><a href="{{ '/about.html' | relative_url }}" class="es">Sobre mí</a><a href="{{ '/about.html' | relative_url }}" class="en">About Me</a></li>
-        <li><a href="{{ '/experience.html' | relative_url }}" class="es">Experiencia</a><a href="{{ '/experience.html' | relative_url }}" class="en">Experience</a></li>
-        <li><a href="{{ '/skills.html' | relative_url }}" class="es">Habilidades</a><a href="{{ '/skills.html' | relative_url }}" class="en">Skills</a></li>
-        <li><a href="{{ '/contact.html' | relative_url }}" class="es">Contacto</a><a href="{{ '/contact.html' | relative_url }}" class="en">Contact</a></li>
+        <li>
+            <a href="#" onclick="showTab('about')" class="es">Sobre mí</a>
+            <a href="#" onclick="showTab('about')" class="en">About Me</a>
+        </li>
+        <li>
+            <a href="#" onclick="showTab('experience')" class="es">Experiencia</a>
+            <a href="#" onclick="showTab('experience')" class="en">Experience</a>
+        </li>
+        <li>
+            <a href="#" onclick="showTab('skills')" class="es">Habilidades</a>
+            <a href="#" onclick="showTab('skills')" class="en">Skills</a>
+        </li>
+        <li>
+            <a href="#" onclick="showTab('contact')" class="es">Contacto</a>
+            <a href="#" onclick="showTab('contact')" class="en">Contact</a>
+        </li>
         <!-- Selector de idioma para móvil dentro del menú -->
         <li>
             <div class="language-switch language-switch-mobile">
