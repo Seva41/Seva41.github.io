@@ -24,7 +24,7 @@
     <!-- _includes/navbar.html -->
 <nav class="navbar">
     <div class="logo">
-        <a href="/index.html">
+        <a href="#" onclick="showTab('intro')">
             <img src="/assets/img/perfil.jpg" alt="Foto de Sebastián Dinator" class="profile-small">
             <span>Sebastián Dinator</span>
         </a>
@@ -35,10 +35,22 @@
     </div>
     <!-- Enlaces de navegación -->
     <ul class="nav-links">
-        <li><a href="/about.html" class="es">Sobre mí</a><a href="/about.html" class="en">About Me</a></li>
-        <li><a href="/experience.html" class="es">Experiencia</a><a href="/experience.html" class="en">Experience</a></li>
-        <li><a href="/skills.html" class="es">Habilidades</a><a href="/skills.html" class="en">Skills</a></li>
-        <li><a href="/contact.html" class="es">Contacto</a><a href="/contact.html" class="en">Contact</a></li>
+        <li>
+            <a href="#" onclick="showTab('about')" class="es">Sobre mí</a>
+            <a href="#" onclick="showTab('about')" class="en">About Me</a>
+        </li>
+        <li>
+            <a href="#" onclick="showTab('experience')" class="es">Experiencia</a>
+            <a href="#" onclick="showTab('experience')" class="en">Experience</a>
+        </li>
+        <li>
+            <a href="#" onclick="showTab('skills')" class="es">Habilidades</a>
+            <a href="#" onclick="showTab('skills')" class="en">Skills</a>
+        </li>
+        <li>
+            <a href="#" onclick="showTab('contact')" class="es">Contacto</a>
+            <a href="#" onclick="showTab('contact')" class="en">Contact</a>
+        </li>
         <!-- Selector de idioma para móvil dentro del menú -->
         <li>
             <div class="language-switch language-switch-mobile">
@@ -56,13 +68,73 @@
 
     <!-- Contenido específico de cada página -->
     <main>
-    <section class="intro">
+    <section id="intro" class="tab-content active">
         <h1 class="es">Bienvenido a mi sitio web personal</h1>
-        <h1 class="en">Welcome to my personal website</h1>
+        <h1 class="en" style="display:none;">Welcome to my personal website</h1>
         <p class="es">Gracias por visitar mi página. Soy Sebastián Dinator, especializado en ciberseguridad, inteligencia artificial y tecnología. En este sitio encontrarás información sobre mi experiencia profesional, habilidades, y proyectos destacados.</p>
-        <p class="en">Thank you for visiting my page. I'm Sebastián Dinator, specialized in cybersecurity, artificial intelligence, and technology. On this website, you will find information about my professional experience, skills, and notable projects.</p>
+        <p class="en" style="display:none;">Thank you for visiting my page. I'm Sebastián Dinator, specialized in cybersecurity, artificial intelligence, and technology. On this website, you will find information about my professional experience, skills, and notable projects.</p>
         <p class="es">Te invito a explorar el contenido para conocer más sobre mi trabajo y cómo podemos colaborar en el futuro.</p>
-        <p class="en">I invite you to explore the content to learn more about my work and how we can collaborate in the future.</p>
+        <p class="en" style="display:none;">I invite you to explore the content to learn more about my work and how we can collaborate in the future.</p>
+    </section>
+
+    <section id="about" class="tab-content" style="display: none;">
+            <main>
+        <section class="about">
+            <h1 class="es">Sobre mí</h1>
+            <h1 class="en">About Me</h1>
+            <p class="es">Soy un estudiante aplicado en el mundo de la informática, con amplia experiencia en computadoras, bases de datos, redes y dispositivos móviles. Siempre estoy aprendiendo nuevas tecnologías y aplicándolas para resolver problemas.</p>
+            <p class="en">I am a diligent student in the world of computer science, with broad experience in personal computers, databases, networks, and mobile devices. I am always learning new technologies and applying them to solve problems.</p>
+        </section>
+    </main>
+    </section>
+
+    <section id="experience" class="tab-content" style="display: none;">
+            <main>
+        <section class="experience">
+            <h1 class="es">Experiencia</h1>
+            <h1 class="en">Experience</h1>
+        
+            <div class="experience-item">
+                <img src="/assets/img/cenia.png" alt="Logo Cenia">
+                <p class="es">Embajador de Estudiantes en el Centro Nacional de Inteligencia Artificial | Agosto 2024 - Presente</p>
+                <p class="en">Student Ambassador at the National Center for Artificial Intelligence | August 2024 - Present</p>
+            </div>
+        
+            <div class="experience-item">
+                <img src="/assets/img/awaretools.png" alt="AwareTools">
+                <p class="es">Fundador y Encargado del Laboratorio de Ciberseguridad en la Universidad Adolfo Ibáñez | Mayo 2024 - Presente</p>
+                <p class="en">Founder and Lab Manager at the Cybersecurity Lab at Adolfo Ibáñez University | May 2024 - Present</p>
+            </div>
+        
+            <div class="experience-item">
+                <img src="/assets/img/hacking.png" alt="Hack.Ing 2024">
+                <p class="es">2º lugar en el Hack.Ing CTF 2024 | Pontificia Universidad Católica de Chile</p>
+                <p class="en">2nd place in Hack.Ing CTF 2024 | Pontifical Catholic University of Chile</p>
+            </div>
+        </section>        
+    </main>
+    </section>
+
+    <section id="skills" class="tab-content" style="display: none;">
+            <main>
+        <section class="skills">
+            <h1 class="es">Habilidades</h1>
+            <h1 class="en">Skills</h1>
+            <p class="es">Áreas de especialización: Pruebas de penetración, análisis de vulnerabilidades, Python, C, R, Inteligencia Artificial aplicada a la seguridad.</p>
+            <p class="en">Areas of expertise: Penetration Testing, Vulnerability Analysis, Python, C, R, AI applied to security.</p>
+        </section>
+    </main>
+    </section>
+
+    <section id="contact" class="tab-content" style="display: none;">
+            <main>
+        <section class="contact">
+            <h1 class="es">Contacto</h1>
+            <h1 class="en">Contact</h1>
+            <p class="es">Puedes contactarme en <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> o en mi <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.</p>
+            <p class="en">You can contact me at <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> or on <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.</p>
+        </section>
+    </main>
     </section>
 </main>
 
@@ -97,5 +169,39 @@
             }
         });
     </script>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.style.display = 'none';
+                tab.classList.remove('active');
+            });
+
+            const activeTab = document.getElementById(tabId);
+            if (activeTab) {
+                activeTab.style.display = 'block';
+                activeTab.classList.add('active');
+            }
+        }
+
+        function cambiarIdioma(idioma) {
+            const esElements = document.querySelectorAll('.es');
+            const enElements = document.querySelectorAll('.en');
+
+            if (idioma === 'es') {
+                esElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+            } else {
+                esElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        // Función para el menú hamburguesa en móviles
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('nav-links-active');
+        }
+    </script>    
 </body>
 </html>
