@@ -71,17 +71,31 @@
       });
     </script>
     <script>
+      // Función para cambiar la pestaña activa
       function showTab(tabId) {
         const tabs = document.querySelectorAll(".tab-content");
+        const links = document.querySelectorAll(".nav-links a");
+
+        // Ocultar todas las pestañas y eliminar la clase 'active' de todos los enlaces
         tabs.forEach((tab) => {
           tab.style.display = "none";
           tab.classList.remove("active");
         });
+        links.forEach((link) => link.classList.remove("active"));
 
+        // Mostrar la pestaña seleccionada
         const activeTab = document.getElementById(tabId);
         if (activeTab) {
           activeTab.style.display = "block";
           activeTab.classList.add("active");
+        }
+
+        // Agregar la clase 'active' al enlace seleccionado
+        const activeLink = document.querySelector(
+          `.nav-links a[href="#${tabId}"]`
+        );
+        if (activeLink) {
+          activeLink.classList.add("active");
         }
       }
 
