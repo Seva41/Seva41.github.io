@@ -90,13 +90,11 @@
           activeTab.classList.add("active");
         }
 
-        // Agregar la clase 'active' al enlace seleccionado
-        const activeLink = document.querySelector(
+        // Agregar la clase 'active' a los enlaces correspondientes
+        const activeLinks = document.querySelectorAll(
           `.nav-links a[href="#${tabId}"]`
         );
-        if (activeLink) {
-          activeLink.classList.add("active");
-        }
+        activeLinks.forEach((link) => link.classList.add("active"));
       }
 
       function cambiarIdioma(idioma) {
