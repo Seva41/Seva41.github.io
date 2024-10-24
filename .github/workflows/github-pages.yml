@@ -3,34 +3,34 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main  # Reemplaza con el nombre de tu rama principal si es diferente
+      - main # Reemplaza con el nombre de tu rama principal si es diferente
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js (force Node.js 20)
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      - name: Set up Node.js (force Node.js 20)
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.0  # Ajusta la versión según tus necesidades
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0 # Ajusta la versión según tus necesidades
 
-    - name: Install dependencies
-      run: bundle install
+      - name: Install dependencies
+        run: bundle install
 
-    - name: Build site
-      run: bundle exec jekyll build
+      - name: Build site
+        run: bundle exec jekyll build
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        publish_dir: ./_site
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          publish_dir: ./_site
