@@ -69,20 +69,20 @@
   <!-- Enlaces de navegación -->
   <ul class="nav-links">
     <li>
-      <a href="#" onclick="showTab('about')" class="es">Sobre mí</a>
-      <a href="#" onclick="showTab('about')" class="en">About Me</a>
+      <a href="#about" onclick="showTab('about')" class="es">Sobre mí</a>
+      <a href="#about" onclick="showTab('about')" class="en">About Me</a>
     </li>
     <li>
-      <a href="#" onclick="showTab('experience')" class="es">Experiencia</a>
-      <a href="#" onclick="showTab('experience')" class="en">Experience</a>
+      <a href="#experience" onclick="showTab('experience')" class="es">Experiencia</a>
+      <a href="#experience" onclick="showTab('experience')" class="en">Experience</a>
     </li>
     <li>
-      <a href="#" onclick="showTab('skills')" class="es">Habilidades</a>
-      <a href="#" onclick="showTab('skills')" class="en">Skills</a>
+      <a href="#skills" onclick="showTab('skills')" class="es">Habilidades</a>
+      <a href="#skills" onclick="showTab('skills')" class="en">Skills</a>
     </li>
     <li>
-      <a href="#" onclick="showTab('contact')" class="es">Contacto</a>
-      <a href="#" onclick="showTab('contact')" class="en">Contact</a>
+      <a href="#contact" onclick="showTab('contact')" class="es">Contacto</a>
+      <a href="#contact" onclick="showTab('contact')" class="en">Contact</a>
     </li>
     <!-- Selector de idioma para móvil dentro del menú -->
     <li>
@@ -132,15 +132,50 @@
     <h1 class="es">Sobre mí</h1>
     <h1 class="en">About Me</h1>
     <p class="es">
-      Soy un estudiante aplicado en el mundo de la informática, con amplia
-      experiencia en computadoras, bases de datos, redes y dispositivos móviles.
-      Siempre estoy aprendiendo nuevas tecnologías y aplicándolas para resolver
-      problemas.
+      Soy un estudiante de magíster y licenciado de Ingeniería Civil Informática
+      de la Universidad Adolfo Ibáñez. Aplicado en el mundo de la informática,
+      con amplia experiencia en computadoras, bases de datos, redes y
+      dispositivos móviles. Siempre estoy aprendiendo nuevas tecnologías y
+      aplicándolas para resolver problemas.
+    </p>
+    <p class="es">
+      He desarrollado y participado en diversos proyectos educacionales y de
+      software de código abierto, como laboratorios interactivos y
+      <a href="https://github.com/Seva41/CTF_SSH" target="_blank"
+        >desafíos CTF</a
+      >
+      para cursos de Seguridad en TI, un
+      <a href="https://github.com/SoC-UAI/Control_Ingreso" target="_blank">
+        control de acceso dinámico</a
+      >
+      con registro de asistencia para el laboratorio de ciberseguridad de la
+      Universidad Adolfo Ibáñez, y una pequeña contribución al proyecto de
+      filtrado DNS y bloqueo de anuncios a nivel de red,
+      <a href="https://github.com/pi-hole/pi-hole/pull/5806" target="_blank">
+        Pi-Hole</a
+      >.
     </p>
     <p class="en">
       I am a diligent student in the world of computer science, with broad
       experience in personal computers, databases, networks, and mobile devices.
       I am always learning new technologies and applying them to solve problems.
+    </p>
+    <p class="en">
+      I have developed and participated in various educational and open-source
+      software projects, such as interactive labs and
+      <a href="https://github.com/Seva41/CTF_SSH" target="_blank"
+        >CTF challenges</a
+      >
+      for IT Security courses, a
+      <a href="https://github.com/SoC-UAI/Control_Ingreso" target="_blank">
+        dynamic access control system</a
+      >
+      with attendance logging for the cybersecurity lab at Universidad Adolfo
+      Ibáñez, and a small contribution to the DNS filtering and network-wide ad
+      blocking project,
+      <a href="https://github.com/pi-hole/pi-hole/pull/5806" target="_blank">
+        Pi-Hole</a
+      >.
     </p>
   </section>
 </main>
@@ -270,17 +305,31 @@
       });
     </script>
     <script>
+      // Función para cambiar la pestaña activa
       function showTab(tabId) {
         const tabs = document.querySelectorAll(".tab-content");
+        const links = document.querySelectorAll(".nav-links a");
+
+        // Ocultar todas las pestañas y eliminar la clase 'active' de todos los enlaces
         tabs.forEach((tab) => {
           tab.style.display = "none";
           tab.classList.remove("active");
         });
+        links.forEach((link) => link.classList.remove("active"));
 
+        // Mostrar la pestaña seleccionada
         const activeTab = document.getElementById(tabId);
         if (activeTab) {
           activeTab.style.display = "block";
           activeTab.classList.add("active");
+        }
+
+        // Agregar la clase 'active' al enlace seleccionado
+        const activeLink = document.querySelector(
+          `.nav-links a[href="#${tabId}"]`
+        );
+        if (activeLink) {
+          activeLink.classList.add("active");
         }
       }
 

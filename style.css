@@ -99,7 +99,7 @@ p {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 60px; /* Aumentar el espacio entre los elementos */
   margin: 0 auto; /* Centrar los elementos */
   padding-left: 0;
   transition: transform 0.3s ease;
@@ -118,6 +118,11 @@ p {
 
 .nav-links a:hover {
   color: #5dade2;
+}
+
+/* Estilo para el enlace activo */
+.nav-links a.active {
+  color: #5dade2; /* Color azul para denotar el elemento activo */
 }
 
 /* Selector de idioma */
