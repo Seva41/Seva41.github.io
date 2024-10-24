@@ -1,207 +1,307 @@
 <!-- _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Inicio | Sebastián Dinator">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Inicio | Sebastián Dinator" />
     <title>Inicio | Sebastián Dinator</title>
-    <link rel="stylesheet" href="/style.css?v=1.0">
-    <link rel="icon" href="/assets/icons/favicon.ico?v=1.0" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png?v=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png?v=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=1.0">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png?v=1.0">
-    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/android-chrome-512x512.png?v=1.0">
-    
+    <link rel="stylesheet" href="/style.css?v=1.0" />
+    <link
+      rel="icon"
+      href="/assets/icons/favicon.ico?v=1.0"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/icons/favicon-16x16.png?v=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/icons/favicon-32x32.png?v=1.0"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/icons/apple-touch-icon.png?v=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/icons/android-chrome-192x192.png?v=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/icons/android-chrome-512x512.png?v=1.0"
+    />
+
     <!-- Web App Manifest -->
-    <link rel="manifest" href="/assets/icons/site.webmanifest?v=1.0">
+    <link
+      rel="manifest"
+      href="/assets/icons/site.webmanifest?v=1.0"
+    />
     <!-- Scripts comunes -->
     <script src="/assets/js/main.js?v=1.0"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="particles-js"></div>
     <!-- _includes/navbar.html -->
 <nav class="navbar">
-    <div class="logo">
-        <a href="#" onclick="showTab('intro')">
-            <img src="/assets/img/perfil.jpg" alt="Foto de Sebastián Dinator" class="profile-small">
-            <span>Sebastián Dinator</span>
-        </a>
-    </div>
-    <!-- Ícono del menú hamburguesa -->
-    <div class="menu-icon" onclick="toggleMenu()">
-        &#9776;
-    </div>
-    <!-- Enlaces de navegación -->
-    <ul class="nav-links">
-        <li>
-            <a href="#" onclick="showTab('about')" class="es">Sobre mí</a>
-            <a href="#" onclick="showTab('about')" class="en">About Me</a>
-        </li>
-        <li>
-            <a href="#" onclick="showTab('experience')" class="es">Experiencia</a>
-            <a href="#" onclick="showTab('experience')" class="en">Experience</a>
-        </li>
-        <li>
-            <a href="#" onclick="showTab('skills')" class="es">Habilidades</a>
-            <a href="#" onclick="showTab('skills')" class="en">Skills</a>
-        </li>
-        <li>
-            <a href="#" onclick="showTab('contact')" class="es">Contacto</a>
-            <a href="#" onclick="showTab('contact')" class="en">Contact</a>
-        </li>
-        <!-- Selector de idioma para móvil dentro del menú -->
-        <li>
-            <div class="language-switch language-switch-mobile">
-                <button onclick="cambiarIdioma('es')">Español</button>
-                <button onclick="cambiarIdioma('en')">English</button>
-            </div>
-        </li>
-    </ul>
-    <!-- Selector de idioma para escritorio -->
-    <div class="language-switch language-switch-desktop">
+  <div class="logo">
+    <a href="#" onclick="showTab('intro')">
+      <img
+        src="/assets/img/perfil.jpg"
+        alt="Foto de Sebastián Dinator"
+        class="profile-small"
+      />
+      <span>Sebastián Dinator</span>
+    </a>
+  </div>
+  <!-- Ícono del menú hamburguesa -->
+  <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  <!-- Enlaces de navegación -->
+  <ul class="nav-links">
+    <li>
+      <a href="#" onclick="showTab('about')" class="es">Sobre mí</a>
+      <a href="#" onclick="showTab('about')" class="en">About Me</a>
+    </li>
+    <li>
+      <a href="#" onclick="showTab('experience')" class="es">Experiencia</a>
+      <a href="#" onclick="showTab('experience')" class="en">Experience</a>
+    </li>
+    <li>
+      <a href="#" onclick="showTab('skills')" class="es">Habilidades</a>
+      <a href="#" onclick="showTab('skills')" class="en">Skills</a>
+    </li>
+    <li>
+      <a href="#" onclick="showTab('contact')" class="es">Contacto</a>
+      <a href="#" onclick="showTab('contact')" class="en">Contact</a>
+    </li>
+    <!-- Selector de idioma para móvil dentro del menú -->
+    <li>
+      <div class="language-switch language-switch-mobile">
         <button onclick="cambiarIdioma('es')">Español</button>
         <button onclick="cambiarIdioma('en')">English</button>
-    </div>
+      </div>
+    </li>
+  </ul>
+  <!-- Selector de idioma para escritorio -->
+  <div class="language-switch language-switch-desktop">
+    <button onclick="cambiarIdioma('es')">Español</button>
+    <button onclick="cambiarIdioma('en')">English</button>
+  </div>
 </nav>
 
     <!-- Contenido específico de cada página -->
     <main>
-    <section id="intro" class="tab-content active">
-        <h1 class="es">Bienvenido a mi sitio web personal</h1>
-        <h1 class="en" style="display:none;">Welcome to my personal website</h1>
-        <p class="es">Gracias por visitar mi página. Soy Sebastián Dinator, especializado en ciberseguridad, inteligencia artificial y tecnología. En este sitio encontrarás información sobre mi experiencia profesional, habilidades, y proyectos destacados.</p>
-        <p class="en" style="display:none;">Thank you for visiting my page. I'm Sebastián Dinator, specialized in cybersecurity, artificial intelligence, and technology. On this website, you will find information about my professional experience, skills, and notable projects.</p>
-        <p class="es">Te invito a explorar el contenido para conocer más sobre mi trabajo y cómo podemos colaborar en el futuro.</p>
-        <p class="en" style="display:none;">I invite you to explore the content to learn more about my work and how we can collaborate in the future.</p>
-    </section>
+  <section id="intro" class="tab-content active">
+    <h1 class="es">Sebastián Dinator</h1>
+    <h1 class="en" style="display: none">Sebastián Dinator</h1>
+    <p class="es">
+      Gracias por visitar! Soy Sebastián Dinator, especializado en
+      ciberseguridad, inteligencia artificial y tecnología. En este sitio
+      encontrarás información sobre mi experiencia profesional, habilidades, y
+      proyectos destacados.
+    </p>
+    <p class="en" style="display: none">
+      Thank you for visiting! I'm Sebastián Dinator, specialized in
+      cybersecurity, artificial intelligence, and technology. On this website,
+      you will find information about my professional experience, skills, and
+      notable projects.
+    </p>
+    <p class="es">
+      Te invito a explorar el contenido para conocer más sobre mi trabajo y cómo
+      podemos colaborar en el futuro.
+    </p>
+    <p class="en" style="display: none">
+      I invite you to explore the content to learn more about my work and how we
+      can collaborate in the future.
+    </p>
+  </section>
 
-    <section id="about" class="tab-content" style="display: none;">
-            <main>
-        <section class="about">
-            <h1 class="es">Sobre mí</h1>
-            <h1 class="en">About Me</h1>
-            <p class="es">Soy un estudiante aplicado en el mundo de la informática, con amplia experiencia en computadoras, bases de datos, redes y dispositivos móviles. Siempre estoy aprendiendo nuevas tecnologías y aplicándolas para resolver problemas.</p>
-            <p class="en">I am a diligent student in the world of computer science, with broad experience in personal computers, databases, networks, and mobile devices. I am always learning new technologies and applying them to solve problems.</p>
-        </section>
-    </main>
-    </section>
-
-    <section id="experience" class="tab-content" style="display: none;">
-            <main>
-        <section class="experience">
-            <h1 class="es">Experiencia</h1>
-            <h1 class="en">Experience</h1>
-        
-            <div class="experience-item">
-                <img src="/assets/img/cenia.png" alt="Logo Cenia">
-                <p class="es">Embajador de Estudiantes en el Centro Nacional de Inteligencia Artificial | Agosto 2024 - Presente</p>
-                <p class="en">Student Ambassador at the National Center for Artificial Intelligence | August 2024 - Present</p>
-            </div>
-        
-            <div class="experience-item">
-                <img src="/assets/img/awaretools.png" alt="AwareTools">
-                <p class="es">Fundador y Encargado del Laboratorio de Ciberseguridad en la Universidad Adolfo Ibáñez | Mayo 2024 - Presente</p>
-                <p class="en">Founder and Lab Manager at the Cybersecurity Lab at Adolfo Ibáñez University | May 2024 - Present</p>
-            </div>
-        
-            <div class="experience-item">
-                <img src="/assets/img/hacking.png" alt="Hack.Ing 2024">
-                <p class="es">2º lugar en el Hack.Ing CTF 2024 | Pontificia Universidad Católica de Chile</p>
-                <p class="en">2nd place in Hack.Ing CTF 2024 | Pontifical Catholic University of Chile</p>
-            </div>
-        </section>        
-    </main>
-    </section>
-
-    <section id="skills" class="tab-content" style="display: none;">
-            <main>
-        <section class="skills">
-            <h1 class="es">Habilidades</h1>
-            <h1 class="en">Skills</h1>
-            <p class="es">Áreas de especialización: Pruebas de penetración, análisis de vulnerabilidades, Python, C, R, Inteligencia Artificial aplicada a la seguridad.</p>
-            <p class="en">Areas of expertise: Penetration Testing, Vulnerability Analysis, Python, C, R, AI applied to security.</p>
-        </section>
-    </main>
-    </section>
-
-    <section id="contact" class="tab-content" style="display: none;">
-            <main>
-        <section class="contact">
-            <h1 class="es">Contacto</h1>
-            <h1 class="en">Contact</h1>
-            <p class="es">Puedes contactarme en <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> o en mi <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.</p>
-            <p class="en">You can contact me at <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> or on <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.</p>
-        </section>
-    </main>
-    </section>
+  <section id="about" class="tab-content" style="display: none">
+    <main>
+  <section class="about">
+    <h1 class="es">Sobre mí</h1>
+    <h1 class="en">About Me</h1>
+    <p class="es">
+      Soy un estudiante aplicado en el mundo de la informática, con amplia
+      experiencia en computadoras, bases de datos, redes y dispositivos móviles.
+      Siempre estoy aprendiendo nuevas tecnologías y aplicándolas para resolver
+      problemas.
+    </p>
+    <p class="en">
+      I am a diligent student in the world of computer science, with broad
+      experience in personal computers, databases, networks, and mobile devices.
+      I am always learning new technologies and applying them to solve problems.
+    </p>
+  </section>
 </main>
 
-    <!-- _includes/footer.html -->
-<footer>
-    <p class="es">&copy; 2024 Sebastián Dinator | Ciberseguridad y Tecnología</p>
-    <p class="en">&copy; 2024 Sebastián Dinator | Cybersecurity and Technology</p>
-    <div class="social-icons">
-        <a href="https://www.linkedin.com/in/sebadinator" target="_blank">
-            <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/Seva41" target="_blank">
-            <img src="/assets/icons/github.svg" alt="GitHub">
-        </a>
-        <a href="https://t.me/sevadinator" target="_blank">
-            <img src="/assets/icons/telegram.svg" alt="Telegram">
-        </a>
+  </section>
+
+  <section id="experience" class="tab-content" style="display: none">
+    <main>
+  <section class="experience">
+    <h1 class="es">Experiencia</h1>
+    <h1 class="en">Experience</h1>
+
+    <div class="experience-item">
+      <img src="/assets/img/cenia.png" alt="Logo Cenia" />
+      <p class="es">
+        Embajador de Estudiantes en el Centro Nacional de Inteligencia
+        Artificial | Agosto 2024 - Presente
+      </p>
+      <p class="en">
+        Student Ambassador at the National Center for Artificial Intelligence |
+        August 2024 - Present
+      </p>
     </div>
+
+    <div class="experience-item">
+      <img src="/assets/img/awaretools.png" alt="AwareTools" />
+      <p class="es">
+        Fundador y Encargado del Laboratorio de Ciberseguridad en la Universidad
+        Adolfo Ibáñez | Mayo 2024 - Presente
+      </p>
+      <p class="en">
+        Founder and Lab Manager at the Cybersecurity Lab at Adolfo Ibáñez
+        University | May 2024 - Present
+      </p>
+    </div>
+
+    <div class="experience-item">
+      <img src="/assets/img/hacking.png" alt="Hack.Ing 2024" />
+      <p class="es">
+        2º lugar en el Hack.Ing CTF 2024 | Pontificia Universidad Católica de
+        Chile
+      </p>
+      <p class="en">
+        2nd place in Hack.Ing CTF 2024 | Pontifical Catholic University of Chile
+      </p>
+    </div>
+  </section>
+</main>
+
+  </section>
+
+  <section id="skills" class="tab-content" style="display: none">
+    <main>
+  <section class="skills">
+    <h1 class="es">Habilidades</h1>
+    <h1 class="en">Skills</h1>
+    <p class="es">
+      Áreas de especialización: Pruebas de penetración, análisis de
+      vulnerabilidades, Python, C, R, Inteligencia Artificial aplicada a la
+      seguridad.
+    </p>
+    <p class="en">
+      Areas of expertise: Penetration Testing, Vulnerability Analysis, Python,
+      C, R, AI applied to security.
+    </p>
+  </section>
+</main>
+
+  </section>
+
+  <section id="contact" class="tab-content" style="display: none">
+    <main>
+  <section class="contact">
+    <h1 class="es">Contacto</h1>
+    <h1 class="en">Contact</h1>
+    <p class="es">
+      Puedes contactarme en
+      <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> o en mi
+      <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.
+    </p>
+    <p class="en">
+      You can contact me at
+      <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> or on
+      <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.
+    </p>
+  </section>
+</main>
+
+  </section>
+</main>
+ <!-- _includes/footer.html -->
+<footer>
+  <p class="es">&copy; 2024 Sebastián Dinator | Ciberseguridad y Tecnología</p>
+  <p class="en">&copy; 2024 Sebastián Dinator | Cybersecurity and Technology</p>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/sebadinator" target="_blank">
+      <img
+        src="/assets/icons/linkedin.svg"
+        alt="LinkedIn"
+      />
+    </a>
+    <a href="https://github.com/Seva41" target="_blank">
+      <img src="/assets/icons/github.svg" alt="GitHub" />
+    </a>
+    <a href="https://t.me/sevadinator" target="_blank">
+      <img
+        src="/assets/icons/telegram.svg"
+        alt="Telegram"
+      />
+    </a>
+  </div>
 </footer>
+
     <!-- Scripts comunes al final del body -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/assets/js/particles.js?v=1.0"></script>
     <script>
-        window.addEventListener('load', function () {
-            const particles = document.getElementById('particles-js');
-            if (particles) {
-                setTimeout(() => {
-                    particles.style.display = 'none';
-                    particles.offsetHeight; // Forzar un reflow/redibujado
-                    particles.style.display = 'block';
-                }, 500);
-            }
-        });
+      window.addEventListener("load", function () {
+        const particles = document.getElementById("particles-js");
+        if (particles) {
+          setTimeout(() => {
+            particles.style.display = "none";
+            particles.offsetHeight; // Forzar un reflow/redibujado
+            particles.style.display = "block";
+          }, 500);
+        }
+      });
     </script>
     <script>
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.style.display = 'none';
-                tab.classList.remove('active');
-            });
+      function showTab(tabId) {
+        const tabs = document.querySelectorAll(".tab-content");
+        tabs.forEach((tab) => {
+          tab.style.display = "none";
+          tab.classList.remove("active");
+        });
 
-            const activeTab = document.getElementById(tabId);
-            if (activeTab) {
-                activeTab.style.display = 'block';
-                activeTab.classList.add('active');
-            }
+        const activeTab = document.getElementById(tabId);
+        if (activeTab) {
+          activeTab.style.display = "block";
+          activeTab.classList.add("active");
         }
+      }
 
-        function cambiarIdioma(idioma) {
-            const esElements = document.querySelectorAll('.es');
-            const enElements = document.querySelectorAll('.en');
+      function cambiarIdioma(idioma) {
+        const esElements = document.querySelectorAll(".es");
+        const enElements = document.querySelectorAll(".en");
 
-            if (idioma === 'es') {
-                esElements.forEach(el => el.style.display = 'block');
-                enElements.forEach(el => el.style.display = 'none');
-            } else {
-                esElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'block');
-            }
+        if (idioma === "es") {
+          esElements.forEach((el) => (el.style.display = "block"));
+          enElements.forEach((el) => (el.style.display = "none"));
+        } else {
+          esElements.forEach((el) => (el.style.display = "none"));
+          enElements.forEach((el) => (el.style.display = "block"));
         }
+      }
 
-        // Función para el menú hamburguesa en móviles
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('nav-links-active');
-        }
-    </script>    
-</body>
+      // Función para el menú hamburguesa en móviles
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("nav-links-active");
+      }
+    </script>
+  </body>
 </html>
