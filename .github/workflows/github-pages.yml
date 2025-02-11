@@ -44,6 +44,7 @@ jobs:
           git push origin gh-pages
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        with:
-          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           publish_dir: ./_site
+        #with:
+        #  personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        #  publish_dir: ./_site
