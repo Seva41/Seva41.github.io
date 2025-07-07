@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const items = experienceSection.querySelectorAll('.experience-list li');
 
   const details = {
+    klap: {
+      es: `<h2>Ingeniero de Desarrollo Full Stack - Klap</h2>
+        <p>Desarrollo de Servicios Financieros y BackOffice, utilizando tecnologías como Java, Spring Boot y Angular.</p>`,
+      en: `<h2>Full Stack Development Engineer - Klap</h2>
+        <p>Developing financial services and back-office solutions using technologies such as Java, Spring Boot, and Angular.</p>`
+    },
     cenia: {
       es: `<h2>Embajador de Estudiantes - CENIA</h2>
         <p>Representé a la comunidad estudiantil en el Centro Nacional de Inteligencia Artificial, participando en actividades de difusión, organización de eventos y colaboración con investigadores.</p>`,
