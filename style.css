@@ -294,6 +294,103 @@ footer p {
   display: flex;
 }
 
+/* Animación y layout para experiencia dual window */
+#experience .experience-dual {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: stretch;
+  width: 100%;
+  min-height: 60vh;
+  gap: 32px;
+  position: relative;
+  overflow: visible;
+  width: 700px;
+  transition: width 0.8s cubic-bezier(.77,0,.18,1);
+}
+
+#experience .experience-dual.dual-active {
+  width: 1432px; /* 700px + 32px gap + 700px */
+}
+
+#experience .experience-list-window,
+#experience .experience-detail-window {
+  width: 700px;
+  max-width: 700px;
+  min-width: 340px;
+}
+
+#experience .experience-detail-window {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(40px);
+  transition:
+    opacity 0.8s cubic-bezier(.77,0,.18,1) 0.25s,
+    transform 0.8s cubic-bezier(.77,0,.18,1) 0.25s;
+  position: absolute;
+  left: 732px; /* 700px + 32px gap */
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+#experience .experience-dual.dual-active .experience-detail-window {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+#experience .experience-dual {
+  position: relative;
+}
+
+#experience .experience-dual.dual-active .experience-list-window {
+  transform: translateX(-366px);
+  transition: transform 0.8s cubic-bezier(.77,0,.18,1);
+}
+
+/* Responsive: en móvil, solo una ventana a la vez */
+@media (max-width: 1500px) {
+  #experience .experience-list-window,
+  #experience .experience-detail-window {
+    width: 48vw;
+    max-width: 100vw;
+    min-width: 0;
+  }
+  #experience .experience-dual.dual-active .experience-list-window {
+    transform: translateX(-25vw);
+  }
+}
+@media (max-width: 900px) {
+  #experience .experience-dual {
+    flex-direction: column;
+    gap: 0;
+    position: static;
+  }
+  #experience .experience-list-window,
+  #experience .experience-detail-window {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    flex: 1 1 100%;
+  }
+  #experience .experience-dual.dual-active .experience-list-window {
+    display: none;
+  }
+  #experience .experience-dual.dual-active .experience-detail-window {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
 /* Estilos para móviles */
 @media (max-width: 768px) {
   .menu-icon {
@@ -393,4 +490,52 @@ footer p {
   justify-content: center;
   min-height: unset; /* Importante: no forzar altura mínima */
   height: auto;
+}
+
+/* Solo alargar la ventana en la sección de experiencia */
+#experience .content-window {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#experience .experience-list {
+  flex: 1 1 auto;
+  max-height: none;
+  overflow-y: auto;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.experience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 350px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.experience-list li {
+  background: rgba(50, 60, 70, 0.85);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+  color: #fff;
+  font-size: 1.08rem;
+  border-left: 4px solid #5dade2;
+  transition: background 0.2s;
+}
+
+.experience-list li:hover {
+  background: rgba(70, 90, 110, 0.95);
+}
+
+.experience-date {
+  color: #5dade2;
+  font-size: 0.98em;
+  font-weight: 500;
 }

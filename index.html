@@ -42,8 +42,14 @@ lang: es
   </section>
 
   <section id="experience" class="tab-content" style="display: none">
-    <div class="content-window">
-      {% include experience.html %}
+    <div class="experience-dual">
+      <div class="content-window experience-list-window">
+        {% include experience.html %}
+      </div>
+      <div id="experience-detail-window" class="content-window experience-detail-window">
+        <button class="close-detail">×</button>
+        <div id="experience-detail-content"></div>
+      </div>
     </div>
   </section>
 
