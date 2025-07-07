@@ -7,45 +7,55 @@ lang: es
 
 <main>
   <section id="intro" class="tab-content active">
-    <h1 class="es">Sebastián Dinator</h1>
-    <h1 class="en" style="display: none">Sebastián Dinator</h1>
-    <p class="es">
-      Gracias por visitar! Soy Sebastián Dinator, Ingeniero Civil Informático y
-      Magíster en Ciencias de la Ingeniería con mención en TI, especializado en
-      ciberseguridad, inteligencia artificial y tecnología. En este sitio
-      encontrarás información sobre mi experiencia profesional, habilidades, y
-      proyectos destacados.
-    </p>
-    <p class="en" style="display: none">
-      Thank you for visiting! I'm Sebastián Dinator, Computer Science Engineer
-      and Master of Science in Engineering with a specialization in IT,
-      specialized in cybersecurity, artificial intelligence, and technology. On
-      this website, you will find information about my professional experience,
-      skills, and notable projects.
-    </p>
-    <p class="es">
-      Te invito a explorar el contenido para conocer más sobre mi trabajo y cómo
-      podemos colaborar en el futuro.
-    </p>
-    <p class="en" style="display: none">
-      I invite you to explore the content to learn more about my work and how we
-      can collaborate in the future.
-    </p>
+    <div class="content-window">
+      <h1 class="es">Sebastián Dinator</h1>
+      <h1 class="en" style="display: none">Sebastián Dinator</h1>
+      <p class="es">
+        Gracias por visitar! Soy Sebastián Dinator, Ingeniero Civil Informático y
+        Magíster en Ciencias de la Ingeniería con mención en TI, especializado en
+        ciberseguridad, inteligencia artificial y tecnología. En este sitio
+        encontrarás información sobre mi experiencia profesional, habilidades, y
+        proyectos destacados.
+      </p>
+      <p class="en" style="display: none">
+        Thank you for visiting! I'm Sebastián Dinator, Computer Science Engineer
+        and Master of Science in Engineering with a specialization in IT,
+        specialized in cybersecurity, artificial intelligence, and technology. On
+        this website, you will find information about my professional experience,
+        skills, and notable projects.
+      </p>
+      <p class="es">
+        Te invito a explorar el contenido para conocer más sobre mi trabajo y cómo
+        podemos colaborar en el futuro.
+      </p>
+      <p class="en" style="display: none">
+        I invite you to explore the content to learn more about my work and how we
+        can collaborate in the future.
+      </p>
+    </div>
   </section>
 
   <section id="about" class="tab-content" style="display: none">
-    {% include about.html %}
+    <div class="content-window">
+      {% include about.html %}
+    </div>
   </section>
 
   <section id="experience" class="tab-content" style="display: none">
-    {% include experience.html %}
+    <div class="content-window">
+      {% include experience.html %}
+    </div>
   </section>
 
   <section id="skills" class="tab-content" style="display: none">
-    {% include skills.html %}
+    <div class="content-window">
+      {% include skills.html %}
+    </div>
   </section>
 
   <section id="contact" class="tab-content" style="display: none">
-    {% include contact.html %}
+    <div class="content-window">
+      {% include contact.html %}
+    </div>
   </section>
 </main>
