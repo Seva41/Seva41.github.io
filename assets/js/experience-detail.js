@@ -46,11 +46,20 @@ document.addEventListener('DOMContentLoaded', function () {
     return esVisible ? 'es' : 'en';
   }
 
+  // Guarda el último detalle mostrado
+  let currentDetailKey = null;
+
+  function updateDetailContent() {
+    if (!currentDetailKey) return;
+    const lang = getCurrentLang();
+    detailContent.innerHTML = details[currentDetailKey] ? details[currentDetailKey][lang] : "<p>Detalle no disponible.</p>";
+  }
+
   items.forEach(item => {
     item.addEventListener("click", function () {
       const key = item.getAttribute("data-detail");
-      const lang = getCurrentLang();
-      detailContent.innerHTML = details[key] ? details[key][lang] : "<p>Detalle no disponible.</p>";
+      currentDetailKey = key;
+      updateDetailContent();
       // Espera un frame para asegurar el render antes de animar
       requestAnimationFrame(() => {
         dualContainer.classList.add("dual-active");
@@ -60,5 +69,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   closeBtn.addEventListener("click", function () {
     dualContainer.classList.remove("dual-active");
+    currentDetailKey = null;
   });
+
+  // Hook para cambio de idioma
+  const originalCambiarIdioma = window.cambiarIdioma;
+  window.cambiarIdioma = function(idioma) {
+    if (typeof originalCambiarIdioma === "function") {
+      originalCambiarIdioma(idioma);
+    }
+    // Si la ventana de detalle está activa, actualiza el contenido
+    if (dualContainer.classList.contains("dual-active")) {
+      updateDetailContent();
+    }
+  };
 });
