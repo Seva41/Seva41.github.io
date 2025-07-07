@@ -347,9 +347,13 @@ footer p {
   position: relative;
 }
 
+#experience .experience-list-window {
+  transform: translateX(0);
+  transition: transform 0.8s cubic-bezier(.77,0,.18,1);
+}
+
 #experience .experience-dual.dual-active .experience-list-window {
   transform: translateX(-366px);
-  transition: transform 0.8s cubic-bezier(.77,0,.18,1);
 }
 
 /* Responsive: en móvil, solo una ventana a la vez */
