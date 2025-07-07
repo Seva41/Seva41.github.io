@@ -586,3 +586,39 @@ footer p {
   background: #5dade2;
   color: #fff;
 }
+
+/* Skills: ventana mucho más ancha y sin scroll vertical */
+#skills .content-window {
+  max-width: 1200px;
+  width: 98vw;
+  padding: 36px 48px;
+  max-height: none;
+  overflow-y: visible;
+  overflow-x: auto;
+}
+
+/* Ajusta el tamaño de fuente si quieres que quepa más texto horizontalmente */
+#skills .content-window {
+  font-size: 1.08rem;
+}
+
+/* Opcional: mejora la visualización de listas largas */
+#skills .content-window ul {
+  margin: 12px 0 12px 32px;
+  padding-left: 18px;
+  list-style: disc inside;
+  color: #b8e0ff;
+  font-size: 1.08rem;
+  max-width: 100%;
+  overflow: visible;
+}
+
+#skills .content-window li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #dcdcdc;
+  background: none;
+  border: none;
+  padding: 0;
+  word-break: break-word;
+}
