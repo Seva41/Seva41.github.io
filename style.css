@@ -496,6 +496,24 @@ footer p {
   height: auto;
 }
 
+/* Limita la altura máxima de la ventana de experiencia */
+#experience .content-window {
+  max-height: 80vh; /* No más del 80% de la altura de la ventana */
+  overflow: hidden; /* Oculta el overflow general */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* La lista ocupa el espacio restante y tiene scroll si es necesario */
+#experience .experience-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: 60vh; /* Ajusta según prefieras, pero menor que el max-height de la ventana */
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
 /* Solo alargar la ventana en la sección de experiencia */
 #experience .content-window {
   min-height: 80vh;
