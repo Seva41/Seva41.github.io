@@ -543,3 +543,28 @@ footer p {
   font-size: 0.98em;
   font-weight: 500;
 }
+
+#experience .experience-detail-window .close-detail {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: #5dade2;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#experience .experience-detail-window .close-detail:hover {
+  background: #5dade2;
+  color: #fff;
+}
