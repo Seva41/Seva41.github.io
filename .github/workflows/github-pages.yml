@@ -5,6 +5,10 @@ on:
     branches:
       - main # Reemplaza con el nombre de tu rama principal si es diferente
 
+permissions:
+  contents: read
+  pages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
