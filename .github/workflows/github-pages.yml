@@ -6,7 +6,7 @@ on:
       - main # Reemplaza con el nombre de tu rama principal si es diferente
 
 permissions:
-  contents: read
+  contents: write
   pages: write
 
 jobs:
