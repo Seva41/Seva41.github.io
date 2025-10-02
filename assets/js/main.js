@@ -10,6 +10,7 @@ function cambiarIdioma(idioma) {
   if(menuBtn){
     menuBtn.setAttribute('aria-label', idioma==='es' ? 'Abrir menú' : 'Open menu');
   }
+  document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active-lang', b.getAttribute('data-lang')===idioma));
 }
 
 // Función para alternar el menú en pantallas móviles
@@ -81,11 +82,8 @@ window.onload = function () {
   document.body.classList.add("loaded");
   // Restaurar pestaña activa si existe
   const lastTab = localStorage.getItem('lastTabId') || 'intro';
-  if(lastTab && lastTab!=='intro') {
-    if(document.getElementById(lastTab)) {
-      showTab(lastTab);
-    }
-  }
+  if(document.getElementById(lastTab)) { showTab(lastTab); } else { showTab('intro'); }
+  document.querySelectorAll(`[data-tab="${lastTab}"]`).forEach(b=>b.classList.add('active'));
   // Lazy loading mejorado (añadir loading a imágenes faltantes)
   document.querySelectorAll('img:not([loading])').forEach(img=>{
     img.setAttribute('loading','lazy');
