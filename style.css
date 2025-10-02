@@ -249,6 +249,16 @@ main {
   overflow: hidden;
   pointer-events: none;
   will-change: transform, opacity;
+  opacity: .85;
+  transition: opacity .8s ease;
+  filter: saturate(.9) brightness(.95);
+}
+
+#particles-js.particles-prep { opacity: 0; }
+#particles-js.particles-ready { opacity: .85; }
+
+@media (prefers-reduced-motion: reduce) {
+  #particles-js { transition: none; }
 }
 
 /* Pie de Página */
@@ -325,7 +335,7 @@ footer p {
 /* Experiencia: animación centrado → dual panel */
 /* ============================= */
 #experience .experience-dual {
-  --exp-list-width: 520px;
+  --exp-list-width: 640px; /* Igual ancho que el panel de detalle */
   --exp-detail-width: 640px;
   --exp-gap: 48px;
   display: flex;
