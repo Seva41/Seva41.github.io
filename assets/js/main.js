@@ -128,6 +128,10 @@ document.addEventListener('click', (e)=>{
   const btn = document.querySelector('.menu-icon');
   const menu = document.querySelector('.nav-links');
   if(!btn || !menu) return;
+  // Si el click ocurre dentro de la barra pero no en el botón, nunca abrir
+  if(e.target.closest('.navbar') && !e.target.closest('.menu-icon') && !btn.classList.contains('is-open')) {
+    return; // ignora
+  }
   if(!btn.classList.contains('is-open')) return; // nada que cerrar
   if(e.target.closest('.menu-icon') || e.target.closest('.nav-links')) return; // click interno
   toggleMenu(false);
