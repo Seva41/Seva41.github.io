@@ -105,6 +105,17 @@ p {
   gap: 8px;
 }
 
+/* Imagen de perfil circular consistente */
+.logo img,
+.profile-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
 /* Navegación principal */
 .nav-links {
   list-style: none;
@@ -336,40 +347,38 @@ footer p {
   min-width: 300px;
 }
 
+/* Ventana de detalle centrada en flujo flex */
 #experience .experience-detail-window {
   opacity: 0;
   pointer-events: none;
-  transform: translateX(40px);
-  transition:
-    opacity 0.6s cubic-bezier(.77,0,.18,1) 0.15s,
-    transform 0.6s cubic-bezier(.77,0,.18,1) 0.15s;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  translate: calc(50% + 16px);
-  display: flex;
+  transform: translateY(10px);
+  transition: opacity .45s cubic-bezier(.55,.1,.2,1), transform .45s cubic-bezier(.55,.1,.2,1);
+  position: relative;
+  left: auto;
+  top: auto;
+  translate: none;
+  display: none; /* Oculta hasta activarse para que la lista quede centrada sola */
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  z-index: 2;
+  align-items: flex-start;
+  z-index: 1;
 }
 
 #experience .experience-dual.dual-active .experience-detail-window {
+  display: flex;
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(0);
-  translate: calc(50% + 16px) 0;
+  transform: translateY(0);
 }
 
 /* (Regla combinada en la versión principal de #experience .experience-dual) */
 
 #experience .experience-list-window {
-  transform: translateX(0);
-  transition: transform 0.8s cubic-bezier(.77,0,.18,1);
+  transform: none;
+  transition: none;
 }
-
 #experience .experience-dual.dual-active .experience-list-window {
-  transform: translateX(-366px);
+  transform: none; /* Mantener centrado sin desplazamiento lateral */
 }
 
 /* Responsive: en móvil, solo una ventana a la vez */
