@@ -325,7 +325,7 @@ footer p {
 /* Experiencia: animación centrado → dual panel */
 /* ============================= */
 #experience .experience-dual {
-  --exp-list-width: 520px;
+  --exp-list-width: 640px; /* Igual ancho que el panel de detalle */
   --exp-detail-width: 640px;
   --exp-gap: 48px;
   display: flex;
