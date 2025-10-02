@@ -417,6 +417,9 @@ footer p {
 /* Estilos para móviles (refactor con botones mejorados y backdrop) */
 @media (max-width: 820px) {
   .menu-icon { display: flex; position: fixed; top: 12px; right: 14px; z-index: 1700; background: rgba(25,25,25,0.9); }
+  .navbar { pointer-events: none; }
+  .navbar .menu-icon { pointer-events: auto; }
+  .navbar .logo, .navbar .language-switch-desktop { pointer-events: none; }
   .nav-links {
     position: fixed;
     inset: 0 0 0 0;
