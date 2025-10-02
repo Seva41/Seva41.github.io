@@ -213,16 +213,32 @@ main {
   border: none;
   font-weight: 600;
   font-family: inherit;
-  font-size: 0.95rem;
-  letter-spacing: .5px;
+  font-size: clamp(0.85rem, 0.8rem + .3vw, 0.95rem);
+  letter-spacing: .35px;
   cursor: pointer;
-  padding: 6px 4px;
+  padding: 8px 6px;
   position: relative;
   transition: color .3s ease;
 }
 .nav-links a:focus-visible, .nav-links button.nav-btn:focus-visible { outline: 2px solid #5dade2; outline-offset: 3px; }
 .nav-links a:hover, .nav-links button.nav-btn:hover { color: #5dade2; }
 .nav-links a.active, .nav-links button.nav-btn.active { color: #5dade2; }
+
+/* Indicador inferior sutil */
+.nav-links a.active::after, .nav-links button.nav-btn.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg,#5dade2,#7cc9f7);
+  border-radius: 2px;
+  transform-origin: left;
+  animation: underlineIn .35s ease;
+}
+
+@keyframes underlineIn { from { transform: scaleX(.2); opacity: 0;} to { transform: scaleX(1); opacity:1;} }
   height: 100%;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -445,7 +461,9 @@ footer p {
   .nav-links.nav-links-enter-active { opacity: 1; transform: translateY(0); }
   .nav-links.nav-links-enter { opacity: 0; }
   .nav-links li { margin: 4px 0; }
-  .nav-links a { font-size: 1.05rem; padding: 6px 8px; }
+  .nav-links a, .nav-links button.nav-btn { font-size: 1.05rem; padding: 10px 4px; }
+  .nav-links button.nav-btn { width: 100%; }
+  .nav-links a.active::after, .nav-links button.nav-btn.active::after { bottom: 4px; }
   .language-switch-desktop { display: none; }
   .language-switch-mobile { display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 8px; gap: 12px; justify-content: center; }
   .language-switch-mobile button { background:#333; padding:10px 16px; border:1px solid #444; }
