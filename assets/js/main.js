@@ -121,6 +121,16 @@ window.onload = function () {
     menuBtn.addEventListener('click', (e)=>{ e.stopPropagation(); toggleMenu(); });
     menuBtn.dataset.bound = 'true';
   }
+
+  // Logo / nombre: forzar navegación a intro
+  const logoBtn = document.querySelector('.logo-btn');
+  if(logoBtn && !logoBtn.dataset.bound){
+    logoBtn.addEventListener('click', ()=>{
+      showTab('intro');
+      if(window.matchMedia('(max-width:820px)').matches){ toggleMenu(false); }
+    });
+    logoBtn.dataset.bound='true';
+  }
 };
 
 // Cierre sólo: si se hace click fuera de menú y botón mientras está abierto

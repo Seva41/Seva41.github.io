@@ -419,7 +419,9 @@ footer p {
   .menu-icon { display: flex; position: fixed; top: 12px; right: 14px; z-index: 1700; background: rgba(25,25,25,0.9); }
   .navbar { pointer-events: none; }
   .navbar .menu-icon { pointer-events: auto; }
-  .navbar .logo, .navbar .language-switch-desktop { pointer-events: none; }
+  /* Permitimos nuevamente interacción en el logo para volver a la pestaña intro */
+  .navbar .logo { pointer-events: auto; }
+  .navbar .language-switch-desktop { pointer-events: none; }
   .nav-links {
     position: fixed;
     inset: 0 0 0 0;
