@@ -148,8 +148,11 @@ nav.navbar { position: relative; z-index: 100; }
   justify-content:center;
   align-items:center;
   gap:6px;
+  z-index: 1800;
 }
 .menu-icon .bar { width: 26px; height: 3px; background:#f2f2f2; border-radius: 3px; transition: transform .4s cubic-bezier(.77,0,.18,1), opacity .3s ease, background .3s ease; }
+.menu-icon:not(.is-open) .bar { box-shadow:0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 4px rgba(255,255,255,0.12); }
+.menu-icon.is-open .bar { background:#5dade2; }
 .menu-icon:hover .bar, .menu-icon:focus-visible .bar { background:#5dade2; }
 .menu-icon:hover,.menu-icon:focus-visible { background:#303030; color:#5dade2; outline:none; }
 .menu-icon:active { transform: scale(.92); }
