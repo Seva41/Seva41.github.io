@@ -17,40 +17,52 @@ function cambiarIdioma(idioma) {
 function toggleMenu(forceState) {
   const navLinks = document.querySelector('.nav-links');
   const button = document.querySelector('.menu-icon');
+  let backdrop = document.querySelector('.nav-backdrop');
+  if(!backdrop){
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+    backdrop.addEventListener('click', ()=> toggleMenu(false));
+  }
   const focusableSelectors = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-  const isActive = typeof forceState === 'boolean' ? forceState : !navLinks.classList.contains('nav-links-active');
+  const willOpen = typeof forceState === 'boolean' ? forceState : !navLinks.classList.contains('nav-links-active');
 
-  if (isActive) {
+  if(willOpen){
     navLinks.classList.add('nav-links-active');
-    button.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    // Focus trap start
+    button.classList.add('is-open');
+    if (navigator.vibrate) navigator.vibrate(10);
+    backdrop.classList.add('visible');
+    button.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
     const focusables = Array.from(navLinks.querySelectorAll(focusableSelectors));
-    if (focusables.length) focusables[0].focus();
-    function trap(e){
-      if(!navLinks.classList.contains('nav-links-active')) return;
-      if(e.key==='Tab'){
-        const list = focusables.filter(el=>el.offsetParent!==null);
-        if(!list.length) return;
-        const first=list[0]; const last=list[list.length-1];
-        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
-        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
-      }
-    }
+    if(focusables.length) focusables[0].focus();
+    const trap = (e)=>{
+      if(!navLinks.classList.contains('nav-links-active') || e.key!=='Tab') return;
+      const list = focusables.filter(el=>el.offsetParent!==null);
+      if(!list.length) return;
+      const first=list[0]; const last=list[list.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    };
     navLinks.dataset.trap='true';
     document.addEventListener('keydown', trap);
     navLinks._trapHandler = trap;
-  } else {
-    navLinks.classList.remove('nav-links-active');
-    button.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    if(navLinks.dataset.trap){
-      document.removeEventListener('keydown', navLinks._trapHandler);
-      delete navLinks.dataset.trap;
-      delete navLinks._trapHandler;
-    }
-    button.focus();
+    return;
   }
+
+  // Cerrar
+  navLinks.classList.remove('nav-links-active');
+  button.classList.remove('is-open');
+  if (navigator.vibrate) navigator.vibrate([5,15]);
+  backdrop.classList.remove('visible');
+  button.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+  if(navLinks.dataset.trap){
+    document.removeEventListener('keydown', navLinks._trapHandler);
+    delete navLinks.dataset.trap;
+    delete navLinks._trapHandler;
+  }
+  button.focus();
 }
 
 // Cerrar menú al hacer click en un enlace o botón de pestaña (en móvil)
