@@ -125,7 +125,25 @@ p {
   padding-left: 0;
   transition: transform .3s ease;
   align-items: center;
+  z-index: 1200;
 }
+
+/* Asegurar que la barra y el icono sean visibles sobre partículas */
+nav.navbar { position: relative; z-index: 100; }
+.menu-icon {
+  display: none; /* visible sólo en media query móvil */
+  background: rgba(36,36,36,0.85);
+  border: 1px solid #444;
+  color: #f2f2f2;
+  font-size: 1.35rem;
+  padding: 8px 14px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+.menu-icon:hover,.menu-icon:focus-visible { background:#303030; color:#5dade2; outline:none; }
+.menu-icon:active { transform: scale(.92); }
 .nav-links li { padding: 0; }
 
 /* Botones navegación */
@@ -180,28 +198,7 @@ p {
   display: none;
 }
 
-/* Icono del menú hamburguesa (solo en móviles) */
-.menu-icon {
-  display: none;
-  position: fixed;
-  top: 14px;
-  right: 18px;
-  z-index: 2000;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  line-height: 1;
-  padding: 4px 8px;
-  border-radius: 8px;
-  transition: background .25s;
-}
-
-.menu-icon:focus-visible, .menu-icon:hover {
-  outline: none;
-  background: rgba(255,255,255,0.1);
-}
+/* (Eliminado bloque duplicado de .menu-icon; ver definición consolidada arriba) */
 
 /* Sección Principal */
 main {
