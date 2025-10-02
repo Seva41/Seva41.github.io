@@ -108,7 +108,7 @@
 
     <!-- Contenido específico de cada página -->
     <main>
-  <section id="intro" class="tab-content active">
+  <section id="intro" class="tab-content active" aria-hidden="false">
     <div class="content-window">
       <h1 class="es">Sebastián Dinator</h1>
       <h1 class="en" style="display: none">Sebastián Dinator</h1>
@@ -137,7 +137,7 @@
     </div>
   </section>
 
-  <section id="about" class="tab-content" style="display: none">
+  <section id="about" class="tab-content" style="display:none" aria-hidden="true">
     <div class="content-window">
       <h1 class="es">Sobre mí</h1>
 <h1 class="en">About Me</h1>
@@ -192,7 +192,7 @@
     </div>
   </section>
 
-  <section id="experience" class="tab-content" style="display: none">
+  <section id="experience" class="tab-content" style="display:none" aria-hidden="true">
     <div class="experience-dual">
       <div class="content-window experience-list-window">
         <h1 class="es">Experiencia</h1>
@@ -280,7 +280,7 @@
     </div>
   </section>
 
-  <section id="skills" class="tab-content" style="display: none">
+  <section id="skills" class="tab-content" style="display:none" aria-hidden="true">
     <div class="content-window">
       <h1 class="es">Habilidades</h1>
 <h1 class="en">Skills</h1>
@@ -404,7 +404,7 @@
     </div>
   </section>
 
-  <section id="contact" class="tab-content" style="display: none">
+  <section id="contact" class="tab-content" style="display:none" aria-hidden="true">
     <div class="content-window">
       <h1 class="es">Contacto</h1>
 <h1 class="en">Contact</h1>
@@ -465,31 +465,35 @@
     <script>
       // Función para cambiar la pestaña activa
       function showTab(tabId) {
-        const tabs = document.querySelectorAll(".tab-content");
-        const links = document.querySelectorAll(".nav-links a");
+        const tabs = document.querySelectorAll('.tab-content');
+        const controls = document.querySelectorAll('.nav-links [data-tab]');
 
         // Ocultar todas las pestañas y eliminar la clase 'active' de todos los enlaces
-        tabs.forEach((tab) => {
-          tab.style.display = "none";
-          tab.classList.remove("active");
+        tabs.forEach(tab => {
+          tab.style.display = 'none';
+          tab.classList.remove('active');
           tab.setAttribute('aria-hidden','true');
         });
-        links.forEach((link) => link.classList.remove("active"));
+        controls.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected','false');
+          btn.setAttribute('tabindex','-1');
+        });
 
         // Mostrar la pestaña seleccionada
         const activeTab = document.getElementById(tabId);
-        if (activeTab) {
-          activeTab.style.display = "block";
-          activeTab.classList.add("active");
+        if(activeTab){
+          activeTab.style.display = 'block';
+          activeTab.classList.add('active');
           activeTab.setAttribute('aria-hidden','false');
         }
-
-        // Agregar la clase 'active' a los enlaces correspondientes
-        const activeLinks = document.querySelectorAll(
-          `.nav-links a[href="#${tabId}"]`
-        );
-        activeLinks.forEach((link) => link.classList.add("active"));
-        // Guardar última pestaña
+        // Activar botones asociados (ambos idiomas)
+        const activeBtns = document.querySelectorAll(`.nav-links [data-tab="${tabId}"]`);
+        activeBtns.forEach(btn => {
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected','true');
+          btn.removeAttribute('tabindex');
+        });
         localStorage.setItem('lastTabId', tabId);
       }
 
@@ -511,6 +515,14 @@
         const navLinks = document.querySelector(".nav-links");
         navLinks.classList.toggle("nav-links-active");
       }
+      // Fallback: asegurar que intro esté visible si nada activo tras 1 ciclo
+      document.addEventListener('DOMContentLoaded',()=>{
+        const anyActive = document.querySelector('.tab-content.active');
+        if(!anyActive){
+          const intro = document.getElementById('intro');
+          if(intro){ intro.style.display='block'; intro.classList.add('active'); intro.setAttribute('aria-hidden','false'); }
+        }
+      });
     </script>
   </body>
 </html>
