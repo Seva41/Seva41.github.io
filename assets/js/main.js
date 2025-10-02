@@ -123,16 +123,14 @@ window.onload = function () {
   }
 };
 
-// Evitar que clicks en la barra superior (fuera del botón) disparen apertura accidental
+// Cierre sólo: si se hace click fuera de menú y botón mientras está abierto
 document.addEventListener('click', (e)=>{
-  const menuBtn = document.querySelector('.menu-icon');
-  if(!menuBtn) return;
-  if(e.target.closest('.menu-icon')) return; // ya gestionado
-  // No abrir nunca por click fuera; solo cierre si está abierto y se pulsa fuera del menú
-  if(menuBtn.classList.contains('is-open') && !e.target.closest('.nav-links')){
-    // click fuera cierra
-    toggleMenu(false);
-  }
+  const btn = document.querySelector('.menu-icon');
+  const menu = document.querySelector('.nav-links');
+  if(!btn || !menu) return;
+  if(!btn.classList.contains('is-open')) return; // nada que cerrar
+  if(e.target.closest('.menu-icon') || e.target.closest('.nav-links')) return; // click interno
+  toggleMenu(false);
 });
 
 // Ajustar el detalle de experiencia para asegurar scroll correcto en resize
