@@ -22,8 +22,6 @@ function toggleMenu(forceState) {
 
   if (isActive) {
     navLinks.classList.add('nav-links-active');
-    navLinks.classList.add('nav-links-enter');
-    requestAnimationFrame(()=> navLinks.classList.add('nav-links-enter-active'));
     button.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
     // Focus trap start
@@ -44,7 +42,6 @@ function toggleMenu(forceState) {
     navLinks._trapHandler = trap;
   } else {
     navLinks.classList.remove('nav-links-active');
-    navLinks.classList.remove('nav-links-enter','nav-links-enter-active');
     button.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     if(navLinks.dataset.trap){

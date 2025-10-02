@@ -410,7 +410,7 @@ footer p {
     flex-direction: column;
     width: 100%;
     text-align: center;
-    display: none;
+    display: flex; /* se mantiene flex para poder medir altura; se controla visibilidad con opacity/pointer-events */
     z-index: 1500;
     overflow-y: auto;
     max-height: calc(100vh - 60px);
@@ -418,12 +418,11 @@ footer p {
     gap: 12px;
     backdrop-filter: blur(6px);
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     transition: opacity .35s ease, transform .35s ease;
+    pointer-events: none;
   }
-  .nav-links.nav-links-active { display: flex; }
-  .nav-links.nav-links-enter-active { opacity: 1; transform: translateY(0); }
-  .nav-links.nav-links-enter { opacity: 0; }
+  .nav-links.nav-links-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .nav-links li { margin: 4px 0; }
   .nav-links a, .nav-links button.nav-btn { font-size: 1.05rem; padding: 10px 4px; }
   .nav-links button.nav-btn { width: 100%; }
