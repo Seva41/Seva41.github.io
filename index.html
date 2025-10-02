@@ -54,49 +54,55 @@
   <body>
     <div id="particles-js"></div>
     <!-- _includes/navbar.html -->
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Principal">
   <div class="logo">
-    <a href="#" onclick="showTab('intro')">
+    <button type="button" class="logo-btn" data-tab="intro" aria-controls="intro">
       <img
         src="/assets/img/perfil.jpg"
         alt="Foto de Sebastián Dinator"
         class="profile-small"
+        loading="lazy"
+        decoding="async"
+        width="40" height="40"
       />
       <span>Sebastián Dinator</span>
-    </a>
+    </button>
   </div>
   <!-- Ícono del menú hamburguesa -->
-  <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  <button class="menu-icon" aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded="false" onclick="toggleMenu()">☰</button>
   <!-- Enlaces de navegación -->
-  <ul class="nav-links">
-    <li>
-      <a href="#about" onclick="showTab('about')" class="es">Sobre mí</a>
-      <a href="#about" onclick="showTab('about')" class="en">About Me</a>
+  <ul class="nav-links" id="primary-navigation">
+    <li class="only-mobile" style="display:none">
+      <button type="button" onclick="toggleMenu(false)" class="close-menu-btn" aria-label="Cerrar menú / Close menu">×</button>
     </li>
     <li>
-      <a href="#experience" onclick="showTab('experience')" class="es">Experiencia</a>
-      <a href="#experience" onclick="showTab('experience')" class="en">Experience</a>
+      <button id="tab-about-es" type="button" data-tab="about" class="es nav-btn" aria-controls="about">Sobre mí</button>
+      <button id="tab-about-en" type="button" data-tab="about" class="en nav-btn" aria-controls="about">About Me</button>
     </li>
     <li>
-      <a href="#skills" onclick="showTab('skills')" class="es">Habilidades</a>
-      <a href="#skills" onclick="showTab('skills')" class="en">Skills</a>
+      <button id="tab-experience-es" type="button" data-tab="experience" class="es nav-btn" aria-controls="experience">Experiencia</button>
+      <button id="tab-experience-en" type="button" data-tab="experience" class="en nav-btn" aria-controls="experience">Experience</button>
     </li>
     <li>
-      <a href="#contact" onclick="showTab('contact')" class="es">Contacto</a>
-      <a href="#contact" onclick="showTab('contact')" class="en">Contact</a>
+      <button id="tab-skills-es" type="button" data-tab="skills" class="es nav-btn" aria-controls="skills">Habilidades</button>
+      <button id="tab-skills-en" type="button" data-tab="skills" class="en nav-btn" aria-controls="skills">Skills</button>
+    </li>
+    <li>
+      <button id="tab-contact-es" type="button" data-tab="contact" class="es nav-btn" aria-controls="contact">Contacto</button>
+      <button id="tab-contact-en" type="button" data-tab="contact" class="en nav-btn" aria-controls="contact">Contact</button>
     </li>
     <!-- Selector de idioma para móvil dentro del menú -->
     <li>
       <div class="language-switch language-switch-mobile">
-        <button onclick="cambiarIdioma('es')">Español</button>
-        <button onclick="cambiarIdioma('en')">English</button>
+        <button type="button" data-lang="es">Español</button>
+        <button type="button" data-lang="en">English</button>
       </div>
     </li>
   </ul>
   <!-- Selector de idioma para escritorio -->
   <div class="language-switch language-switch-desktop">
-    <button onclick="cambiarIdioma('es')">Español</button>
-    <button onclick="cambiarIdioma('en')">English</button>
+    <button type="button" data-lang="es">Español</button>
+    <button type="button" data-lang="en">English</button>
   </div>
 </nav>
 
@@ -145,17 +151,17 @@
 <p class="es">
   He desarrollado y participado en diversos proyectos educacionales y de
   software de código abierto, como laboratorios interactivos y
-  <a href="https://github.com/Seva41/CTF_SSH" target="_blank"
+  <a href="https://github.com/Seva41/CTF_SSH" target="_blank" rel="noopener noreferrer"
     >desafíos CTF</a
   >
   para cursos de Seguridad en TI, un
-  <a href="https://github.com/SoC-UAI/Control_Ingreso" target="_blank">
+  <a href="https://github.com/SoC-UAI/Control_Ingreso" target="_blank" rel="noopener noreferrer">
     control de acceso dinámico</a
   >
   con registro de asistencia para el laboratorio de ciberseguridad de la
   Universidad Adolfo Ibáñez, y una pequeña contribución al proyecto de
   filtrado DNS y bloqueo de anuncios a nivel de red,
-  <a href="https://github.com/pi-hole/pi-hole/pull/5806" target="_blank">
+  <a href="https://github.com/pi-hole/pi-hole/pull/5806" target="_blank" rel="noopener noreferrer">
     Pi-Hole</a
   >.
 </p>
@@ -168,17 +174,17 @@
 <p class="en">
   I have developed and participated in various educational and open-source
   software projects, such as interactive labs and
-  <a href="https://github.com/Seva41/CTF_SSH" target="_blank"
+  <a href="https://github.com/Seva41/CTF_SSH" target="_blank" rel="noopener noreferrer"
     >CTF challenges</a
   >
   for IT Security courses, a
-  <a href="https://github.com/SoC-UAI/Control_Ingreso" target="_blank">
+  <a href="https://github.com/SoC-UAI/Control_Ingreso" target="_blank" rel="noopener noreferrer">
     dynamic access control system</a
   >
   with attendance logging for the cybersecurity lab at Universidad Adolfo
   Ibáñez, and a small contribution to the DNS filtering and network-wide ad
   blocking project,
-  <a href="https://github.com/pi-hole/pi-hole/pull/5806" target="_blank">
+  <a href="https://github.com/pi-hole/pi-hole/pull/5806" target="_blank" rel="noopener noreferrer">
     Pi-Hole</a
   >.
 </p>
@@ -294,22 +300,22 @@
     <strong>Certificaciones:</strong>
     <ul>
       <li>
-        <a href="https://cert.efset.org/es/tE1SHa" target="_blank" rel="noopener">
+          <a href="https://cert.efset.org/es/tE1SHa" target="_blank" rel="noopener noreferrer">
           EF SET Inglés Proficiente (C2)
         </a>
       </li>
       <li>
-        <a href="https://www.credly.com/badges/177af53e-14ad-4e5c-b255-5b4066c6dab2/linked_in_profile" target="_blank" rel="noopener">
+          <a href="https://www.credly.com/badges/177af53e-14ad-4e5c-b255-5b4066c6dab2/linked_in_profile" target="_blank" rel="noopener noreferrer">
           IBM Z Xplore - Concepts
         </a>
       </li>
       <li>
-        <a href="https://www.credly.com/badges/37511cba-43a6-4ca3-b6e7-890000e5c7f8/linked_in_profile" target="_blank" rel="noopener">
+          <a href="https://www.credly.com/badges/37511cba-43a6-4ca3-b6e7-890000e5c7f8/linked_in_profile" target="_blank" rel="noopener noreferrer">
           IBM Z Xplore - Advanced
         </a>
       </li>
       <li>
-        <a href="https://ude.my/UC-dfde27e4-1d57-48d7-a136-4cf9f4d72586" target="_blank" rel="noopener">
+          <a href="https://ude.my/UC-dfde27e4-1d57-48d7-a136-4cf9f4d72586" target="_blank" rel="noopener noreferrer">
           Udemy - Creación de API RESTful con Java y Spring Boot
         </a>
       </li>
@@ -323,15 +329,15 @@
       <li>Fundador y encargado del Laboratorio de Ciberseguridad UAI en Viña del Mar</li>
       <li>Desarrollo de laboratorios interactivos y desafíos CTF para cursos universitarios</li>
       <li>Contribuciones a proyectos open source como
-        <a href="https://github.com/pi-hole/pi-hole" target="_blank" rel="noopener">Pi-Hole</a>
+          <a href="https://github.com/pi-hole/pi-hole" target="_blank" rel="noopener noreferrer">Pi-Hole</a>
         y
-        <a href="https://github.com/YouG-o/YouTube_No_Translation" target="_blank" rel="noopener">Youtube No Translation</a>
+          <a href="https://github.com/YouG-o/YouTube_No_Translation" target="_blank" rel="noopener noreferrer">Youtube No Translation</a>
       </li>
       <li>Experiencia profesional en
-        <a href="https://www.klap.cl/" target="_blank" rel="noopener">Klap</a>,
-        <a href="https://www.aware.tools/" target="_blank" rel="noopener">Aware.Tools</a>,
-        <a href="https://cenia.cl/" target="_blank" rel="noopener">CENIA</a> y
-        <a href="https://uai.cl/" target="_blank" rel="noopener">Universidad Adolfo Ibáñez</a>
+          <a href="https://www.klap.cl/" target="_blank" rel="noopener noreferrer">Klap</a>,
+          <a href="https://www.aware.tools/" target="_blank" rel="noopener noreferrer">Aware.Tools</a>,
+          <a href="https://cenia.cl/" target="_blank" rel="noopener noreferrer">CENIA</a> y
+          <a href="https://uai.cl/" target="_blank" rel="noopener noreferrer">Universidad Adolfo Ibáñez</a>
       </li>
     </ul>
   </p>
@@ -352,22 +358,22 @@
     <strong>Certifications:</strong>
     <ul>
       <li>
-        <a href="https://cert.efset.org/es/tE1SHa" target="_blank" rel="noopener">
+  <a href="https://cert.efset.org/es/tE1SHa" target="_blank" rel="noopener noreferrer">
         EF SET Proficient English (C2)
         </a>
       </li>
       <li>
-        <a href="https://www.credly.com/badges/177af53e-14ad-4e5c-b255-5b4066c6dab2/linked_in_profile" target="_blank" rel="noopener">
+  <a href="https://www.credly.com/badges/177af53e-14ad-4e5c-b255-5b4066c6dab2/linked_in_profile" target="_blank" rel="noopener noreferrer">
         IBM Z Xplore - Concepts
         </a>
       </li>
       <li>
-        <a href="https://www.credly.com/badges/37511cba-43a6-4ca3-b6e7-890000e5c7f8/linked_in_profile" target="_blank" rel="noopener">
+  <a href="https://www.credly.com/badges/37511cba-43a6-4ca3-b6e7-890000e5c7f8/linked_in_profile" target="_blank" rel="noopener noreferrer">
         IBM Z Xplore - Advanced
         </a>
       </li>
       <li>
-        <a href="https://ude.my/UC-dfde27e4-1d57-48d7-a136-4cf9f4d72586" target="_blank" rel="noopener">
+  <a href="https://ude.my/UC-dfde27e4-1d57-48d7-a136-4cf9f4d72586" target="_blank" rel="noopener noreferrer">
         Udemy - API RESTful creation with Java and Spring Boot
         </a>
       </li>
@@ -376,20 +382,20 @@
   <p>
     <strong>Notable achievements:</strong>
     <ul>
-      <li>2nd place in <a href="https://hack-ing-0x2.pages.dev/hack.ing-0x2/" target="_blank" rel="noopener">Hack.Ing CTF 2024</a> (international university cybersecurity competition)
+  <li>2nd place in <a href="https://hack-ing-0x2.pages.dev/hack.ing-0x2/" target="_blank" rel="noopener noreferrer">Hack.Ing CTF 2024</a> (international university cybersecurity competition)
       </li>
       <li>Founder and manager of the UAI Cybersecurity Lab in Viña del Mar</li>
       <li>Development of interactive labs and CTF challenges for university courses</li>
       <li>Contributions to open source projects such as
-        <a href="https://github.com/pi-hole/pi-hole" target="_blank" rel="noopener">Pi-Hole</a>
+  <a href="https://github.com/pi-hole/pi-hole" target="_blank" rel="noopener noreferrer">Pi-Hole</a>
         and
-        <a href="https://github.com/YouG-o/YouTube_No_Translation" target="_blank" rel="noopener">Youtube No Translation</a>
+  <a href="https://github.com/YouG-o/YouTube_No_Translation" target="_blank" rel="noopener noreferrer">Youtube No Translation</a>
       </li>
       <li>Professional experience at
-        <a href="https://www.klap.cl/" target="_blank" rel="noopener">Klap</a>,
-        <a href="https://www.aware.tools/" target="_blank" rel="noopener">Aware.Tools</a>,
-        <a href="https://cenia.cl/" target="_blank" rel="noopener">CENIA</a>, and
-        <a href="https://uai.cl/" target="_blank" rel="noopener">Adolfo Ibáñez University</a>
+  <a href="https://www.klap.cl/" target="_blank" rel="noopener noreferrer">Klap</a>,
+  <a href="https://www.aware.tools/" target="_blank" rel="noopener noreferrer">Aware.Tools</a>,
+  <a href="https://cenia.cl/" target="_blank" rel="noopener noreferrer">CENIA</a>, and
+  <a href="https://uai.cl/" target="_blank" rel="noopener noreferrer">Adolfo Ibáñez University</a>
       </li>
     </ul>
   </p>
@@ -405,12 +411,12 @@
 <p class="es">
   Puedes contactarme en
   <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> o en mi
-  <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.
+  <a href="https://www.linkedin.com/in/sebadinator/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
 </p>
 <p class="en">
   You can contact me at
   <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> or on
-  <a href="https://www.linkedin.com/in/sebadinator/">LinkedIn</a>.
+  <a href="https://www.linkedin.com/in/sebadinator/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
 </p>
 
     </div>
@@ -448,7 +454,9 @@
         if (particles) {
           setTimeout(() => {
             particles.style.display = "none";
-            particles.offsetHeight; // Forzar un reflow/redibujado
+            /* Forzar reflow al leer offsetHeight */
+            // eslint-disable-next-line no-unused-expressions
+            particles.offsetHeight;
             particles.style.display = "block";
           }, 500);
         }
@@ -464,6 +472,7 @@
         tabs.forEach((tab) => {
           tab.style.display = "none";
           tab.classList.remove("active");
+          tab.setAttribute('aria-hidden','true');
         });
         links.forEach((link) => link.classList.remove("active"));
 
@@ -472,6 +481,7 @@
         if (activeTab) {
           activeTab.style.display = "block";
           activeTab.classList.add("active");
+          activeTab.setAttribute('aria-hidden','false');
         }
 
         // Agregar la clase 'active' a los enlaces correspondientes
@@ -479,6 +489,8 @@
           `.nav-links a[href="#${tabId}"]`
         );
         activeLinks.forEach((link) => link.classList.add("active"));
+        // Guardar última pestaña
+        localStorage.setItem('lastTabId', tabId);
       }
 
       function cambiarIdioma(idioma) {
