@@ -118,10 +118,22 @@ window.onload = function () {
   // Asegurar listener al botón hamburguesa si no funciona inline
   const menuBtn = document.querySelector('.menu-icon');
   if(menuBtn && !menuBtn.dataset.bound){
-    menuBtn.addEventListener('click', ()=> toggleMenu());
+    menuBtn.addEventListener('click', (e)=>{ e.stopPropagation(); toggleMenu(); });
     menuBtn.dataset.bound = 'true';
   }
 };
+
+// Evitar que clicks en la barra superior (fuera del botón) disparen apertura accidental
+document.addEventListener('click', (e)=>{
+  const menuBtn = document.querySelector('.menu-icon');
+  if(!menuBtn) return;
+  if(e.target.closest('.menu-icon')) return; // ya gestionado
+  // No abrir nunca por click fuera; solo cierre si está abierto y se pulsa fuera del menú
+  if(menuBtn.classList.contains('is-open') && !e.target.closest('.nav-links')){
+    // click fuera cierra
+    toggleMenu(false);
+  }
+});
 
 // Ajustar el detalle de experiencia para asegurar scroll correcto en resize
 window.addEventListener('resize', () => {
