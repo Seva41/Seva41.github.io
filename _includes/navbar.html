@@ -1,46 +1,52 @@
 <!-- _includes/navbar.html -->
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Principal">
   <div class="logo">
-    <a href="#" onclick="showTab('intro')">
+    <button type="button" class="logo-btn" data-tab="intro" aria-controls="intro">
       <img
         src="{{ 'assets/img/perfil.jpg' | relative_url }}"
         alt="Foto de Sebastián Dinator"
         class="profile-small"
+        loading="lazy"
+        decoding="async"
+        width="40" height="40"
       />
       <span>Sebastián Dinator</span>
-    </a>
+    </button>
   </div>
   <!-- Ícono del menú hamburguesa -->
-  <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  <button class="menu-icon" aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded="false" onclick="toggleMenu()">☰</button>
   <!-- Enlaces de navegación -->
-  <ul class="nav-links">
-    <li>
-      <a href="#about" onclick="showTab('about')" class="es">Sobre mí</a>
-      <a href="#about" onclick="showTab('about')" class="en">About Me</a>
+  <ul class="nav-links" id="primary-navigation">
+    <li class="only-mobile" style="display:none">
+      <button type="button" onclick="toggleMenu(false)" class="close-menu-btn" aria-label="Cerrar menú / Close menu">×</button>
     </li>
     <li>
-      <a href="#experience" onclick="showTab('experience')" class="es">Experiencia</a>
-      <a href="#experience" onclick="showTab('experience')" class="en">Experience</a>
+      <button id="tab-about-es" type="button" data-tab="about" class="es nav-btn" aria-controls="about">Sobre mí</button>
+      <button id="tab-about-en" type="button" data-tab="about" class="en nav-btn" aria-controls="about">About Me</button>
     </li>
     <li>
-      <a href="#skills" onclick="showTab('skills')" class="es">Habilidades</a>
-      <a href="#skills" onclick="showTab('skills')" class="en">Skills</a>
+      <button id="tab-experience-es" type="button" data-tab="experience" class="es nav-btn" aria-controls="experience">Experiencia</button>
+      <button id="tab-experience-en" type="button" data-tab="experience" class="en nav-btn" aria-controls="experience">Experience</button>
     </li>
     <li>
-      <a href="#contact" onclick="showTab('contact')" class="es">Contacto</a>
-      <a href="#contact" onclick="showTab('contact')" class="en">Contact</a>
+      <button id="tab-skills-es" type="button" data-tab="skills" class="es nav-btn" aria-controls="skills">Habilidades</button>
+      <button id="tab-skills-en" type="button" data-tab="skills" class="en nav-btn" aria-controls="skills">Skills</button>
+    </li>
+    <li>
+      <button id="tab-contact-es" type="button" data-tab="contact" class="es nav-btn" aria-controls="contact">Contacto</button>
+      <button id="tab-contact-en" type="button" data-tab="contact" class="en nav-btn" aria-controls="contact">Contact</button>
     </li>
     <!-- Selector de idioma para móvil dentro del menú -->
     <li>
       <div class="language-switch language-switch-mobile">
-        <button onclick="cambiarIdioma('es')">Español</button>
-        <button onclick="cambiarIdioma('en')">English</button>
+        <button type="button" data-lang="es">Español</button>
+        <button type="button" data-lang="en">English</button>
       </div>
     </li>
   </ul>
   <!-- Selector de idioma para escritorio -->
   <div class="language-switch language-switch-desktop">
-    <button onclick="cambiarIdioma('es')">Español</button>
-    <button onclick="cambiarIdioma('en')">English</button>
+    <button type="button" data-lang="es">Español</button>
+    <button type="button" data-lang="en">English</button>
   </div>
 </nav>

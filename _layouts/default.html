@@ -65,7 +65,9 @@
         if (particles) {
           setTimeout(() => {
             particles.style.display = "none";
-            particles.offsetHeight; // Forzar un reflow/redibujado
+            /* Forzar reflow al leer offsetHeight */
+            // eslint-disable-next-line no-unused-expressions
+            particles.offsetHeight;
             particles.style.display = "block";
           }, 500);
         }
@@ -81,6 +83,7 @@
         tabs.forEach((tab) => {
           tab.style.display = "none";
           tab.classList.remove("active");
+          tab.setAttribute('aria-hidden','true');
         });
         links.forEach((link) => link.classList.remove("active"));
 
@@ -89,6 +92,7 @@
         if (activeTab) {
           activeTab.style.display = "block";
           activeTab.classList.add("active");
+          activeTab.setAttribute('aria-hidden','false');
         }
 
         // Agregar la clase 'active' a los enlaces correspondientes
@@ -96,6 +100,8 @@
           `.nav-links a[href="#${tabId}"]`
         );
         activeLinks.forEach((link) => link.classList.add("active"));
+        // Guardar última pestaña
+        localStorage.setItem('lastTabId', tabId);
       }
 
       function cambiarIdioma(idioma) {
