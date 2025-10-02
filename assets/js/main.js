@@ -17,11 +17,19 @@ function cambiarIdioma(idioma) {
 function toggleMenu(forceState) {
   const navLinks = document.querySelector('.nav-links');
   const button = document.querySelector('.menu-icon');
+  let backdrop = document.querySelector('.nav-backdrop');
+  if(!backdrop){
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+    backdrop.addEventListener('click', ()=> toggleMenu(false));
+  }
   const focusableSelectors = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
   const isActive = typeof forceState === 'boolean' ? forceState : !navLinks.classList.contains('nav-links-active');
 
   if (isActive) {
-    navLinks.classList.add('nav-links-active');
+  navLinks.classList.add('nav-links-active');
+  backdrop.classList.add('visible');
     button.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
     // Focus trap start
@@ -41,7 +49,8 @@ function toggleMenu(forceState) {
     document.addEventListener('keydown', trap);
     navLinks._trapHandler = trap;
   } else {
-    navLinks.classList.remove('nav-links-active');
+  navLinks.classList.remove('nav-links-active');
+  backdrop.classList.remove('visible');
     button.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     if(navLinks.dataset.trap){
