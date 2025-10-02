@@ -56,11 +56,11 @@ function toggleMenu(forceState) {
   }
 }
 
-// Cerrar menú al hacer click en un enlace (en móvil)
+// Cerrar menú al hacer click en un enlace o botón de pestaña (en móvil)
 document.addEventListener('click', (e) => {
   const navLinks = document.querySelector('.nav-links');
   if (!navLinks) return;
-  if (e.target.closest('.nav-links a')) {
+  if (e.target.closest('.nav-links a, .nav-links button.nav-btn, .nav-links [data-tab]')) {
     if (window.matchMedia('(max-width: 820px)').matches) {
       toggleMenu(false);
     }
@@ -105,6 +105,13 @@ window.onload = function () {
       cambiarIdioma(langBtn.getAttribute('data-lang'));
     }
   });
+
+  // Asegurar listener al botón hamburguesa si no funciona inline
+  const menuBtn = document.querySelector('.menu-icon');
+  if(menuBtn && !menuBtn.dataset.bound){
+    menuBtn.addEventListener('click', ()=> toggleMenu());
+    menuBtn.dataset.bound = 'true';
+  }
 };
 
 // Ajustar el detalle de experiencia para asegurar scroll correcto en resize
