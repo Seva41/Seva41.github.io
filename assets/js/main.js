@@ -59,7 +59,7 @@ function toggleMenu(forceState) {
     if (navigator.vibrate) navigator.vibrate(10);
     backdrop.classList.add('visible');
     button.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+    // El CSS mobile ya tiene body { overflow: hidden }, no se necesita manipular scroll
     const focusables = Array.from(navLinks.querySelectorAll(focusableSelectors));
     focusables[0]?.focus();
     const trap = e => {
@@ -83,7 +83,6 @@ function toggleMenu(forceState) {
   if (navigator.vibrate) navigator.vibrate([5, 15]);
   backdrop.classList.remove('visible');
   button.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
   if (navLinks.dataset.trap) {
     document.removeEventListener('keydown', navLinks._trapHandler);
     delete navLinks.dataset.trap;
