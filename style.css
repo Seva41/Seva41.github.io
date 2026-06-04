@@ -3,6 +3,13 @@
   color-scheme: dark;
 }
 
+/* overflow-x en html rompe position:fixed en Safari — no poner overflow en html */
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   background-color: #1e1e1e;
@@ -24,23 +31,12 @@ body {
 }
 
 body.loaded {
-  opacity: 1; /* Mostrar el contenido una vez que todo esté listo */
+  opacity: 1;
 }
 
 /* Alternancia de idioma por clase en <html> */
 html.lang-es .en { display: none !important; }
 html.lang-en .es { display: none !important; }
-/* Preferencia: si no hay clase se muestran ambos (estado inicial) */
-
-html,
-body {
-  height: 100%;
-  height: 100dvh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
 
 * {
   margin: 0;
@@ -438,21 +434,24 @@ footer p {
   .navbar .language-switch-desktop { pointer-events: none; }
   .nav-links {
     position: fixed;
-    inset: 0 0 0 0;
-    padding: 96px 0 120px;
-    background: radial-gradient(circle at 50% 0%, rgba(25,25,25,0.96), rgba(12,12,12,0.95));
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 96px 0 40px;
+    /* fondo sólido: backdrop-filter en el overlay blurrea el texto en iOS Safari */
+    background: #0e0e12;
     flex-direction: column;
     display: flex;
     align-items: stretch;
     gap: 20px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     opacity: 0;
     transform: translateY(-8px);
     transition: opacity .4s ease, transform .4s ease;
     pointer-events: none;
-    -webkit-backdrop-filter: blur(6px) saturate(1.2);
-    backdrop-filter: blur(6px) saturate(1.2);
   }
   .nav-links.nav-links-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .nav-links li { margin: 0; }
@@ -487,10 +486,58 @@ footer p {
     touch-action: manipulation;
   }
   .language-switch-mobile button.active-lang { background:#5dade2; color:#fff; border-color:#5dade2; box-shadow:0 0 0 1px rgba(255,255,255,0.15) inset; }
-  footer { padding: 24px 16px 88px; }
-  main { padding-top: 96px; }
+
+  /* Layout fijo en móvil: el body no scrollea, el contenido scrollea dentro del recuadro */
+  body {
+    overflow: hidden;
+    height: 100svh;
+    height: 100dvh;
+  }
+
+  main {
+    padding: 70px 12px 0;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .tab-content.active {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px 0 12px;
+  }
+
+  .content-window {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto 12px;
+    padding: 20px 16px;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Footer siempre visible al fondo; safe-area para iPhone con barra home */
+  footer {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    margin-top: 0;
+  }
+
+  /* Experiencia: alturas libres — la sección padre hace el scroll */
   #experience .experience-dual, #experience .experience-dual.dual-active { flex-direction: column; max-width: 100%; }
   #experience .experience-list-window, #experience .experience-detail-window { width:100%!important; max-width:100%!important; }
+  #experience .content-window { max-height: none; overflow: visible; }
+  #experience .experience-list { max-height: none; overflow: visible; }
   #experience .experience-dual.dual-active .experience-list-window { display:none; }
   #experience .experience-dual.dual-active .experience-detail-window { display:flex!important; }
 }
