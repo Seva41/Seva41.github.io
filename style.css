@@ -454,8 +454,9 @@ footer p {
     pointer-events: none;
   }
   .nav-links.nav-links-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
-  .nav-links li { margin: 0; }
+  .nav-links li { margin: 0; display: flex; justify-content: center; }
   .nav-links a, .nav-links button.nav-btn {
+    display: block;      /* necesario para que margin: 0 auto centre correctamente */
     width: min(500px, 84%);
     margin: 0 auto;
     padding: 15px 20px 16px;
@@ -465,6 +466,7 @@ footer p {
     border: 1px solid rgba(120,120,120,0.22);
     box-shadow: 0 4px 14px -4px rgba(0,0,0,.6), 0 0 0 1px rgba(93,173,226,0.07) inset;
     letter-spacing: .4px;
+    text-align: center;
   }
   .nav-links a:hover, .nav-links button.nav-btn:hover { background: linear-gradient(160deg, rgba(55,55,55,0.95), rgba(30,30,30,0.95)); }
   .nav-links a.active, .nav-links button.nav-btn.active {
