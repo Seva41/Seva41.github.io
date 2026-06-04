@@ -33,12 +33,10 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build
 
-      #- name: Copy CNAME to _site
-      #  run: echo "sebadinator.com" > _site/CNAME
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
+          cname: sebadinator.com
 
