@@ -1,0 +1,195 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>CLAUDE.md</title>
+    <!-- Establece la clase de idioma antes de pintar para evitar FOUC -->
+    <script>(function(){var l=localStorage.getItem('idiomaSeleccionado')||'es';document.documentElement.classList.add('lang-'+l);})();</script>
+    <link rel="stylesheet" href="/style.css?v=1.1" />
+    <link
+      rel="icon"
+      href="/assets/icons/favicon.ico?v=1.0"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/icons/favicon-16x16.png?v=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/icons/favicon-32x32.png?v=1.0"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/icons/apple-touch-icon.png?v=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/icons/android-chrome-192x192.png?v=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/icons/android-chrome-512x512.png?v=1.0"
+    />
+
+    <!-- Web App Manifest -->
+    <link
+      rel="manifest"
+      href="/assets/icons/site.webmanifest?v=1.0"
+    />
+    <!-- Scripts con defer: no bloquean el render y se ejecutan en orden -->
+    <script defer src="/assets/js/main.js?v=1.1"></script>
+    <script defer src="/assets/js/experience-detail.js?v=1.1"></script>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <!-- _includes/navbar.html -->
+<nav class="navbar" role="navigation" aria-label="Principal">
+  <div class="logo">
+    <button type="button" class="logo-btn" data-tab="intro" aria-controls="intro">
+      <img
+        src="/assets/img/perfil.jpg"
+        alt="Foto de Sebastián Dinator"
+        class="profile-small"
+        loading="lazy"
+        decoding="async"
+        width="40" height="40"
+      />
+      <span>Sebastián Dinator</span>
+    </button>
+  </div>
+  <!-- Ícono del menú hamburguesa -->
+  <button class="menu-icon" aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <!-- Enlaces de navegación -->
+  <ul class="nav-links" id="primary-navigation">
+    <li>
+      <button id="tab-about-es" type="button" data-tab="about" class="es nav-btn" aria-controls="about">Sobre mí</button>
+      <button id="tab-about-en" type="button" data-tab="about" class="en nav-btn" aria-controls="about">About Me</button>
+    </li>
+    <li>
+      <button id="tab-experience-es" type="button" data-tab="experience" class="es nav-btn" aria-controls="experience">Experiencia</button>
+      <button id="tab-experience-en" type="button" data-tab="experience" class="en nav-btn" aria-controls="experience">Experience</button>
+    </li>
+    <li>
+      <button id="tab-skills-es" type="button" data-tab="skills" class="es nav-btn" aria-controls="skills">Habilidades</button>
+      <button id="tab-skills-en" type="button" data-tab="skills" class="en nav-btn" aria-controls="skills">Skills</button>
+    </li>
+    <li>
+      <button id="tab-contact-es" type="button" data-tab="contact" class="es nav-btn" aria-controls="contact">Contacto</button>
+      <button id="tab-contact-en" type="button" data-tab="contact" class="en nav-btn" aria-controls="contact">Contact</button>
+    </li>
+    <!-- Selector de idioma para móvil dentro del menú -->
+    <li>
+      <div class="language-switch language-switch-mobile">
+        <button type="button" data-lang="es">Español</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
+    </li>
+  </ul>
+  <!-- Selector de idioma para escritorio -->
+  <div class="language-switch language-switch-desktop">
+    <button type="button" data-lang="es">Español</button>
+    <button type="button" data-lang="en">English</button>
+  </div>
+</nav>
+
+    <h1 id="claudemd">CLAUDE.md</h1>
+
+<p>This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.</p>
+
+<h2 id="what-this-is">What this is</h2>
+
+<p>Personal portfolio site for Sebastián Dinator, deployed to <a href="https://sebadinator.com">sebadinator.com</a> via GitHub Pages. It’s a single-page Jekyll site — no blog posts, no collections — just a bilingual (ES/EN) portfolio with tabbed sections.</p>
+
+<h2 id="local-development">Local development</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install</span>          <span class="c"># install dependencies (github-pages gem)</span>
+bundle <span class="nb">exec </span>jekyll serve <span class="nt">--livereload</span>   <span class="c"># serve at http://localhost:4000</span>
+bundle <span class="nb">exec </span>jekyll build                <span class="c"># build to _site/</span>
+</code></pre></div></div>
+
+<p>Deployment is automatic: push to <code class="language-plaintext highlighter-rouge">main</code> triggers the GitHub Actions workflow (<code class="language-plaintext highlighter-rouge">.github/workflows/github-pages.yml</code>) which builds and deploys to GitHub Pages.</p>
+
+<h2 id="architecture">Architecture</h2>
+
+<p><strong>Single-page tabbed layout</strong> — <code class="language-plaintext highlighter-rouge">index.html</code> loads <code class="language-plaintext highlighter-rouge">_layouts/default.html</code> which stitches together the <code class="language-plaintext highlighter-rouge">_includes/</code> sections (about, experience, skills, contact). All navigation is JS-driven; there are no separate pages.</p>
+
+<p><strong>Bilingual system</strong> — Language state (ES/EN) is managed by <code class="language-plaintext highlighter-rouge">assets/js/main.js</code> via a CSS class on <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and persisted in <code class="language-plaintext highlighter-rouge">localStorage</code>. HTML elements carry both <code class="language-plaintext highlighter-rouge">data-lang-es</code> and <code class="language-plaintext highlighter-rouge">data-lang-en</code> attributes, or are wrapped in <code class="language-plaintext highlighter-rouge">.lang-es</code>/<code class="language-plaintext highlighter-rouge">.lang-en</code> elements that are shown/hidden by CSS.</p>
+
+<p><strong>Tab persistence</strong> — The active tab is also stored in <code class="language-plaintext highlighter-rouge">localStorage</code> and restored on page load.</p>
+
+<p><strong>Key files:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">_layouts/default.html</code> — master HTML shell (head, navbar, footer, JS imports)</li>
+  <li><code class="language-plaintext highlighter-rouge">_includes/</code> — one file per section (about, experience, skills, contact, navbar, footer)</li>
+  <li><code class="language-plaintext highlighter-rouge">style.css</code> — all styles (no SCSS/preprocessor)</li>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/main.js</code> — language switching, mobile menu, tab management</li>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/experience-detail.js</code> — modal/detail expansion for experience items</li>
+  <li><code class="language-plaintext highlighter-rouge">assets/js/particles.js</code> — initializes the canvas particle background (uses <code class="language-plaintext highlighter-rouge">particles.min.js</code> from CDN)</li>
+</ul>
+
+<h2 id="constraints">Constraints</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">github-pages</code> gem pins Jekyll to 3.x and restricts which plugins are allowed. Only <a href="https://pages.github.com/versions/">github-pages whitelisted plugins</a> can be used.</li>
+  <li>No SCSS pipeline — use plain CSS in <code class="language-plaintext highlighter-rouge">style.css</code>.</li>
+  <li>External JS dependency: <code class="language-plaintext highlighter-rouge">particles.min.js</code> v2.0.0 loaded from CDN; <code class="language-plaintext highlighter-rouge">assets/js/particles.js</code> is just a thin init wrapper around it.</li>
+  <li>Cache-busting is manual: <code class="language-plaintext highlighter-rouge">?v=1.0</code> query params on CSS/JS references in <code class="language-plaintext highlighter-rouge">_layouts/default.html</code>. Bump these when changing assets.</li>
+</ul>
+ <!-- _includes/footer.html -->
+<footer>
+  <p class="es">&copy; 2025 Sebastián Dinator | Ciberseguridad y Tecnología</p>
+  <p class="en">&copy; 2025 Sebastián Dinator | Cybersecurity and Technology</p>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/sebadinator" target="_blank">
+      <img
+        src="/assets/icons/linkedin.svg"
+        alt="LinkedIn"
+      />
+    </a>
+    <a href="https://github.com/Seva41" target="_blank">
+      <img src="/assets/icons/github.svg" alt="GitHub" />
+    </a>
+    <a href="https://t.me/sevadinator" target="_blank">
+      <img
+        src="/assets/icons/telegram.svg"
+        alt="Telegram"
+      />
+    </a>
+  </div>
+</footer>
+
+    <!-- particles.js desde CDN al final del body -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous"></script>
+    <script src="/assets/js/particles.js?v=1.0"></script>
+    <script>
+      /* Fade-in suave del fondo de partículas tras carga completa */
+      window.addEventListener('load', function() {
+        var p = document.getElementById('particles-js');
+        if (!p) return;
+        p.classList.add('particles-prep');
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            p.classList.add('particles-ready');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

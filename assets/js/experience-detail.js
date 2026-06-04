@@ -47,46 +47,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
+  // Usa la clase CSS del elemento <html> en vez de comprobar style.display
   function getCurrentLang() {
-    const esVisible = document.querySelector('.es')?.style.display !== 'none';
-    return esVisible ? 'es' : 'en';
+    return document.documentElement.classList.contains('lang-en') ? 'en' : 'es';
   }
 
-  // Guarda el último detalle mostrado
   let currentDetailKey = null;
 
   function updateDetailContent() {
     if (!currentDetailKey) return;
     const lang = getCurrentLang();
-    detailContent.innerHTML = details[currentDetailKey] ? details[currentDetailKey][lang] : "<p>Detalle no disponible.</p>";
+    detailContent.innerHTML = details[currentDetailKey]?.[lang] ?? '<p>Detalle no disponible.</p>';
   }
 
   items.forEach(item => {
-    item.addEventListener("click", function () {
-      const key = item.getAttribute("data-detail");
-      currentDetailKey = key;
+    item.addEventListener('click', function () {
+      currentDetailKey = item.dataset.detail;
       updateDetailContent();
-      // Espera un frame para asegurar el render antes de animar
       requestAnimationFrame(() => {
-        dualContainer.classList.add("dual-active");
+        dualContainer.classList.add('dual-active');
       });
     });
   });
 
-  closeBtn.addEventListener("click", function () {
-    dualContainer.classList.remove("dual-active");
+  closeBtn.addEventListener('click', function () {
+    dualContainer.classList.remove('dual-active');
     currentDetailKey = null;
   });
 
-  // Hook para cambio de idioma
-  const originalCambiarIdioma = window.cambiarIdioma;
-  window.cambiarIdioma = function (idioma) {
-    if (typeof originalCambiarIdioma === "function") {
-      originalCambiarIdioma(idioma);
-    }
-    // Si la ventana de detalle está activa, actualiza el contenido
-    if (dualContainer.classList.contains("dual-active")) {
-      updateDetailContent();
-    }
+  // Actualiza el contenido del panel de detalle cuando cambia el idioma
+  const originalCambiarIdioma = globalThis.cambiarIdioma;
+  globalThis.cambiarIdioma = function (idioma) {
+    originalCambiarIdioma?.(idioma);
+    if (dualContainer.classList.contains('dual-active')) updateDetailContent();
   };
 });

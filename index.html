@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Inicio | Sebastián Dinator" />
     <title>Inicio | Sebastián Dinator</title>
-    <link rel="stylesheet" href="/style.css?v=1.0" />
+    <!-- Establece la clase de idioma antes de pintar para evitar FOUC -->
+    <script>(function(){var l=localStorage.getItem('idiomaSeleccionado')||'es';document.documentElement.classList.add('lang-'+l);})();</script>
+    <link rel="stylesheet" href="/style.css?v=1.1" />
     <link
       rel="icon"
       href="/assets/icons/favicon.ico?v=1.0"
@@ -47,9 +49,9 @@
       rel="manifest"
       href="/assets/icons/site.webmanifest?v=1.0"
     />
-    <!-- Scripts comunes -->
-    <script src="/assets/js/main.js?v=1.0"></script>
-    <script src="/assets/js/experience-detail.js?v=1.0"></script>
+    <!-- Scripts con defer: no bloquean el render y se ejecutan en orden -->
+    <script defer src="/assets/js/main.js?v=1.1"></script>
+    <script defer src="/assets/js/experience-detail.js?v=1.1"></script>
   </head>
   <body>
     <div id="particles-js"></div>
@@ -107,12 +109,11 @@
   </div>
 </nav>
 
-    <!-- Contenido específico de cada página -->
     <main>
-  <section id="intro" class="tab-content active" aria-hidden="false" style="display:flex">
+  <section id="intro" class="tab-content active" aria-hidden="false">
     <div class="content-window">
       <h1 class="es">Sebastián Dinator</h1>
-      <h1 class="en" style="display: none">Sebastián Dinator</h1>
+      <h1 class="en">Sebastián Dinator</h1>
       <p class="es">
         Gracias por visitar! Soy Sebastián Dinator, Ingeniero Civil Informático y
         Magíster en Ciencias de la Ingeniería con mención en TI, especializado en
@@ -120,7 +121,7 @@
         encontrarás información sobre mi experiencia profesional, habilidades, y
         proyectos destacados.
       </p>
-      <p class="en" style="display: none">
+      <p class="en">
         Thank you for visiting! I'm Sebastián Dinator, Computer Science Engineer
         and Master of Science in Engineering with a specialization in IT,
         specialized in cybersecurity, artificial intelligence, and technology. On
@@ -131,14 +132,14 @@
         Te invito a explorar el contenido para conocer más sobre mi trabajo y cómo
         podemos colaborar en el futuro.
       </p>
-      <p class="en" style="display: none">
+      <p class="en">
         I invite you to explore the content to learn more about my work and how we
         can collaborate in the future.
       </p>
     </div>
   </section>
 
-  <section id="about" class="tab-content" style="display:none" aria-hidden="true">
+  <section id="about" class="tab-content" aria-hidden="true">
     <div class="content-window">
       <h1 class="es">Sobre mí</h1>
 <h1 class="en">About Me</h1>
@@ -193,7 +194,7 @@
     </div>
   </section>
 
-  <section id="experience" class="tab-content" style="display:none" aria-hidden="true">
+  <section id="experience" class="tab-content" aria-hidden="true">
     <div class="experience-dual">
       <div class="content-window experience-list-window">
         <h1 class="es">Experiencia</h1>
@@ -275,13 +276,13 @@
 
       </div>
       <div id="experience-detail-window" class="content-window experience-detail-window">
-        <button class="close-detail">×</button>
+        <button class="close-detail" aria-label="Cerrar detalle">×</button>
         <div id="experience-detail-content"></div>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="tab-content" style="display:none" aria-hidden="true">
+  <section id="skills" class="tab-content" aria-hidden="true">
     <div class="content-window">
       <h1 class="es">Habilidades</h1>
 <h1 class="en">Skills</h1>
@@ -345,7 +346,7 @@
 </div>
 
 <!-- English -->
-<div class="en" style="display: none;">
+<div class="en">
   <p>
     <strong>Areas of expertise:</strong> Offensive and defensive cybersecurity, penetration testing, vulnerability analysis, secure development, AI applied to security, automation, and DevSecOps.
   </p>
@@ -405,7 +406,7 @@
     </div>
   </section>
 
-  <section id="contact" class="tab-content" style="display:none" aria-hidden="true">
+  <section id="contact" class="tab-content" aria-hidden="true">
     <div class="content-window">
       <h1 class="es">Contacto</h1>
 <h1 class="en">Contact</h1>
@@ -446,81 +447,20 @@
   </div>
 </footer>
 
-    <!-- Scripts comunes al final del body -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- particles.js desde CDN al final del body -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous"></script>
     <script src="/assets/js/particles.js?v=1.0"></script>
     <script>
-      /* Eliminado hack de reflow (provocaba parpadeo de color en partículas)
-         Se aplica una clase .particles-ready tras fade inicial ligero. */
-      window.addEventListener('load', () => {
-        const p = document.getElementById('particles-js');
-        if(!p) return;
+      /* Fade-in suave del fondo de partículas tras carga completa */
+      window.addEventListener('load', function() {
+        var p = document.getElementById('particles-js');
+        if (!p) return;
         p.classList.add('particles-prep');
-        requestAnimationFrame(()=>{
-          p.classList.add('particles-ready');
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            p.classList.add('particles-ready');
+          });
         });
-      });
-    </script>
-    <script>
-      // Función para cambiar la pestaña activa
-      function showTab(tabId) {
-        const tabs = document.querySelectorAll('.tab-content');
-        const controls = document.querySelectorAll('.nav-links [data-tab]');
-
-        // Ocultar todas las pestañas y eliminar la clase 'active' de todos los enlaces
-        tabs.forEach(tab => {
-          tab.style.display = 'none';
-          tab.classList.remove('active');
-          tab.setAttribute('aria-hidden','true');
-        });
-        controls.forEach(btn => {
-          btn.classList.remove('active');
-          btn.setAttribute('aria-selected','false');
-          btn.setAttribute('tabindex','-1');
-        });
-
-        // Mostrar la pestaña seleccionada
-        const activeTab = document.getElementById(tabId);
-        if(activeTab){
-          activeTab.style.display = 'block';
-          activeTab.classList.add('active');
-          activeTab.setAttribute('aria-hidden','false');
-        }
-        // Activar botones asociados (ambos idiomas)
-        const activeBtns = document.querySelectorAll(`.nav-links [data-tab="${tabId}"]`);
-        activeBtns.forEach(btn => {
-          btn.classList.add('active');
-          btn.setAttribute('aria-selected','true');
-          btn.removeAttribute('tabindex');
-        });
-        localStorage.setItem('lastTabId', tabId);
-      }
-
-      function cambiarIdioma(idioma) {
-        const esElements = document.querySelectorAll(".es");
-        const enElements = document.querySelectorAll(".en");
-
-        if (idioma === "es") {
-          esElements.forEach((el) => (el.style.display = "block"));
-          enElements.forEach((el) => (el.style.display = "none"));
-        } else {
-          esElements.forEach((el) => (el.style.display = "none"));
-          enElements.forEach((el) => (el.style.display = "block"));
-        }
-      }
-
-      // Función para el menú hamburguesa en móviles
-      function toggleMenu() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("nav-links-active");
-      }
-      // Fallback: asegurar que intro esté visible si nada activo tras 1 ciclo
-      document.addEventListener('DOMContentLoaded',()=>{
-        const anyActive = document.querySelector('.tab-content.active');
-        if(!anyActive){
-          const intro = document.getElementById('intro');
-          if(intro){ intro.style.display='block'; intro.classList.add('active'); intro.setAttribute('aria-hidden','false'); }
-        }
       });
     </script>
   </body>
