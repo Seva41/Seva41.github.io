@@ -221,7 +221,7 @@ nav.navbar { position: relative; z-index: 100; }
 }
 .language-switch-desktop button.active-lang {
   background: #5dade2;
-  color: #fff;
+  color: #0c1e2c;
   box-shadow: 0 0 0 2px rgba(93,173,226,0.35) inset;
 }
 
@@ -485,7 +485,7 @@ footer p {
     font-weight:600;
     touch-action: manipulation;
   }
-  .language-switch-mobile button.active-lang { background:#5dade2; color:#fff; border-color:#5dade2; box-shadow:0 0 0 1px rgba(255,255,255,0.15) inset; }
+  .language-switch-mobile button.active-lang { background:#5dade2; color:#0c1e2c; border-color:#5dade2; box-shadow:0 0 0 1px rgba(255,255,255,0.15) inset; }
 
   /* Layout fijo en móvil: el body no scrollea, el contenido scrollea dentro del recuadro */
   body {
@@ -543,7 +543,8 @@ footer p {
 }
 
 /* Backdrop (insertado dinámicamente) */
-.nav-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.35); -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); opacity:0; pointer-events:none; transition:opacity .35s ease; z-index:1600; }
+/* z-index debe ser MENOR que .nav-links (1200) para no blurear el menú */
+.nav-backdrop { position:fixed; inset:0; background:rgba(0,0,0,0.45); -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); opacity:0; pointer-events:none; transition:opacity .35s ease; z-index:1150; }
 .nav-backdrop.visible { opacity:1; pointer-events:auto; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -645,7 +646,7 @@ footer p {
 
 #experience .experience-detail-window .close-detail:hover {
   background: #5dade2;
-  color: #fff;
+  color: #0c1e2c;
 }
 
 /* Skills: ventana mucho más ancha y sin scroll vertical */
