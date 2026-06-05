@@ -57,6 +57,7 @@ function toggleMenu(forceState) {
   if (!backdrop) {
     backdrop = document.createElement('div');
     backdrop.className = 'nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
     document.body.appendChild(backdrop);
     backdrop.addEventListener('click', () => toggleMenu(false));
   }
