@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const detailWindow = document.getElementById('experience-detail-window');
   const detailContent = document.getElementById('experience-detail-content');
   const closeBtn = detailWindow.querySelector('.close-detail');
-  const items = experienceSection.querySelectorAll('.experience-list li');
+  const items = experienceSection.querySelectorAll('.experience-list button[data-detail]');
 
   const details = {
     klap: {

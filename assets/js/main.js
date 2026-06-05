@@ -30,13 +30,23 @@ function cambiarIdioma(idioma) {
   const html = document.documentElement;
   html.classList.remove('lang-es', 'lang-en');
   html.classList.add(`lang-${idioma}`);
+  html.lang = idioma;
   localStorage.setItem('idiomaSeleccionado', idioma);
   const menuBtn = document.querySelector('.menu-icon');
   if (menuBtn) {
     menuBtn.setAttribute('aria-label', idioma === 'es' ? 'Abrir menú' : 'Open menu');
   }
+  const nav = document.querySelector('.navbar');
+  if (nav) {
+    nav.setAttribute('aria-label', idioma === 'es' ? 'Principal' : 'Main navigation');
+  }
+  const closeDetail = document.querySelector('.close-detail');
+  if (closeDetail) {
+    closeDetail.setAttribute('aria-label', idioma === 'es' ? 'Cerrar detalle' : 'Close detail');
+  }
   document.querySelectorAll('[data-lang]').forEach(b => {
     b.classList.toggle('active-lang', b.dataset.lang === idioma);
+    b.setAttribute('aria-pressed', b.dataset.lang === idioma ? 'true' : 'false');
   });
 }
 
