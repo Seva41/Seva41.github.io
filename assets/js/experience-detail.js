@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  // Usa la clase CSS del elemento <html> en vez de comprobar style.display
   function getCurrentLang() {
     return document.documentElement.classList.contains('lang-en') ? 'en' : 'es';
   }
@@ -75,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
     currentDetailKey = null;
   });
 
-  // Actualiza el contenido del panel de detalle cuando cambia el idioma
   const originalCambiarIdioma = globalThis.cambiarIdioma;
   globalThis.cambiarIdioma = function (idioma) {
     originalCambiarIdioma?.(idioma);

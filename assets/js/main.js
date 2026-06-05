@@ -1,6 +1,3 @@
-// assets/js/main.js
-
-// Cambia la pestaña activa usando solo clases CSS (sin style.display inline)
 function showTab(tabId) {
   document.querySelectorAll('.tab-content').forEach(tab => {
     tab.style.display = '';
@@ -57,6 +54,7 @@ function toggleMenu(forceState) {
   if (!backdrop) {
     backdrop = document.createElement('div');
     backdrop.className = 'nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
     document.body.appendChild(backdrop);
     backdrop.addEventListener('click', () => toggleMenu(false));
   }
@@ -87,7 +85,6 @@ function toggleMenu(forceState) {
     return;
   }
 
-  // Cerrar
   navLinks.classList.remove('nav-links-active');
   button.classList.remove('is-open');
   if (navigator.vibrate) navigator.vibrate([5, 15]);
@@ -101,7 +98,6 @@ function toggleMenu(forceState) {
   button.focus();
 }
 
-// Cerrar menú al hacer click en enlace o botón de pestaña (móvil)
 document.addEventListener('click', e => {
   const navLinks = document.querySelector('.nav-links');
   if (!navLinks) return;
@@ -110,7 +106,6 @@ document.addEventListener('click', e => {
   }
 });
 
-// Cerrar con Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     const navLinks = document.querySelector('.nav-links');
@@ -118,7 +113,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Cerrar al hacer click fuera del menú
 document.addEventListener('click', e => {
   const btn = document.querySelector('.menu-icon');
   const menu = document.querySelector('.nav-links');
@@ -129,10 +123,6 @@ document.addEventListener('click', e => {
   toggleMenu(false);
 });
 
-globalThis.addEventListener('resize', () => {
-  // reservado para futuras mejoras de layout en resize
-});
-
 globalThis.onload = function() {
   const idiomaGuardado = localStorage.getItem('idiomaSeleccionado') || 'es';
   cambiarIdioma(idiomaGuardado);
@@ -141,13 +131,11 @@ globalThis.onload = function() {
   const lastTab = localStorage.getItem('lastTabId') || 'intro';
   showTab(document.getElementById(lastTab) ? lastTab : 'intro');
 
-  // Lazy loading para imágenes sin atributo
   document.querySelectorAll('img:not([loading])').forEach(img => {
     img.setAttribute('loading', 'lazy');
     img.setAttribute('decoding', 'async');
   });
 
-  // Delegación: tabs y cambio de idioma
   document.addEventListener('click', e => {
     const tabBtn = e.target.closest('[data-tab]');
     if (tabBtn) {
@@ -161,14 +149,12 @@ globalThis.onload = function() {
     if (langBtn) cambiarIdioma(langBtn.dataset.lang);
   });
 
-  // Botón hamburguesa
   const menuBtn = document.querySelector('.menu-icon');
   if (menuBtn && !menuBtn.dataset.bound) {
     menuBtn.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
     menuBtn.dataset.bound = 'true';
   }
 
-  // Logo: navegar a intro
   const logoBtn = document.querySelector('.logo-btn');
   if (logoBtn && !logoBtn.dataset.bound) {
     logoBtn.addEventListener('click', () => {
@@ -178,6 +164,41 @@ globalThis.onload = function() {
     logoBtn.dataset.bound = 'true';
   }
 
-  // Fallback: mostrar intro si ninguna pestaña está activa
   if (!document.querySelector('.tab-content.active')) showTab('intro');
 };
+
+(function () {
+  console.log(
+    '\n%c SEVA41 %c Sebastián Dinator\n',
+    'background:#5dade2;color:#0c1e2c;font-weight:bold;padding:2px 8px;border-radius:3px',
+    'color:#5dade2;font-weight:bold'
+  );
+  console.log('%cCybersecurity · Full Stack · Open Source', 'color:#8899aa');
+  console.log('%c→ github.com/Seva41', 'color:#5dade2');
+  console.log('%c¿Curioso/a? Prueba: ↑↑↓↓←→←→BA 👾', 'color:#5dade2;font-style:italic');
+
+  const k = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let p = 0;
+  document.addEventListener('keydown', e => {
+    if (e.key === k[p]) { p++; } else { p = e.key === k[0] ? 1 : 0; }
+    if (p < k.length) return;
+    p = 0;
+    const el = document.createElement('div');
+    el.setAttribute('aria-hidden', 'true');
+    el.style.cssText = 'position:fixed;inset:0;background:#0d1117;font-family:monospace;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99999;opacity:0;transition:opacity .4s;cursor:pointer';
+    el.innerHTML =
+      '<p style="color:#39d353;font-size:clamp(10px,1.5vw,15px);letter-spacing:2px;margin:4px 0">&gt; INITIATING CONNECTION...</p>' +
+      '<p style="color:#39d353;font-size:clamp(10px,1.5vw,15px);letter-spacing:2px;margin:4px 0">&gt; AUTHENTICATING USER: SEVA41</p>' +
+      '<p style="color:#39d353;font-size:clamp(12px,2vw,20px);letter-spacing:5px;margin:20px 0">[ ACCESS GRANTED ]</p>' +
+      '<p style="color:#58a6ff;font-size:clamp(11px,1.4vw,14px);margin:4px 0">Sebastián Dinator · github.com/Seva41</p>' +
+      '<p style="color:#6e7681;font-size:clamp(9px,1vw,12px);margin-top:20px">↑↑↓↓←→←→BA · click to close</p>';
+    document.body.appendChild(el);
+    requestAnimationFrame(() => { el.style.opacity = '1'; });
+    const close = () => {
+      el.style.opacity = '0';
+      setTimeout(() => el.remove(), 400);
+    };
+    el.addEventListener('click', close);
+    setTimeout(close, 4000);
+  });
+})();

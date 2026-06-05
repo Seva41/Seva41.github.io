@@ -1,4 +1,3 @@
-<!-- _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -8,56 +7,21 @@
     <title>Inicio | Sebastián Dinator</title>
     <!-- Establece la clase de idioma antes de pintar para evitar FOUC -->
     <script>(function(){var l=localStorage.getItem('idiomaSeleccionado')||'es';document.documentElement.classList.add('lang-'+l);})();</script>
-    <link rel="stylesheet" href="/style.css?v=1.2" />
-    <link
-      rel="icon"
-      href="/assets/icons/favicon.ico?v=1.0"
-      type="image/x-icon"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/icons/favicon-16x16.png?v=1.0"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/icons/favicon-32x32.png?v=1.0"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/icons/apple-touch-icon.png?v=1.0"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/assets/icons/android-chrome-192x192.png?v=1.0"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="/assets/icons/android-chrome-512x512.png?v=1.0"
-    />
-
-    <!-- Web App Manifest -->
-    <link
-      rel="manifest"
-      href="/assets/icons/site.webmanifest?v=1.0"
-    />
-    <!-- Scripts con defer: no bloquean el render y se ejecutan en orden -->
-    <script defer src="/assets/js/main.js?v=1.1"></script>
+    <link rel="stylesheet" href="/style.css?v=1.3" />
+    <link rel="icon" href="/assets/icons/favicon.ico?v=1.0" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png?v=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png?v=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=1.0" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png?v=1.0" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/android-chrome-512x512.png?v=1.0" />
+    <link rel="manifest" href="/assets/icons/site.webmanifest?v=1.0" />
+    <script defer src="/assets/js/main.js?v=1.2"></script>
     <script defer src="/assets/js/experience-detail.js?v=1.1"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Saltar al contenido / Skip to main content</a>
     <div id="particles-js" aria-hidden="true"></div>
-    <!-- _includes/navbar.html -->
-<nav class="navbar" aria-label="Principal">
+    <nav class="navbar" aria-label="Principal">
   <div class="logo">
     <button type="button" id="logo-btn" class="logo-btn" data-tab="intro" aria-controls="intro">
       <img
@@ -71,13 +35,11 @@
       <span>Sebastián Dinator</span>
     </button>
   </div>
-  <!-- Ícono del menú hamburguesa -->
   <button class="menu-icon" aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded="false">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
-  <!-- Enlaces de navegación -->
   <ul class="nav-links" id="primary-navigation">
     <li>
       <button id="tab-about-es" type="button" data-tab="about" class="es nav-btn" role="tab" aria-controls="about">Sobre mí</button>
@@ -95,7 +57,6 @@
       <button id="tab-contact-es" type="button" data-tab="contact" class="es nav-btn" role="tab" aria-controls="contact">Contacto</button>
       <button id="tab-contact-en" type="button" data-tab="contact" class="en nav-btn" role="tab" aria-controls="contact">Contact</button>
     </li>
-    <!-- Selector de idioma para móvil dentro del menú -->
     <li>
       <fieldset class="language-switch language-switch-mobile">
         <legend class="sr-only">Idioma / Language</legend>
@@ -104,7 +65,6 @@
       </fieldset>
     </li>
   </ul>
-  <!-- Selector de idioma para escritorio -->
   <fieldset class="language-switch language-switch-desktop">
     <legend class="sr-only">Idioma / Language</legend>
     <button type="button" data-lang="es" aria-pressed="true">Español</button>
@@ -302,7 +262,6 @@
       <h1 class="es">Habilidades</h1>
 <h1 class="en">Skills</h1>
 
-<!-- Español -->
 <div class="es">
   <p>
     <strong>Áreas de especialización:</strong> Ciberseguridad ofensiva y defensiva, pruebas de penetración, análisis de vulnerabilidades, desarrollo seguro, inteligencia artificial aplicada a la seguridad, automatización y DevSecOps.
@@ -360,7 +319,6 @@
   </p>
 </div>
 
-<!-- English -->
 <div class="en">
   <p>
     <strong>Areas of expertise:</strong> Offensive and defensive cybersecurity, penetration testing, vulnerability analysis, secure development, AI applied to security, automation, and DevSecOps.
@@ -456,11 +414,9 @@
   </div>
 </footer>
 
-    <!-- particles.js desde CDN al final del body -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous"></script>
     <script src="/assets/js/particles.js?v=1.0"></script>
     <script>
-      /* Fade-in suave del fondo de partículas tras carga completa */
       window.addEventListener('load', function() {
         var p = document.getElementById('particles-js');
         if (!p) return;
