@@ -104,7 +104,7 @@ p {
 /* Barra de navegación */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Ajustar la separación entre el logo y los enlaces */
+  justify-content: space-between;
   align-items: center;
   background-color: #121212;
   padding: 15px 30px;
@@ -113,7 +113,7 @@ p {
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  pointer-events: auto; /* permitir interacción global */
+  pointer-events: auto;
 }
 
 /* Logo y nombre */
@@ -168,7 +168,6 @@ p {
 
 /* Contexto de apilamiento del navbar debe estar SOBRE el backdrop (z-index:50) */
 nav.navbar { position: fixed; z-index: 1500; }
-/* Eliminado intento de deshabilitar pointer-events global; mantenemos control sólo con backdrop */
 .menu-icon {
   display: none; /* se activa en media query móvil */
   background: rgba(36,36,36,0.85);
@@ -269,7 +268,6 @@ fieldset.language-switch {
   display: none;
 }
 
-/* (Eliminado bloque duplicado de .menu-icon; ver definición consolidada arriba) */
 
 /* Sección Principal */
 main {
@@ -363,8 +361,6 @@ footer p {
 .social-icons a:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
 .social-icons img { width:22px; height:22px; display:block; filter: brightness(0) invert(1); }
 
-/* (Eliminadas reglas duplicadas de .social-icons img para evitar conflictos) */
-
 /* Sección de experiencia */
 .experience-item {
   display: flex;
@@ -391,9 +387,6 @@ footer p {
   line-height: 1.5;
 }
 
-/* (Eliminada duplicación previa de .tab-content; ver versión optimizada más arriba) */
-
-/* (Eliminado bloque legacy de layout experiencia; reemplazado por nueva sección animada más abajo) */
 
 /* ============================= */
 /* Experiencia: animación centrado → dual panel */
@@ -462,7 +455,6 @@ footer p {
 }
 
 /* Responsive: en móvil, solo una ventana a la vez */
-/* (Eliminadas media queries antiguas redundantes para experiencia) */
 
 /* Estilos para móviles (refactor con botones mejorados y backdrop) */
 @media (max-width: 820px) {
@@ -630,9 +622,6 @@ footer p {
   margin-bottom: 18px;
 }
 
-/* (Eliminada versión duplicada de #experience .content-window, mantenida definición previa) */
-
-/* (Eliminada duplicada de #experience .experience-list para evitar conflicto de alturas) */
 
 .experience-list {
   list-style: none;
