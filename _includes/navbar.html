@@ -1,7 +1,7 @@
 <!-- _includes/navbar.html -->
-<nav class="navbar" role="navigation" aria-label="Principal">
+<nav class="navbar" aria-label="Principal">
   <div class="logo">
-    <button type="button" class="logo-btn" data-tab="intro" aria-controls="intro">
+    <button type="button" id="logo-btn" class="logo-btn" data-tab="intro" aria-controls="intro">
       <img
         src="{{ 'assets/img/perfil.jpg' | relative_url }}"
         alt="Foto de Sebastián Dinator"
@@ -22,32 +22,34 @@
   <!-- Enlaces de navegación -->
   <ul class="nav-links" id="primary-navigation">
     <li>
-      <button id="tab-about-es" type="button" data-tab="about" class="es nav-btn" aria-controls="about">Sobre mí</button>
-      <button id="tab-about-en" type="button" data-tab="about" class="en nav-btn" aria-controls="about">About Me</button>
+      <button id="tab-about-es" type="button" data-tab="about" class="es nav-btn" role="tab" aria-controls="about">Sobre mí</button>
+      <button id="tab-about-en" type="button" data-tab="about" class="en nav-btn" role="tab" aria-controls="about">About Me</button>
     </li>
     <li>
-      <button id="tab-experience-es" type="button" data-tab="experience" class="es nav-btn" aria-controls="experience">Experiencia</button>
-      <button id="tab-experience-en" type="button" data-tab="experience" class="en nav-btn" aria-controls="experience">Experience</button>
+      <button id="tab-experience-es" type="button" data-tab="experience" class="es nav-btn" role="tab" aria-controls="experience">Experiencia</button>
+      <button id="tab-experience-en" type="button" data-tab="experience" class="en nav-btn" role="tab" aria-controls="experience">Experience</button>
     </li>
     <li>
-      <button id="tab-skills-es" type="button" data-tab="skills" class="es nav-btn" aria-controls="skills">Habilidades</button>
-      <button id="tab-skills-en" type="button" data-tab="skills" class="en nav-btn" aria-controls="skills">Skills</button>
+      <button id="tab-skills-es" type="button" data-tab="skills" class="es nav-btn" role="tab" aria-controls="skills">Habilidades</button>
+      <button id="tab-skills-en" type="button" data-tab="skills" class="en nav-btn" role="tab" aria-controls="skills">Skills</button>
     </li>
     <li>
-      <button id="tab-contact-es" type="button" data-tab="contact" class="es nav-btn" aria-controls="contact">Contacto</button>
-      <button id="tab-contact-en" type="button" data-tab="contact" class="en nav-btn" aria-controls="contact">Contact</button>
+      <button id="tab-contact-es" type="button" data-tab="contact" class="es nav-btn" role="tab" aria-controls="contact">Contacto</button>
+      <button id="tab-contact-en" type="button" data-tab="contact" class="en nav-btn" role="tab" aria-controls="contact">Contact</button>
     </li>
     <!-- Selector de idioma para móvil dentro del menú -->
     <li>
-      <div class="language-switch language-switch-mobile">
-        <button type="button" data-lang="es">Español</button>
-        <button type="button" data-lang="en">English</button>
-      </div>
+      <fieldset class="language-switch language-switch-mobile">
+        <legend class="sr-only">Idioma / Language</legend>
+        <button type="button" data-lang="es" aria-pressed="true">Español</button>
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+      </fieldset>
     </li>
   </ul>
   <!-- Selector de idioma para escritorio -->
-  <div class="language-switch language-switch-desktop">
-    <button type="button" data-lang="es">Español</button>
-    <button type="button" data-lang="en">English</button>
-  </div>
+  <fieldset class="language-switch language-switch-desktop">
+    <legend class="sr-only">Idioma / Language</legend>
+    <button type="button" data-lang="es" aria-pressed="true">Español</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </fieldset>
 </nav>

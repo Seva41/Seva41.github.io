@@ -54,7 +54,8 @@
     <script defer src="{{ '/assets/js/experience-detail.js?v=1.1' | relative_url }}"></script>
   </head>
   <body>
-    <div id="particles-js"></div>
+    <a class="skip-link" href="#main-content">Saltar al contenido / Skip to main content</a>
+    <div id="particles-js" aria-hidden="true"></div>
     {% include navbar.html %}
     {{ content }} {% include footer.html %}
     <!-- particles.js desde CDN al final del body -->

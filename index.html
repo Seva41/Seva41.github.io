@@ -5,8 +5,8 @@ description: "Inicio | Sebastián Dinator"
 lang: es
 ---
 
-<main>
-  <section id="intro" class="tab-content active" aria-hidden="false">
+<main id="main-content">
+  <section id="intro" class="tab-content active" role="tabpanel" aria-labelledby="logo-btn" aria-hidden="false">
     <div class="content-window">
       <h1 class="es">Sebastián Dinator</h1>
       <h1 class="en">Sebastián Dinator</h1>
@@ -35,13 +35,13 @@ lang: es
     </div>
   </section>
 
-  <section id="about" class="tab-content" aria-hidden="true">
+  <section id="about" class="tab-content" role="tabpanel" aria-labelledby="tab-about-es tab-about-en" aria-hidden="true">
     <div class="content-window">
       {% include about.html %}
     </div>
   </section>
 
-  <section id="experience" class="tab-content" aria-hidden="true">
+  <section id="experience" class="tab-content" role="tabpanel" aria-labelledby="tab-experience-es tab-experience-en" aria-hidden="true">
     <div class="experience-dual">
       <div class="content-window experience-list-window">
         {% include experience.html %}
@@ -53,13 +53,13 @@ lang: es
     </div>
   </section>
 
-  <section id="skills" class="tab-content" aria-hidden="true">
+  <section id="skills" class="tab-content" role="tabpanel" aria-labelledby="tab-skills-es tab-skills-en" aria-hidden="true">
     <div class="content-window">
       {% include skills.html %}
     </div>
   </section>
 
-  <section id="contact" class="tab-content" aria-hidden="true">
+  <section id="contact" class="tab-content" role="tabpanel" aria-labelledby="tab-contact-es tab-contact-en" aria-hidden="true">
     <div class="content-window">
       {% include contact.html %}
     </div>
