@@ -321,7 +321,7 @@ footer p {
 }
 .social-icons a { display:inline-flex; width:36px; height:36px; border-radius:10px; background: rgba(255,255,255,0.05); align-items:center; justify-content:center; transition: background .25s, transform .25s; }
 .social-icons a:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
-.social-icons img { width:22px; height:22px; display:block; }
+.social-icons img { width:22px; height:22px; display:block; filter: brightness(0) invert(1); }
 
 /* (Eliminadas reglas duplicadas de .social-icons img para evitar conflictos) */
 
