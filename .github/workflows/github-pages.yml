@@ -27,7 +27,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0 # Ajusta la versión según tus necesidades
+          ruby-version: "3.0" # Ajusta la versión según tus necesidades
 
       - name: Install dependencies
         run: bundle install
@@ -41,4 +41,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           cname: sebadinator.com
-
