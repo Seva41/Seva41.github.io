@@ -1,50 +1,15 @@
-<nav class="navbar" aria-label="Principal">
-  <div class="logo">
-    <button type="button" id="logo-btn" class="logo-btn" data-tab="intro" aria-controls="intro">
-      <img
-        src="{{ 'assets/img/perfil.jpg' | relative_url }}"
-        alt="Foto de Sebastián Dinator"
-        class="profile-small"
-        loading="lazy"
-        decoding="async"
-        width="40" height="40"
-      />
-      <span>Sebastián Dinator</span>
-    </button>
-  </div>
-  <button class="menu-icon" aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded="false">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-  <ul class="nav-links" id="primary-navigation">
-    <li>
-      <button id="tab-about-es" type="button" data-tab="about" class="es nav-btn" role="tab" aria-controls="about">Sobre mí</button>
-      <button id="tab-about-en" type="button" data-tab="about" class="en nav-btn" role="tab" aria-controls="about">About Me</button>
-    </li>
-    <li>
-      <button id="tab-experience-es" type="button" data-tab="experience" class="es nav-btn" role="tab" aria-controls="experience">Experiencia</button>
-      <button id="tab-experience-en" type="button" data-tab="experience" class="en nav-btn" role="tab" aria-controls="experience">Experience</button>
-    </li>
-    <li>
-      <button id="tab-skills-es" type="button" data-tab="skills" class="es nav-btn" role="tab" aria-controls="skills">Habilidades</button>
-      <button id="tab-skills-en" type="button" data-tab="skills" class="en nav-btn" role="tab" aria-controls="skills">Skills</button>
-    </li>
-    <li>
-      <button id="tab-contact-es" type="button" data-tab="contact" class="es nav-btn" role="tab" aria-controls="contact">Contacto</button>
-      <button id="tab-contact-en" type="button" data-tab="contact" class="en nav-btn" role="tab" aria-controls="contact">Contact</button>
-    </li>
-    <li>
-      <fieldset class="language-switch language-switch-mobile">
-        <legend class="sr-only">Idioma / Language</legend>
-        <button type="button" data-lang="es" aria-pressed="true">Español</button>
-        <button type="button" data-lang="en" aria-pressed="false">English</button>
-      </fieldset>
-    </li>
-  </ul>
-  <fieldset class="language-switch language-switch-desktop">
-    <legend class="sr-only">Idioma / Language</legend>
-    <button type="button" data-lang="es" aria-pressed="true">Español</button>
-    <button type="button" data-lang="en" aria-pressed="false">English</button>
-  </fieldset>
-</nav>
+<header class="top">
+  <a class="wordmark" href="#inicio">Sebastián Dinator</a>
+  <nav class="top-nav" aria-label="Principal" data-label-es="Principal" data-label-en="Main">
+    <a href="#syncdisp">SyncDisp</a>
+    <a href="#experiencia"><span class="es">Experiencia</span><span class="en">Experience</span></a>
+    <a href="#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+    <a href="#sobre-mi"><span class="es">Sobre mí</span><span class="en">About</span></a>
+    <a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+    <fieldset class="lang-switch">
+      <legend class="sr-only">Idioma / Language</legend>
+      <button type="button" data-lang="es" lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+    </fieldset>
+  </nav>
+</header>

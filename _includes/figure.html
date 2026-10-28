@@ -1,0 +1,18 @@
+{%- comment -%}
+  Foto con su barra de pie, desde _data/fotos.yml. Se usa en el escenario fijo (escritorio) y dentro de
+  cada sección (teléfono). Parámetros: id (clave en fotos.yml), stage (true en el escenario), class, eager.
+{%- endcomment -%}
+{%- assign f = site.data.fotos[include.id] -%}
+<figure class="pic{% if f.ui %} pic-ui{% endif %}{% if include.class %} {{ include.class }}{% endif %}"{% if include.stage %} data-stage="{{ include.id }}"{% endif %}>
+  <img
+    src="{{ f.src | relative_url }}"
+    width="{{ f.w }}" height="{{ f.h }}"
+    alt="{{ f.alt_es }}" data-alt-es="{{ f.alt_es }}" data-alt-en="{{ f.alt_en }}"
+    {% if include.eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async"
+    {% if f.pos %}style="object-position: {{ f.pos }}"{% endif %}
+  />
+  <figcaption>
+    <span><span class="es">{{ f.cap_es }}</span><span class="en">{{ f.cap_en }}</span></span>
+    <span class="pic-side"><span class="es">{{ f.side_es }}</span><span class="en">{{ f.side_en | default: f.side_es }}</span></span>
+  </figcaption>
+</figure>

@@ -409,3 +409,5 @@ _site/
 Thumbs.db
 *~
 .#*
+# Capturas y notas del skill de diseño
+.taste-skill/

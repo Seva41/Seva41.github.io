@@ -1,12 +1,28 @@
-<h1 class="es">Contacto</h1>
-<h1 class="en">Contact</h1>
-<p class="es">
-  Puedes contactarme en
-  <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> o en mi
-  <a href="https://www.linkedin.com/in/sebadinator/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
-</p>
-<p class="en">
-  You can contact me at
-  <a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a> or on
-  <a href="https://www.linkedin.com/in/sebadinator/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
-</p>
+<section id="contacto" class="block contact" aria-labelledby="contacto-title" data-stage-for="syncdisp-inicio">
+  <h2 id="contacto-title" class="contact-prompt" data-reveal>
+    <span class="contact-ask"><span class="es">¿Conversamos?</span><span class="en">Shall we talk?</span></span>
+    <span class="es">Marca los días que te acomodan.</span><span class="en">Mark the days that suit you.</span>
+  </h2>
+  <form class="picker" action="mailto:seba@sebadinator.com" method="get" data-reveal>
+    <fieldset class="picker-field">
+      <legend class="sr-only">
+        <span class="es">Días posibles para conversar. Toca un día una vez para «puedo», dos veces para «quizás».</span>
+        <span class="en">Possible days to talk. Tap a day once for "can", twice for "maybe".</span>
+      </legend>
+      <div class="picker-days" data-days></div>
+      <button class="picker-send" type="submit" aria-label="Escribir el correo con estos días" data-label-es="Escribir el correo con estos días" data-label-en="Write the email with these days">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" /></svg>
+      </button>
+    </fieldset>
+    <p class="picker-note" aria-live="polite" data-picker-note>
+      <span class="es">Se abre tu correo con los días que marcaste. Aquí no se guarda nada.</span>
+      <span class="en">Your email app opens with the days you marked. Nothing is stored here.</span>
+    </p>
+  </form>
+  <dl class="contact-rows" data-reveal>
+    <div><dt><span class="es">Correo</span><span class="en">Email</span></dt><dd><a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a></dd></div>
+    <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/sebadinator/" target="_blank" rel="noopener">in/sebadinator</a></dd></div>
+    <div><dt>GitHub</dt><dd><a href="https://github.com/Seva41" target="_blank" rel="noopener">Seva41</a></dd></div>
+    <div><dt>Telegram</dt><dd><a href="https://t.me/sevd41" target="_blank" rel="noopener">sevd41</a></dd></div>
+  </dl>
+</section>
