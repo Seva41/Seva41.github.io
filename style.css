@@ -668,9 +668,24 @@ html.js[data-view="contacto"] #contacto {
   }
 }
 
-/* Proyectos: índice */
+/* Proyectos: índice en dos grupos; el de código abierto, en un panel */
+.group-title {
+  margin-top: 48px;
+}
+
+.view-text h3,
+.sub h3 {
+  color: var(--accent);
+}
+
 .index {
-  margin-top: 40px;
+  margin-top: 24px;
+}
+
+.oss {
+  margin-top: 56px;
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--surface);
 }
 
 .index li + li {
@@ -703,7 +718,7 @@ a.index-name:hover {
 
 .index-tags {
   font-size: var(--step-small);
-  color: var(--muted);
+  color: var(--accent-soft);
 }
 
 .index p:not(.index-row) {
@@ -725,6 +740,7 @@ a.index-name:hover {
   font-size: var(--step-lead);
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--accent-soft);
 }
 
 .signoff-role {
@@ -738,6 +754,11 @@ a.index-name:hover {
   letter-spacing: -0.045em;
   line-height: 0.92;
   color: var(--accent);
+}
+
+.prize {
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--accent-tint);
 }
 
 .prize .lead {
@@ -780,8 +801,14 @@ a.index-name:hover {
   margin-top: 16px;
 }
 
+.skills {
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--surface);
+}
+
 .skills dt {
   font-weight: 600;
+  color: var(--accent-soft);
 }
 
 .skills dd {
