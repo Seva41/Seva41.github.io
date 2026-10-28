@@ -27,7 +27,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.0" # Ajusta la versión según tus necesidades
+          ruby-version: "3.3" # 3.0 ya no existe en ubuntu-latest (Ubuntu 26.04)
 
       - name: Install dependencies
         run: bundle install
