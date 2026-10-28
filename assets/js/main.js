@@ -164,7 +164,8 @@ function aplicarVista({ vista, ancla }) {
 
 function irA(destino) {
   const enfocar = () => document.getElementById(destino.vista)?.querySelector('h1')?.focus({ preventScroll: true });
-  if (document.startViewTransition && !reduceMotion.matches) {
+  // Sin la clase js se ven todas las vistas y las fotos repetirían su view-transition-name.
+  if (document.startViewTransition && !reduceMotion.matches && root.classList.contains('js')) {
     document.startViewTransition(() => aplicarVista(destino)).finished.then(enfocar, enfocar);
   } else {
     aplicarVista(destino);
