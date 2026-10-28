@@ -10,6 +10,8 @@
   --soft: #c4cbd6;
   --accent: #5a9bfc;
   --accent-hover: #7cb0fd;
+  --accent-soft: #a9c8fd;
+  --accent-tint: #142339;
   --accent-ink: #0a0d14;
 
   /* Tipografía: Schibsted Grotesk para todo */
@@ -350,7 +352,7 @@ html.js[data-view="contacto"] #contacto {
 @media (min-width: 1000px) {
   .view {
     --view-display: grid;
-    grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+    grid-template-columns: minmax(0, 56fr) minmax(0, 44fr);
     column-gap: clamp(48px, 5vw, 96px);
     align-items: start;
   }
@@ -359,12 +361,14 @@ html.js[data-view="contacto"] #contacto {
     max-width: 36em;
   }
 
+  /* La foto parte a la altura del título y no pasa de 720px: acompaña al texto, no lo tapa */
   .view-pic {
     position: sticky;
-    top: var(--bar-h);
+    top: calc(var(--bar-h) + 24px);
     display: block;
-    height: calc(100svh - var(--bar-h) - var(--margin));
-    min-height: 520px;
+    height: min(calc(100svh - var(--bar-h) - 48px), 720px);
+    min-height: 480px;
+    margin-top: clamp(32px, 7vh, 88px);
     view-transition-name: foto;
   }
 
@@ -380,7 +384,12 @@ html.js[data-view="contacto"] #contacto {
   overflow: hidden;
 }
 
+.pic-frame {
+  overflow: hidden;
+}
+
 .pic img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -415,10 +424,12 @@ html.js[data-view="contacto"] #contacto {
   opacity: 1;
 }
 
-.view-pic .pic img {
+.view-pic .pic-frame {
   position: absolute;
   inset: 0 0 48px;
-  height: calc(100% - 48px);
+}
+
+.view-pic .pic img {
   transform: scale(1);
   transition: transform 14s linear;
 }
@@ -427,17 +438,12 @@ html.js[data-view="contacto"] #contacto {
   transform: scale(1.05);
 }
 
-.view-pic .pic-ui::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 48px;
+.view-pic .pic-ui .pic-frame {
+  padding: 32px;
   background: var(--surface);
 }
 
 .view-pic .pic-ui img {
-  inset: 40px 40px 88px;
-  width: calc(100% - 80px);
-  height: calc(100% - 128px);
   object-fit: contain;
 }
 
@@ -461,7 +467,7 @@ html.js[data-view="contacto"] #contacto {
     aspect-ratio: 1;
   }
 
-  .pic-inline.pic-ui {
+  .pic-inline.pic-ui .pic-frame {
     background: var(--surface);
   }
 
@@ -820,10 +826,18 @@ a.index-name:hover {
 
 .exp h3 {
   margin-bottom: 20px;
+  color: var(--accent);
+}
+
+/* Formación, certificaciones e idiomas en un panel un tono más claro */
+.exp-side {
+  align-self: start;
+  padding: clamp(24px, 3vw, 40px);
+  background: var(--surface);
 }
 
 .exp-side h3:not(:first-child) {
-  margin-top: 44px;
+  margin-top: 40px;
 }
 
 .timeline li {
@@ -839,6 +853,16 @@ a.index-name:hover {
   background: var(--surface);
 }
 
+/* El cargo actual queda sobre un fondo aciano */
+.timeline li.is-now {
+  background: var(--accent-tint);
+}
+
+.timeline li.is-now .when {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 @media (min-width: 640px) {
   .timeline li {
     grid-template-columns: 10em minmax(0, 1fr);
@@ -848,7 +872,7 @@ a.index-name:hover {
 .when {
   font-variant-numeric: tabular-nums;
   font-size: var(--step-small);
-  color: var(--muted);
+  color: var(--accent-soft);
   padding-top: 0.15em;
 }
 
@@ -894,17 +918,17 @@ a.index-name:hover {
   overflow-wrap: anywhere;
 }
 
-/* Tarjeta con el estilo de SyncDisp (su tema oscuro): colores, tipografía, bordes y radios propios */
+/* Tarjeta con el estilo de SyncDisp (su tema claro): colores, tipografía, bordes y radios propios */
 .sd {
-  --sd-card: #1b1b1b;
-  --sd-line: #2f2f2f;
-  --sd-ink: #ebe8e3;
-  --sd-muted: #b0aca5;
-  --sd-yes: #6dcc93;
-  --sd-on-yes: #0f1a13;
-  --sd-maybe: #f0c35c;
-  --sd-on-maybe: #1a1405;
-  --sd-brand-ink: #f2826b;
+  --sd-card: #ffffff;
+  --sd-line: #e3e3de;
+  --sd-ink: #111111;
+  --sd-muted: #5c5c57;
+  --sd-yes: #1f8a4c;
+  --sd-on-yes: #ffffff;
+  --sd-maybe: #f2b705;
+  --sd-on-maybe: #0a0a0a;
+  --sd-brand-ink: #c2361b;
   max-width: 520px;
   margin-top: 32px;
   padding: 18px 20px 14px;
@@ -989,7 +1013,8 @@ a.index-name:hover {
 }
 
 .sd-day:disabled {
-  opacity: 0.35;
+  background: #f1f1ed;
+  opacity: 0.55;
   cursor: default;
 }
 
@@ -1028,7 +1053,7 @@ a.index-name:hover {
 }
 
 .sd-day[data-state="maybe"] .sd-badge {
-  color: var(--sd-maybe);
+  color: var(--sd-on-maybe);
 }
 
 @keyframes sd-pop {
@@ -1054,7 +1079,7 @@ a.index-name:hover {
   border: 0;
   border-radius: 6px;
   background: var(--sd-ink);
-  color: #141414;
+  color: #ffffff;
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -1062,7 +1087,7 @@ a.index-name:hover {
 }
 
 .sd-send:hover {
-  background: #ffffff;
+  background: #2b2b2b;
 }
 
 .sd-send:active {

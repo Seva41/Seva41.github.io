@@ -24,7 +24,7 @@ Deployment is automatic: push to `main` triggers the GitHub Actions workflow (`.
 
 **Bilingual system** — Language (ES/EN) is a class on `<html>` persisted in `localStorage` (`idiomaSeleccionado`). Text is written twice as `.es` / `.en` spans; alt text and aria-labels use `data-alt-es/en` and `data-label-es/en`, swapped by `main.js`.
 
-**Contact card** — the day picker in `contact.html` (`.sd`, marked `data-ui`) copies SyncDisp's dark theme on purpose: its colour tokens, Bricolage Grotesque, 6–8px radii, borders and logo, with "Powered by SyncDisp". It shows two weeks of weekdays, cycles off → can → maybe, and builds a `mailto:` — nothing is stored. Keep it in sync with SyncDisp's look rather than with the rest of the site.
+**Contact card** — the day picker in `contact.html` (`.sd`, marked `data-ui`) copies SyncDisp's light theme on purpose (a white card on the dark page): its colour tokens, Bricolage Grotesque, 6–8px radii, borders and logo, with "Powered by SyncDisp". It shows two weeks of weekdays, cycles off → can → maybe, and builds a `mailto:` — nothing is stored. Keep it in sync with SyncDisp's look rather than with the rest of the site.
 
 **Key files:**
 - `_layouts/default.html` — head (Google Fonts: Schibsted Grotesk for the site, Bricolage Grotesque for the SyncDisp card), language and view init, footer
