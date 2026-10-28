@@ -14,7 +14,7 @@ bundle exec jekyll serve --livereload   # serve at http://localhost:4000
 bundle exec jekyll build                # build to _site/
 ```
 
-Deployment is automatic: push to `main` triggers the GitHub Actions workflow (`.github/workflows/github-pages.yml`) which builds and deploys to GitHub Pages.
+Deployment is automatic: push to `main` triggers the GitHub Actions workflow (`.github/workflows/github-pages.yml`), which builds with Jekyll and publishes the artifact with `actions/deploy-pages` (Pages source: GitHub Actions, no `gh-pages` branch). The workflow is read-only by default; only the deploy job gets `pages: write` + `id-token: write`. Actions are pinned by commit SHA and Dependabot updates them (`.github/dependabot.yml`). Files that shouldn't be served (`CLAUDE.md`, `LICENSE`, …) go in `exclude` in `_config.yml`; defining `exclude` replaces Jekyll's defaults, so keep `vendor/` there (CI installs gems into it).
 
 ## Architecture
 
@@ -35,8 +35,9 @@ Deployment is automatic: push to `main` triggers the GitHub Actions workflow (`.
 
 ## Constraints
 
-- **CSP in production:** Cloudflare (in front of GitHub Pages) adds `Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; …`. No inline `<script>` (the pre-paint script is `assets/js/init.js`, loaded without `defer`), and fonts, images and media must come from the site itself (fonts are self-hosted in `assets/fonts/`). `jekyll serve` doesn't send this header, so test CSP-sensitive changes against the built `_site` with that header.
+- **CSP in production:** Cloudflare (in front of GitHub Pages) adds `Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'` (Transform Rule "Add Security Headers", together with HSTS, COOP, Referrer-Policy and the rest; the Cloudflare origins are only for the Web Analytics beacon). Don't allow general-purpose CDNs (jsDelivr, unpkg…) in `script-src`: they serve any package and void the CSP. Bot Fight Mode / JavaScript Detections stays off because it injects an inline script the CSP blocks. No inline `<script>` (the pre-paint script is `assets/js/init.js`, loaded without `defer`), and fonts, images and media must come from the site itself (fonts are self-hosted in `assets/fonts/`). `jekyll serve` doesn't send this header, so test CSP-sensitive changes against the built `_site` with that header.
 
+- **Photos:** strip metadata before committing (`exiftool -all= -tagsfromfile @ -icc_profile foto.jpg` or export without location): the repo is public and git history keeps every version. An early `perfil.jpg` shipped with GPS EXIF.
 - The `github-pages` gem pins Jekyll to 3.x and restricts which plugins are allowed. Only [github-pages whitelisted plugins](https://pages.github.com/versions/) can be used.
 - No SCSS pipeline — use plain CSS in `style.css`.
 - No JS dependencies; `main.js` is plain browser JS.

@@ -2,3 +2,16 @@
 title: "Sebastián Dinator"
 description: "Full stack y ciberseguridad. Creador de SyncDisp."
 url: "https://sebadinator.com"
+
+# Fuera del sitio publicado. Definir `exclude` reemplaza la lista por defecto de Jekyll,
+# así que se repiten sus entradas (vendor/ es donde CI instala las gemas).
+exclude:
+  - CLAUDE.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .taste-skill/

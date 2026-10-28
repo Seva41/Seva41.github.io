@@ -5,7 +5,8 @@
   try { l = localStorage.getItem('idiomaSeleccionado') || 'es'; } catch (e) {}
   var vistas = ['inicio', 'syncdisp', 'experiencia', 'proyectos', 'sobre-mi', 'contacto'];
   var alias = { intro: 'inicio', about: 'sobre-mi', experience: 'experiencia', skills: 'sobre-mi', habilidades: 'sobre-mi', reconocimientos: 'sobre-mi', contact: 'contacto' };
-  var v = decodeURIComponent(location.hash.slice(1));
+  var v = '';
+  try { v = decodeURIComponent(location.hash.slice(1)); } catch (e) {} // un # malformado (p. ej. #%E0) lanza URIError
   v = alias[v] || v;
   d.classList.add('lang-' + l, 'js');
   d.lang = l;
