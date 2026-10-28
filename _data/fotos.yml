@@ -1,0 +1,72 @@
+# Fotos del escenario y de las secciones. `ui: true` = captura de interfaz (se muestra entera sobre fondo de tinta).
+retrato:
+  src: /assets/img/perfil-escenario.jpg
+  w: 1200
+  h: 1600
+  pos: 50% 30%
+  alt_es: Sebastián Dinator sonriendo, con polera azul, bajo los árboles
+  alt_en: Sebastián Dinator smiling, in a blue t-shirt, under the trees
+  cap_es: Sebastián Dinator
+  cap_en: Sebastián Dinator
+  side_es: Chile
+  side_en: Chile
+
+syncdisp-grupo:
+  src: /assets/img/syncdisp-grupo.jpg
+  w: 1600
+  h: 1568
+  ui: true
+  alt_es: "Vista del grupo en SyncDisp: un calendario de noviembre con los días más verdes donde más personas pueden, y el sábado 21 como mejor fecha, 7 de 7 pueden"
+  alt_en: "SyncDisp group view: a November calendar where greener days suit more people, with Saturday the 21st as the best date, 7 of 7 can make it"
+  cap_es: SyncDisp, vista del grupo
+  cap_en: SyncDisp, group view
+  side_es: syncdisp.com
+  side_en: syncdisp.com
+
+syncdisp-movil:
+  src: /assets/img/syncdisp-movil.jpg
+  w: 780
+  h: 1600
+  ui: true
+  alt_es: SyncDisp en un teléfono, con el calendario del grupo y quiénes pueden el sábado 21
+  alt_en: SyncDisp on a phone, with the group calendar and who can make it on Saturday the 21st
+  cap_es: SyncDisp en el teléfono
+  cap_en: SyncDisp on a phone
+  side_es: Desde 320 px
+  side_en: From 320 px
+
+campus:
+  src: /assets/img/campus-uai-vina.jpg
+  w: 1600
+  h: 1066
+  pos: 40% 50%
+  alt_es: Los edificios oscuros del campus Viña del Mar de la Universidad Adolfo Ibáñez entre árboles, con la ciudad y la niebla del mar detrás
+  alt_en: The dark buildings of Adolfo Ibáñez University's Viña del Mar campus among trees, with the city and sea fog behind
+  cap_es: Campus Viña del Mar, UAI
+  cap_en: Viña del Mar campus, UAI
+  side_es: Foto de Carlos Figueroa Rojas, CC BY-SA 4.0
+  side_en: Photo by Carlos Figueroa Rojas, CC BY-SA 4.0
+
+ctf:
+  src: /assets/img/hackingctf-2024.jpg
+  w: 1600
+  h: 1066
+  pos: 42% 50%
+  alt_es: Participantes de Hack.Ing CTF 2024 posando con sus diplomas
+  alt_en: Hack.Ing CTF 2024 participants posing with their certificates
+  cap_es: Hack.Ing CTF 2024
+  cap_en: Hack.Ing CTF 2024
+  side_es: 2º lugar
+  side_en: 2nd place
+
+syncdisp-inicio:
+  src: /assets/img/syncdisp-inicio.jpg
+  w: 1600
+  h: 962
+  ui: true
+  alt_es: "Portada de SyncDisp: «Encuentra el día en que todos pueden», con un calendario de ejemplo para tocar y la hoja roja de Nuevo evento"
+  alt_en: "SyncDisp home page: “Find the day everyone can make”, with a sample calendar to tap and the red New event sheet"
+  cap_es: La misma idea, en SyncDisp
+  cap_en: The same idea, in SyncDisp
+  side_es: syncdisp.com
+  side_en: syncdisp.com

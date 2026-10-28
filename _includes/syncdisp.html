@@ -1,0 +1,78 @@
+<section id="syncdisp" class="view" aria-labelledby="syncdisp-title">
+  <div class="view-text">
+  <div data-stage-for="syncdisp-grupo">
+    <h1 id="syncdisp-title" class="view-title" tabindex="-1">SyncDisp</h1>
+    <p class="lead" data-reveal>
+      <span class="es">Una app web gratuita para que un grupo acuerde fechas. Alguien crea el evento, comparte el link y cada persona marca Puedo, Quizás o No puedo. Un mapa de calor muestra el mejor día y quién no llega.</span>
+      <span class="en">A free web app for groups to agree on dates. Someone creates the event, shares the link and everyone marks Can, Maybe or Can't. A heat map shows the best day and who can't make it.</span>
+    </p>
+    {% include figure.html id="syncdisp-grupo" class="pic-inline" %}
+    <figure class="demo" data-reveal>
+      <video class="demo-video" width="1176" height="626" muted loop playsinline preload="metadata"
+        poster="{{ '/assets/img/syncdisp-demo-poster.jpg' | relative_url }}"
+        aria-label="Demostración: al tocar días en el calendario de ejemplo cambia la mejor fecha"
+        data-label-es="Demostración: al tocar días en el calendario de ejemplo cambia la mejor fecha"
+        data-label-en="Demo: tapping days on the sample calendar changes the best date">
+        <source src="{{ '/assets/video/syncdisp-demo.mp4' | relative_url }}" type="video/mp4" />
+      </video>
+      <figcaption>
+        <span class="es">El calendario de ejemplo de la portada. Cada día que tocas cambia la mejor fecha.</span>
+        <span class="en">The sample calendar on the home page. Every day you tap changes the best date.</span>
+      </figcaption>
+    </figure>
+    <p data-reveal>
+      <a class="arrow-link" href="https://syncdisp.com" target="_blank" rel="noopener"><span class="es">Abrir syncdisp.com</span><span class="en">Open syncdisp.com</span></a>
+    </p>
+  </div>
+
+  <div class="sub" data-stage-for="syncdisp-movil">
+    <h3 data-reveal><span class="es">Cómo está hecho</span><span class="en">How it's built</span></h3>
+    {% include figure.html id="syncdisp-movil" class="pic-inline" %}
+    <p data-reveal>
+      <span class="es">Lo diseñé, programé y desplegué de punta a punta. Un solo Worker de Cloudflare sirve la app y la API, y todo cabe en el plan gratuito.</span>
+      <span class="en">I designed, coded and shipped it end to end. A single Cloudflare Worker serves the app and the API, and all of it fits in the free plan.</span>
+    </p>
+    <dl class="facts">
+      <div data-reveal>
+        <dt><span class="es">Sin registro</span><span class="en">No sign-up</span></dt>
+        <dd>
+          <span class="es">Los links llevan su clave en el fragmento (#), que no llega a los logs; en la base solo se guardan hashes SHA-256.</span>
+          <span class="en">Links carry their key in the fragment (#), which never reaches the logs; the database only stores SHA-256 hashes.</span>
+        </dd>
+      </div>
+      <div data-reveal>
+        <dt><span class="es">Cuenta opcional</span><span class="en">Optional account</span></dt>
+        <dd>
+          <span class="es">Passkeys (huella, Face ID o PIN) o Google con OAuth, state y PKCE. Las acciones delicadas piden una sesión reciente.</span>
+          <span class="en">Passkeys (fingerprint, Face ID or PIN) or Google via OAuth with state and PKCE. Sensitive actions require a recent session.</span>
+        </dd>
+      </div>
+      <div data-reveal>
+        <dt><span class="es">Hecho para defenderse</span><span class="en">Built to defend itself</span></dt>
+        <dd>
+          <span class="es">Turnstile, límites por IP, CSP sin scripts inline y nombres que no se pueden suplantar con letras de otro alfabeto.</span>
+          <span class="en">Turnstile, per-IP rate limits, a CSP with no inline scripts and names that can't be spoofed with look-alike letters.</span>
+        </dd>
+      </div>
+      <div data-reveal>
+        <dt>Stack</dt>
+        <dd>
+          <span class="es">React 19, Tailwind, Hono, Cloudflare Workers y D1, en TypeScript. En español e inglés, con modo oscuro.</span>
+          <span class="en">React 19, Tailwind, Hono, Cloudflare Workers and D1, in TypeScript. In Spanish and English, with dark mode.</span>
+        </dd>
+      </div>
+      <div data-reveal>
+        <dt><span class="es">Probado</span><span class="en">Tested</span></dt>
+        <dd>
+          <span class="es">Vitest dentro del runtime de Workers y Playwright en seis tamaños, de 320 px a 1920 px, con una passkey real.</span>
+          <span class="en">Vitest inside the Workers runtime and Playwright at six sizes, from 320 px to 1920 px, with a real passkey.</span>
+        </dd>
+      </div>
+    </dl>
+  </div>
+  </div>
+  <div class="view-pic">
+    {% include figure.html id="syncdisp-grupo" stage=true class="is-active" %}
+    {% include figure.html id="syncdisp-movil" stage=true %}
+  </div>
+</section>

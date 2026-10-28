@@ -1,0 +1,52 @@
+<section id="inicio" class="view" aria-labelledby="inicio-title">
+  <div class="view-text">
+    {% include figure.html id="retrato" class="pic-inline pic-hero" eager=true %}
+    <h1 id="inicio-title" class="hero-title" tabindex="-1">
+      <span class="es"><span class="w">Software</span> <span class="w">útil</span> <span class="w">y</span> <span class="w">seguro</span></span>
+      <span class="en"><span class="w">Useful,</span> <span class="w">secure</span> <span class="w">software</span></span>
+    </h1>
+    <p class="hero-lead" data-reveal>
+      <span class="es">Soy Sebastián Dinator, ingeniero full stack y de ciberseguridad. Desarrollo servicios financieros en Klap y creé SyncDisp, la forma gratuita de acordar fechas en grupo.</span>
+      <span class="en">I'm Sebastián Dinator, a full stack and cybersecurity engineer. I build financial services at Klap and made SyncDisp, a free way for groups to agree on dates.</span>
+    </p>
+    <p class="hero-actions" data-reveal>
+      <a class="button" href="#contacto"><span class="es">Escríbeme</span><span class="en">Get in touch</span></a>
+      <a class="arrow-link" href="#experiencia"><span class="es">Ver experiencia</span><span class="en">See experience</span></a>
+    </p>
+    <ul class="doors" aria-label="Destacados" data-label-es="Destacados" data-label-en="Highlights">
+      <li data-reveal>
+        <a class="door" href="#syncdisp">
+          <video class="door-video" width="320" height="240" muted loop playsinline autoplay preload="metadata" aria-hidden="true"
+            poster="{{ '/assets/img/mini-syncdisp.jpg' | relative_url }}">
+            <source src="{{ '/assets/video/syncdisp-demo.mp4' | relative_url }}" type="video/mp4" />
+          </video>
+          <span class="door-text">
+            <span class="door-title"><span class="es">Creé SyncDisp</span><span class="en">I made SyncDisp</span></span>
+            <span class="door-line"><span class="es">Acordar fechas en grupo, gratis y sin registro</span><span class="en">Group scheduling, free and with no sign-up</span></span>
+          </span>
+        </a>
+      </li>
+      <li data-reveal>
+        <a class="door" href="#sobre-mi">
+          <img src="{{ '/assets/img/mini-ctf.jpg' | relative_url }}" width="320" height="240" alt="" decoding="async" />
+          <span class="door-text">
+            <span class="door-title"><span class="es">2º lugar en Hack.Ing CTF</span><span class="en">2nd at Hack.Ing CTF</span></span>
+            <span class="door-line"><span class="es">La competencia universitaria más grande de Latinoamérica</span><span class="en">Latin America's largest university competition</span></span>
+          </span>
+        </a>
+      </li>
+      <li data-reveal>
+        <a class="door" href="#proyectos">
+          <img src="{{ '/assets/img/mini-campus.jpg' | relative_url }}" width="320" height="240" alt="" decoding="async" />
+          <span class="door-text">
+            <span class="door-title"><span class="es">Laboratorios y CTF para la UAI</span><span class="en">Labs and CTFs for UAI</span></span>
+            <span class="door-line"><span class="es">Y contribuciones a Pi-hole y YouTube No Translation</span><span class="en">Plus contributions to Pi-hole and YouTube No Translation</span></span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="view-pic">
+    {% include figure.html id="retrato" stage=true class="is-active" eager=true %}
+  </div>
+</section>

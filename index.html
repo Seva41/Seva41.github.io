@@ -1,67 +1,26 @@
 ---
 layout: default
-title: "Inicio | Sebastián Dinator"
-description: "Inicio | Sebastián Dinator"
+title: "Sebastián Dinator · Full stack y ciberseguridad"
+description: "Sebastián Dinator, ingeniero full stack y de ciberseguridad en Chile. Desarrolla servicios financieros en Klap y creó SyncDisp, la app gratuita para acordar fechas en grupo."
 lang: es
 ---
 
+<!-- Una vista por pestaña: la del # en la URL se muestra y las demás quedan ocultas (main.js). Sin JS se ven todas. -->
 <main id="main-content">
-  <section id="intro" class="tab-content active" role="tabpanel" aria-labelledby="logo-btn" aria-hidden="false">
-    <div class="content-window">
-      <h1 class="es">Sebastián Dinator</h1>
-      <h1 class="en">Sebastián Dinator</h1>
-      <p class="es">
-        Gracias por visitar! Soy Sebastián Dinator, Ingeniero Civil Informático y
-        Magíster en Ciencias de la Ingeniería con mención en TI, especializado en
-        ciberseguridad, inteligencia artificial y tecnología. En este sitio
-        encontrarás información sobre mi experiencia profesional, habilidades, y
-        proyectos destacados.
-      </p>
-      <p class="en">
-        Thank you for visiting! I'm Sebastián Dinator, Computer Science Engineer
-        and Master of Science in Engineering with a specialization in IT,
-        specialized in cybersecurity, artificial intelligence, and technology. On
-        this website, you will find information about my professional experience,
-        skills, and notable projects.
-      </p>
-      <p class="es">
-        Te invito a explorar el contenido para conocer más sobre mi trabajo y cómo
-        podemos colaborar en el futuro.
-      </p>
-      <p class="en">
-        I invite you to explore the content to learn more about my work and how we
-        can collaborate in the future.
-      </p>
-    </div>
-  </section>
-
-  <section id="about" class="tab-content" role="tabpanel" aria-labelledby="tab-about-es tab-about-en" aria-hidden="true">
-    <div class="content-window">
+  {% include hero.html %}
+  {% include syncdisp.html %}
+  {% include experience.html %}
+  {% include projects.html %}
+  <section id="sobre-mi" class="view" aria-labelledby="sobre-mi-title">
+    <div class="view-text">
       {% include about.html %}
-    </div>
-  </section>
-
-  <section id="experience" class="tab-content" role="tabpanel" aria-labelledby="tab-experience-es tab-experience-en" aria-hidden="true">
-    <div class="experience-dual">
-      <div class="content-window experience-list-window">
-        {% include experience.html %}
-      </div>
-      <div id="experience-detail-window" class="content-window experience-detail-window">
-        <button class="close-detail" aria-label="Cerrar detalle">×</button>
-        <div id="experience-detail-content"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="tab-content" role="tabpanel" aria-labelledby="tab-skills-es tab-skills-en" aria-hidden="true">
-    <div class="content-window">
       {% include skills.html %}
+      {% include recognition.html %}
+    </div>
+    <div class="view-pic">
+      {% include figure.html id="retrato" stage=true class="is-active" %}
+      {% include figure.html id="ctf" stage=true %}
     </div>
   </section>
-
-  <section id="contact" class="tab-content" role="tabpanel" aria-labelledby="tab-contact-es tab-contact-en" aria-hidden="true">
-    <div class="content-window">
-      {% include contact.html %}
-    </div>
-  </section>
+  {% include contact.html %}
 </main>
