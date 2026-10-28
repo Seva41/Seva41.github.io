@@ -5,39 +5,22 @@ description: "Sebastián Dinator, ingeniero full stack y de ciberseguridad en Ch
 lang: es
 ---
 
+<!-- Una vista por pestaña: la del # en la URL se muestra y las demás quedan ocultas (main.js). Sin JS se ven todas. -->
 <main id="main-content">
-  <!-- Columna de lectura a la izquierda; a la derecha un escenario fijo cuya foto cambia con la sección (main.js). -->
-  <div class="split">
-    <div class="col">
-      {% include hero.html %}
-      {% include syncdisp.html %}
-    </div>
-    <div class="stage">
-      <div class="stage-frame">
-        {% include figure.html id="retrato" stage=true class="is-active" eager=true %}
-        {% include figure.html id="syncdisp-grupo" stage=true %}
-        {% include figure.html id="syncdisp-movil" stage=true %}
-      </div>
-    </div>
-  </div>
-
+  {% include hero.html %}
+  {% include syncdisp.html %}
   {% include experience.html %}
-
-  <div class="split">
-    <div class="col">
-      {% include projects.html %}
-      {% include recognition.html %}
+  {% include projects.html %}
+  <section id="sobre-mi" class="view" aria-labelledby="sobre-mi-title">
+    <div class="view-text">
       {% include about.html %}
       {% include skills.html %}
-      {% include contact.html %}
+      {% include recognition.html %}
     </div>
-    <div class="stage">
-      <div class="stage-frame">
-        {% include figure.html id="campus" stage=true class="is-active" %}
-        {% include figure.html id="ctf" stage=true %}
-        {% include figure.html id="retrato" stage=true %}
-        {% include figure.html id="syncdisp-inicio" stage=true %}
-      </div>
+    <div class="view-pic">
+      {% include figure.html id="retrato" stage=true class="is-active" %}
+      {% include figure.html id="ctf" stage=true %}
     </div>
-  </div>
+  </section>
+  {% include contact.html %}
 </main>

@@ -1,28 +1,61 @@
-<section id="contacto" class="block contact" aria-labelledby="contacto-title" data-stage-for="syncdisp-inicio">
-  <h2 id="contacto-title" class="contact-prompt" data-reveal>
-    <span class="contact-ask"><span class="es">¿Conversamos?</span><span class="en">Shall we talk?</span></span>
-    <span class="es">Marca los días que te acomodan.</span><span class="en">Mark the days that suit you.</span>
-  </h2>
-  <form class="picker" action="mailto:seba@sebadinator.com" method="get" data-reveal>
-    <fieldset class="picker-field">
-      <legend class="sr-only">
-        <span class="es">Días posibles para conversar. Toca un día una vez para «puedo», dos veces para «quizás».</span>
-        <span class="en">Possible days to talk. Tap a day once for "can", twice for "maybe".</span>
-      </legend>
-      <div class="picker-days" data-days></div>
-      <button class="picker-send" type="submit" aria-label="Escribir el correo con estos días" data-label-es="Escribir el correo con estos días" data-label-en="Write the email with these days">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" /></svg>
-      </button>
-    </fieldset>
-    <p class="picker-note" aria-live="polite" data-picker-note>
-      <span class="es">Se abre tu correo con los días que marcaste. Aquí no se guarda nada.</span>
-      <span class="en">Your email app opens with the days you marked. Nothing is stored here.</span>
+<section id="contacto" class="view" aria-labelledby="contacto-title">
+  <div class="view-text">
+    <h1 id="contacto-title" class="view-title" tabindex="-1"><span class="es">Conversemos</span><span class="en">Let's talk</span></h1>
+    <p class="lead" data-reveal>
+      <span class="es">Marca los días que te acomodan y se abre tu correo con la propuesta lista. O escríbeme directo.</span>
+      <span class="en">Mark the days that suit you and your email opens with the proposal ready. Or just write to me.</span>
     </p>
-  </form>
-  <dl class="contact-rows" data-reveal>
-    <div><dt><span class="es">Correo</span><span class="en">Email</span></dt><dd><a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a></dd></div>
-    <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/sebadinator/" target="_blank" rel="noopener">in/sebadinator</a></dd></div>
-    <div><dt>GitHub</dt><dd><a href="https://github.com/Seva41" target="_blank" rel="noopener">Seva41</a></dd></div>
-    <div><dt>Telegram</dt><dd><a href="https://t.me/sevd41" target="_blank" rel="noopener">sevd41</a></dd></div>
-  </dl>
+
+    <!-- Tarjeta con el estilo de SyncDisp (tema oscuro): sus colores, su tipografía y su logo -->
+    <form class="sd" action="mailto:seba@sebadinator.com" method="get" data-ui data-reveal>
+      <div class="sd-head">
+        <p class="sd-title"><span class="es">Una conversación con Sebastián</span><span class="en">A chat with Sebastián</span></p>
+        <p class="sd-people"><span class="es">tú + 1</span><span class="en">you + 1</span></p>
+      </div>
+      <p class="sd-hint">
+        <span class="es">Toca un día una vez si puedes y dos si quizás.</span>
+        <span class="en">Tap a day once if you can, twice for maybe.</span>
+      </p>
+      <fieldset class="sd-grid">
+        <legend class="sr-only"><span class="es">Días hábiles de las próximas dos semanas</span><span class="en">Weekdays over the next two weeks</span></legend>
+        <div class="sd-week" aria-hidden="true" data-weekdays></div>
+        <div class="sd-days" data-days></div>
+      </fieldset>
+      <div class="sd-foot">
+        <p class="sd-count" aria-live="polite" data-picker-note>
+          <span class="es">Ningún día marcado</span><span class="en">No days marked</span>
+        </p>
+        <button class="sd-send" type="submit">
+          <span class="es">Proponer por correo</span><span class="en">Propose by email</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+      </div>
+      <a class="sd-brand" href="https://syncdisp.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 40 40" width="22" height="22" aria-hidden="true">
+          <rect x="4" y="7" width="32" height="29" rx="5" fill="#1b1b1b" />
+          <rect x="4" y="7" width="32" height="9" rx="4" fill="#b8442c" />
+          <path d="M4 15.5h32" stroke="#ebe8e3" stroke-width="2.25" />
+          <rect x="4" y="7" width="32" height="29" rx="5" fill="none" stroke="#ebe8e3" stroke-width="2.25" />
+          <rect x="11" y="3" width="4" height="8" rx="2" fill="#ebe8e3" />
+          <rect x="25" y="3" width="4" height="8" rx="2" fill="#ebe8e3" />
+          <path d="M12.5 25.5l4.5 4.5 10-10" fill="none" stroke="#6dcc93" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>Powered by <strong>Sync<em>Disp</em></strong></span>
+      </a>
+    </form>
+    <p class="sd-note" data-reveal>
+      <span class="es">Aquí no se guarda nada: el correo lo envías tú.</span>
+      <span class="en">Nothing is stored here: you send the email yourself.</span>
+    </p>
+
+    <dl class="contact-rows">
+      <div data-reveal><dt><span class="es">Correo</span><span class="en">Email</span></dt><dd><a href="mailto:seba@sebadinator.com">seba@sebadinator.com</a></dd></div>
+      <div data-reveal><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/sebadinator/" target="_blank" rel="noopener">in/sebadinator</a></dd></div>
+      <div data-reveal><dt>GitHub</dt><dd><a href="https://github.com/Seva41" target="_blank" rel="noopener">Seva41</a></dd></div>
+      <div data-reveal><dt>Telegram</dt><dd><a href="https://t.me/sevd41" target="_blank" rel="noopener">sevd41</a></dd></div>
+    </dl>
+  </div>
+  <div class="view-pic">
+    {% include figure.html id="syncdisp-inicio" stage=true class="is-active" %}
+  </div>
 </section>

@@ -1,11 +1,12 @@
-<section id="syncdisp" class="block" aria-labelledby="syncdisp-title">
+<section id="syncdisp" class="view" aria-labelledby="syncdisp-title">
+  <div class="view-text">
   <div data-stage-for="syncdisp-grupo">
-    <h2 id="syncdisp-title" data-reveal>SyncDisp</h2>
-    {% include figure.html id="syncdisp-grupo" class="pic-inline" %}
+    <h1 id="syncdisp-title" class="view-title" tabindex="-1">SyncDisp</h1>
     <p class="lead" data-reveal>
       <span class="es">Una app web gratuita para que un grupo acuerde fechas. Alguien crea el evento, comparte el link y cada persona marca Puedo, Quizás o No puedo. Un mapa de calor muestra el mejor día y quién no llega.</span>
       <span class="en">A free web app for groups to agree on dates. Someone creates the event, shares the link and everyone marks Can, Maybe or Can't. A heat map shows the best day and who can't make it.</span>
     </p>
+    {% include figure.html id="syncdisp-grupo" class="pic-inline" %}
     <figure class="demo" data-reveal>
       <video class="demo-video" width="1176" height="626" muted loop playsinline preload="metadata"
         poster="{{ '/assets/img/syncdisp-demo-poster.jpg' | relative_url }}"
@@ -68,5 +69,10 @@
         </dd>
       </div>
     </dl>
+  </div>
+  </div>
+  <div class="view-pic">
+    {% include figure.html id="syncdisp-grupo" stage=true class="is-active" %}
+    {% include figure.html id="syncdisp-movil" stage=true %}
   </div>
 </section>
