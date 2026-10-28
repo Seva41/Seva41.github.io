@@ -3,41 +3,52 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main # Reemplaza con el nombre de tu rama principal si es diferente
+      - main
+  workflow_dispatch:
 
+# Solo lectura por defecto; cada job pide lo que necesita.
 permissions:
-  contents: write
-  pages: write
+  contents: read
+
+# Un despliegue a la vez; no se cancela uno en curso para no dejar el sitio a medias.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build:
+  construir:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      # Actions fijadas por SHA (Dependabot las actualiza): un tag se puede mover.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: "24"
+          persist-credentials: false
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@7f797815d8adceb1c412e7abefdd1ab4abc47a5f # v1.335.0
         with:
           ruby-version: "3.3" # 3.0 ya no existe en ubuntu-latest (Ubuntu 26.04)
+          bundler-cache: true # instala desde Gemfile.lock (modo deployment) y lo guarda en caché
 
-      - name: Install dependencies
-        run: bundle install
+      - id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
-      - name: Build site
-        run: bundle exec jekyll build
+      - name: Construir
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          cname: sebadinator.com
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+
+  desplegar:
+    needs: construir
+    runs-on: ubuntu-latest
+    # Este job no ejecuta código del repo ni de gemas: solo publica el artifact.
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

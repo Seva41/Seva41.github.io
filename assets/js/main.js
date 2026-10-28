@@ -128,7 +128,10 @@ const pestanas = document.querySelector('.tabs');
 const indicador = document.querySelector('.tab-indicator');
 
 function destinoDelHash() {
-  const ancla = decodeURIComponent(globalThis.location.hash.slice(1));
+  let ancla = '';
+  try {
+    ancla = decodeURIComponent(globalThis.location.hash.slice(1));
+  } catch {} // un # malformado (p. ej. #%E0) lanza URIError: se va al inicio
   const vista = ALIAS[ancla] || ancla;
   return { vista: VISTAS.includes(vista) ? vista : 'inicio', ancla };
 }
